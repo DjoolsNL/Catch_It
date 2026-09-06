@@ -5,6 +5,5 @@ It allows you to easily copy and paste text between applications.
 
 You can also download, edit and save .txt files. 
 
-You can copy consecutively without losing the values of the previous copied items. Catch reads the
-clipboard every second and displays new values in a list. By clicking on the display of a previous
-copied item in the UI the value item can be pasted become available again to paste.
+All the values you copy are stored in a history list, so you can easily access them later. 
+Catch is designed to be simple and easy to use, with a clean and intuitive interface.

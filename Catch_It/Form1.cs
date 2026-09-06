@@ -22,7 +22,9 @@ namespace Catch_It
         /// bestaande inhoud vh clipb opslaat.
         /// </summary>
         private Timer Timer1;
-
+        private int widthForm = 1040;
+        private int heightForm = 728;
+         
         private string clipboardText = "a";
         private string lastEntry = "a";
         private bool clipboardGewijzigd
@@ -40,7 +42,7 @@ namespace Catch_It
             }
         }
 
-        private List<Record> Franz = new List<Record>();
+        private List<Record> Records = new List<Record>();
         private Dictionary<string, string> styleDictionary = new Dictionary<string, string>();
         private static BindingSource Source;
         private XElement xmlRoot;
@@ -76,7 +78,7 @@ namespace Catch_It
                 Record record = new Record();
                 record.Name = (string)xmlRecord.FirstAttribute;
                 menucomboBox1.Items.Add(record.Name);
-                Franz.Add(record);
+                Records.Add(record);
 
                 // Add a ToolStripMenuItem for deleting the record to the tsmiDeleteRecord dropdown
                 ToolStripMenuItem tsmiDelete = new ToolStripMenuItem(record.Name);
@@ -97,7 +99,7 @@ namespace Catch_It
 
                     if (!styleDictionary.ContainsKey(record.Name + substring))
                     {
-                        styleDictionary.Add(record.Name + substring, style);    
+                        styleDictionary.Add(record.Name + substring, style);
                     }
 
                     record.Velden.Add(veld);
@@ -105,7 +107,7 @@ namespace Catch_It
             }
 
             Record recordDisplayed = new Record();
-            recordDisplayed.Velden = Franz.FirstOrDefault().Velden;
+            recordDisplayed.Velden = Records.FirstOrDefault().Velden;
 
             Source = new BindingSource(recordDisplayed.Velden, null);
 
@@ -119,7 +121,7 @@ namespace Catch_It
         {
             IEnumerable<XElement> LoopFranz()
             {
-                foreach (var record in Franz)
+                foreach (var record in Records)
                 {
                     XElement xRecord = new XElement("record");
                     XAttribute xName = new XAttribute("name", record.Name);
@@ -179,21 +181,21 @@ namespace Catch_It
             if (btn.Text == "Open →")
             {
                 toolTip1.SetToolTip(this.buttonOpen, "Close Right Textbox Section");
-                this.Size = new Size(1040, this.Height);
+                this.Size = new Size(widthForm, heightForm);
                 splitContainer2.SplitterDistance = 364;
                 btn.Text = "Close";
 
                 buttonClearRichTB.Visible = true;
                 buttonClearRichTB.Enabled = true;
                 richTextBox1.Visible = true;
-                richTextBox1.BackColor = Color.DarkSlateBlue;
-                panelRichTextBox.BackColor = Color.DarkSlateBlue;
-                richTextBox1.ForeColor = Color.White;   
+                richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+                panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+                richTextBox1.ForeColor = Color.Black;
             }
             else
             {
                 toolTip1.SetToolTip(this.buttonOpen, "Open Right Textbox Section");
-                this.Size = new Size(423, 580);
+                this.Size = new Size(423, heightForm);
                 splitContainer2.SplitterDistance = 364;
                 btn.Text = "Open →";
 
@@ -201,8 +203,8 @@ namespace Catch_It
                 buttonClearRichTB.Enabled = false;
                 richTextBox1.Visible = false;
 
-                richTextBox1.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
-                panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
+                richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+                panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
             }
 
             splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.None;
@@ -275,19 +277,13 @@ namespace Catch_It
                     {
                         // in juiste record opslaan
                         string recordName = menucomboBox1.SelectedItem.ToString();
-                        Record record = Franz.FirstOrDefault(r => r.Name == recordName);
+                        Record record = Records.FirstOrDefault(r => r.Name == recordName);
                         Veld veld = new Veld();
                         veld.Entry = clipboardText;
                         record.Velden.Add(veld);
 
                         // toevoeging aan StyleDictionary voor de opmaak van het record en de entries in de ui
                         string substr = veld.Entry;
-                        //int countt = substr.Count();
-
-                        //if (countt > 30)
-                        //{
-                        //    substr.Substring(0, 30);
-                        //}
                         FormatKeyStyleDictionary(substr);
 
                         if (!styleDictionary.ContainsKey(record.Name + substr))
@@ -320,7 +316,7 @@ namespace Catch_It
             {
                 string a = menucomboBox1.SelectedItem.ToString();
 
-                Record record = Franz.FirstOrDefault(r => r.Name == a);
+                Record record = Records.FirstOrDefault(r => r.Name == a);
 
                 // simpele manier om een record in een groter font weer te geven
                 if (record.Name.Contains('*'))
@@ -367,7 +363,7 @@ namespace Catch_It
                 // We maken een nieuw Record aan en voegen dat toe aan Franz
                 // Aan het nieuwe Record wordt alvast 1 veld toegevoegd
                 Record record = new Record();
-                Franz.Add(record);
+                Records.Add(record);
                 record.Name = newName;
                 Veld veld = new Veld();
                 veld.Entry = "Cought";
@@ -413,16 +409,16 @@ namespace Catch_It
             ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
             string nameRecord = tsmi.Text;
             Record record = new Record();
-            record = Franz.FirstOrDefault(x => x.Name == nameRecord);
+            record = Records.FirstOrDefault(x => x.Name == nameRecord);
             if (record.Name != "22")
             {
                 menucomboBox1.SelectedItem = menucomboBox1.Items[0];
-                Franz.Remove(record);
+                Records.Remove(record);
                 tsmiDeleteRecord.DropDownItems.Clear();
                 negeerSelectedItem = true;
                 menucomboBox1.Items.Clear();
 
-                foreach (Record rec in Franz)
+                foreach (Record rec in Records)
                 {
                     menucomboBox1.Items.Add(rec.Name);
                     ToolStripMenuItem tsmiDelete = new ToolStripMenuItem(rec.Name);
@@ -430,7 +426,7 @@ namespace Catch_It
                     tsmiDelete.Click += new System.EventHandler(menuDelete_Click);
                 }
                 Record recc = new Record();
-                recc.Velden = Franz.FirstOrDefault().Velden;
+                recc.Velden = Records.FirstOrDefault().Velden;
                 Source = new BindingSource(recc.Velden, null);
 
                 if (menucomboBox1.Items.Count != 0)
@@ -496,7 +492,7 @@ namespace Catch_It
             dataGridView1.BackColor = Color.FromArgb(240, 240, 240);
             richTextBox1.BackColor = Color.FromArgb(235, 235, 235);
             panelBottom.BackColor = Color.FromArgb(125, 125, 125);
-            panelBottomLeft.BackColor = Color.FromArgb(125, 125, 125);
+            //panelBottomLeft.BackColor = Color.FromArgb(125, 125, 125);
             textBox1.BackColor = Color.FromArgb(255, 255, 244);
             this.BackColor = Color.FromArgb(125, 125, 122);
             menutextBox2.BackColor = Color.FromArgb(255, 255, 244);
@@ -524,7 +520,7 @@ namespace Catch_It
             dataGridView1.BackColor = Color.FromArgb(240, 240, 240);
             richTextBox1.BackColor = Color.FromArgb(235, 235, 235);
             panelBottom.BackColor = Color.FromArgb(125, 125, 125);
-            panelBottomLeft.BackColor = Color.FromArgb(125, 125, 125);
+            //panelBottomLeft.BackColor = Color.FromArgb(125, 125, 125);
             textBox1.BackColor = Color.FromArgb(255, 255, 244);
             this.BackColor = Color.FromArgb(125, 125, 122);
             menutextBox2.BackColor = Color.FromArgb(255, 255, 244);
@@ -545,6 +541,7 @@ namespace Catch_It
                 Timer1.Enabled = false;
                 this.Text = "Catch / Status: off / © 2022 by Djools";
                 btn.Text = "Start";
+                toolStripStatusLabel2.Text = "off";
             }
             else
             {
@@ -552,6 +549,7 @@ namespace Catch_It
                 Timer1.Start();
                 this.Text = "Catch / Status: on / © 2022 by Djools";
                 btn.Text = "Stop";
+                toolStripStatusLabel2.Text = "on";
             }
         }
 
@@ -581,17 +579,17 @@ namespace Catch_It
 
         private void buttonRecordToRichTextBox_Click(object sender, EventArgs e)
         {
-            this.Size = new Size(1040, this.Height);
+            this.Size = new Size(widthForm, heightForm);
             splitContainer2.SplitterDistance = 364;
             buttonClearRichTB.Visible = true;
             buttonClearRichTB.Enabled = true;
             richTextBox1.Visible = true;
-            richTextBox1.BackColor = Color.White;
-            panelRichTextBox.BackColor = Color.White;
+            richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+            panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
 
             richTextBox1.Clear();
             string name = menucomboBox1.SelectedItem.ToString();
-            Record record = Franz.First(r => r.Name == name);
+            Record record = Records.First(r => r.Name == name);
             richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
             richTextBox1.SelectionIndent = 20;
 
@@ -624,7 +622,7 @@ namespace Catch_It
                 teller++;
                 if (teller % 2 == 0)
                 {
-                    richTextBox1.SelectionColor = Color.Red;
+                    richTextBox1.SelectionColor = Color.Black;
                 }
                 else
                 {
@@ -652,7 +650,7 @@ namespace Catch_It
 
             richTextBox1.SelectionStart = 0;
             richTextBox1.SelectionLength = richTextBox1.Text.Length;
-            richTextBox1.SelectionBackColor = System.Drawing.Color.White;
+            richTextBox1.SelectionBackColor = System.Drawing.Color.Black;
 
             int Index = 0;
             while (Index < richTextBox1.TextLength)
@@ -698,7 +696,7 @@ namespace Catch_It
             int indexRecordList = row + 1;
 
             string rName = menucomboBox1.SelectedItem.ToString();
-            Record r = Franz.First(n => n.Name == rName);
+            Record r = Records.First(n => n.Name == rName);
             Veld f = new Veld();
             f.Entry = "";
             r.Velden.Insert(indexRecordList, f);
@@ -712,7 +710,7 @@ namespace Catch_It
             int bottom = totalrows - 1;
 
             string name = menucomboBox1.SelectedItem.ToString();
-            Record record = Franz.First(n => n.Name == name);
+            Record record = Records.First(n => n.Name == name);
 
             Veld veld = new Veld();
             veld = record.Velden[rowIndex];
@@ -733,7 +731,7 @@ namespace Catch_It
             int bottom = totalrows - 1;
 
             string name = menucomboBox1.SelectedItem.ToString();
-            Record record = Franz.First(n => n.Name == name);
+            Record record = Records.First(n => n.Name == name);
 
             Veld veld = new Veld();
             veld = record.Velden[rowIndex];
@@ -752,16 +750,16 @@ namespace Catch_It
             int row = dataGridView1.CurrentCell.RowIndex;
             int totalrows = dataGridView1.Rows.Count;
 
-            string rName = menucomboBox1.SelectedItem.ToString();
-            Record r = Franz.First(n => n.Name == rName);
+            string name = menucomboBox1.SelectedItem.ToString();
+            Record record = Records.First(n => n.Name == name);
 
-            Veld f = new Veld();
-            f = r.Velden[row];
+            Veld veld = new();
+            veld = record.Velden[row];
 
             if (row < totalrows - 1)
             {
-                r.Velden.RemoveAt(row);
-                r.Velden.Insert(row + 1, f);
+                record.Velden.RemoveAt(row);
+                record.Velden.Insert(row + 1, veld);
                 dataGridView1.CurrentCell = dataGridView1[0, row + 1];
 
                 PasLayoutToe();
@@ -804,14 +802,14 @@ namespace Catch_It
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView1.CurrentCell.Style.SelectionBackColor = Color.FromArgb(50, 50, 50);
-            dataGridView1.CurrentCell.Style.SelectionForeColor = Color.LightGreen;
+            dataGridView1.CurrentCell.Style.SelectionBackColor = Color.FromArgb(75, 75, 75);
+            //dataGridView1.CurrentCell.Style.SelectionForeColor = Color.LightGreen;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.CurrentCell.Style.SelectionBackColor = Color.FromArgb(50, 50, 50);
-            dataGridView1.CurrentCell.Style.SelectionForeColor = Color.LightGreen;
+            //dataGridView1.CurrentCell.Style.SelectionForeColor = Color.LightGreen;
             if (e.ColumnIndex > -1)
             {
                 string s = (string)dataGridView1.CurrentCell.Value;
@@ -897,26 +895,7 @@ namespace Catch_It
 
         }
 
-        private void CellLayout(string LayoutName)
-        {
-            string value = dataGridView1.CurrentCell.Value.ToString();
-            string s = menucomboBox1.SelectedItem.ToString();
-            Record r = Franz.FirstOrDefault(x => x.Name == s);
-
-            foreach (Veld veld in r.Velden)
-            {
-                if (veld.Entry == value)
-                {
-                    string substring = veld.Entry;
-                    FormatKeyStyleDictionary(substring);
-                    styleDictionary[r.Name + substring] = LayoutName;
-
-                    PasLayoutToe();
-                }
-            }
-        }
-
-        #region Events Contextmenu DatagridView
+        #region Events Contextmenu DatagridView layout
         private void CellLayout1_tsMenuItem_Click(object sender, EventArgs e)
         {
             CellLayout("White on black");
@@ -941,6 +920,22 @@ namespace Catch_It
         {
             CellLayout("Regular");
         }
+        private void CellLayout(string LayoutName)
+        {
+            string s = menucomboBox1.SelectedItem.ToString();
+            Record record = Records.FirstOrDefault(r => r.Name == s);
+            string value = dataGridView1.CurrentCell.Value.ToString();
+            Veld v = record.Velden.FirstOrDefault(v => v.Entry == value);
+
+            if (v.Entry == value)
+            {
+                string str = v.Entry;
+                FormatKeyStyleDictionary(str);
+                styleDictionary[record.Name + str] = LayoutName;
+
+                PasLayoutToe();
+            }
+        }
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
@@ -958,11 +953,11 @@ namespace Catch_It
         {
             dataGridView1.CurrentCell.Style.SelectionBackColor = Color.FromArgb(50, 50, 50);
             string recordName = menucomboBox1.SelectedItem.ToString();
-            Record r = Franz.FirstOrDefault(x => x.Name == recordName);
+            Record record = Records.FirstOrDefault(x => x.Name == recordName);
 
             //int count = r.RecordList.Count;
             int counter = 0;
-            foreach (var item in r.Velden)
+            foreach (var item in record.Velden)
             {
                 DataGridViewCell cell = dataGridView1.Rows[counter].Cells[0];
                 cell.Style.Padding = new System.Windows.Forms.Padding(6, 3, 1, 3);
@@ -971,42 +966,36 @@ namespace Catch_It
                 string substring = item.Entry;
                 FormatKeyStyleDictionary(substring);
 
-                string key = r.Name + substring;
+                string key = record.Name + substring;
 
                 if (styleDictionary[key] == "White on black")
                 {
+                    //cell.Style.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
                     cell.Style.ForeColor = Color.White;
                     cell.Style.BackColor = Color.FromArgb(50, 50, 50);
-
                 }
                 if (styleDictionary[key] == "Red on white")
                 {
-                    //cell.Style.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
                     cell.Style.ForeColor = Color.Red;
                     cell.Style.BackColor = Color.White;
                 }
                 if (styleDictionary[key] == "Light purplish")
                 {
-                    //cell.Style.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
                     cell.Style.ForeColor = Color.Purple;
                     cell.Style.BackColor = Color.FromArgb(200, 200, 200);
-
                 }
                 if (styleDictionary[key] == "Light pinkish")
                 {
-                    //cell.Style.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
                     cell.Style.ForeColor = Color.LightPink;
                     cell.Style.BackColor = Color.FromArgb(50, 50, 50);
                 }
                 if (styleDictionary[key] == "Light blueish")
                 {
-                    //cell.Style.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
                     cell.Style.ForeColor = Color.FromArgb(156, 220, 218);
                     cell.Style.BackColor = Color.FromArgb(30, 30, 30);
                 }
                 if (styleDictionary[key] == "Regular")
                 {
-                    //cell.Style.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
                     cell.Style.ForeColor = Color.White;
                     cell.Style.BackColor = Color.FromArgb(100, 100, 100);
                 }
@@ -1014,7 +1003,6 @@ namespace Catch_It
                 counter++;
             }
         }
-
         private string FormatKeyStyleDictionary(string value)
         {
             if (value.Length > 30)
@@ -1038,7 +1026,7 @@ namespace Catch_It
                 // voeg toe aan bestaand record
 
                 string recordName = menucomboBox1.SelectedItem.ToString();
-                Record r = Franz.FirstOrDefault(x => x.Name == recordName);
+                Record r = Records.FirstOrDefault(x => x.Name == recordName);
                 Veld f = new Veld();
                 f.Entry = textBox1.Text;
                 r.Velden.Add(f);
@@ -1134,7 +1122,7 @@ namespace Catch_It
         #endregion
 
     }
-    
+
     public class Form2 : Form1
     {
         public Form2()

@@ -44,18 +44,21 @@ namespace Catch_It
             freezeStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
-            buttonClearRichTB = new System.Windows.Forms.Button();
             buttonClear = new System.Windows.Forms.Button();
             buttonStop = new System.Windows.Forms.Button();
             buttonListToRichTextBox = new System.Windows.Forms.Button();
             buttonOpen = new System.Windows.Forms.Button();
             buttonAdd = new System.Windows.Forms.Button();
             textBox1 = new System.Windows.Forms.TextBox();
+            buttonClearRichTB = new System.Windows.Forms.Button();
             panelBottom = new System.Windows.Forms.Panel();
-            panelBottomLeft = new System.Windows.Forms.Panel();
-            panelBottomRight = new System.Windows.Forms.Panel();
             btnDecreaseFont = new System.Windows.Forms.Button();
             btnIncreaseFont = new System.Windows.Forms.Button();
+            statusStrip1 = new System.Windows.Forms.StatusStrip();
+            toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             splitContainer1 = new System.Windows.Forms.SplitContainer();
             panelTop = new System.Windows.Forms.Panel();
             panel1 = new System.Windows.Forms.Panel();
@@ -91,8 +94,7 @@ namespace Catch_It
             openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             contextMenuStrip1.SuspendLayout();
             panelBottom.SuspendLayout();
-            panelBottomLeft.SuspendLayout();
-            panelBottomRight.SuspendLayout();
+            statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -179,26 +181,6 @@ namespace Catch_It
             toolStripMenuItem3.Name = "toolStripMenuItem3";
             toolStripMenuItem3.Size = new System.Drawing.Size(32, 19);
             // 
-            // buttonClearRichTB
-            // 
-            buttonClearRichTB.BackColor = System.Drawing.Color.FromArgb(125, 125, 122);
-            buttonClearRichTB.Enabled = false;
-            buttonClearRichTB.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            buttonClearRichTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonClearRichTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonClearRichTB.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            buttonClearRichTB.Location = new System.Drawing.Point(195, 6);
-            buttonClearRichTB.Margin = new System.Windows.Forms.Padding(4);
-            buttonClearRichTB.Name = "buttonClearRichTB";
-            buttonClearRichTB.Size = new System.Drawing.Size(72, 21);
-            buttonClearRichTB.TabIndex = 3;
-            buttonClearRichTB.Text = "Clear";
-            buttonClearRichTB.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            toolTip1.SetToolTip(buttonClearRichTB, "Clear Textbox");
-            buttonClearRichTB.UseVisualStyleBackColor = false;
-            buttonClearRichTB.Visible = false;
-            buttonClearRichTB.Click += buttonClearRichTB_Click;
-            // 
             // buttonClear
             // 
             buttonClear.BackColor = System.Drawing.Color.FromArgb(125, 125, 122);
@@ -206,7 +188,7 @@ namespace Catch_It
             buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             buttonClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            buttonClear.Location = new System.Drawing.Point(8, 6);
+            buttonClear.Location = new System.Drawing.Point(9, 4);
             buttonClear.Margin = new System.Windows.Forms.Padding(4);
             buttonClear.Name = "buttonClear";
             buttonClear.Size = new System.Drawing.Size(66, 21);
@@ -259,7 +241,7 @@ namespace Catch_It
             buttonOpen.Name = "buttonOpen";
             buttonOpen.Size = new System.Drawing.Size(57, 29);
             buttonOpen.TabIndex = 9;
-            buttonOpen.Text = "Open →";
+            buttonOpen.Text = "Close →";
             toolTip1.SetToolTip(buttonOpen, "Open Right Textbox Section");
             buttonOpen.UseVisualStyleBackColor = true;
             buttonOpen.Click += buttonOpen_Click;
@@ -271,7 +253,7 @@ namespace Catch_It
             buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             buttonAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            buttonAdd.Location = new System.Drawing.Point(84, 6);
+            buttonAdd.Location = new System.Drawing.Point(85, 4);
             buttonAdd.Margin = new System.Windows.Forms.Padding(4);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new System.Drawing.Size(66, 21);
@@ -283,79 +265,112 @@ namespace Catch_It
             // 
             // textBox1
             // 
-            textBox1.BackColor = System.Drawing.Color.FromArgb(255, 255, 244);
+            textBox1.BackColor = System.Drawing.SystemColors.Control;
             textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             textBox1.Location = new System.Drawing.Point(0, 0);
             textBox1.Margin = new System.Windows.Forms.Padding(4);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(361, 37);
+            textBox1.Size = new System.Drawing.Size(371, 53);
             textBox1.TabIndex = 1;
             toolTip1.SetToolTip(textBox1, "Add Entry");
+            // 
+            // buttonClearRichTB
+            // 
+            buttonClearRichTB.BackColor = System.Drawing.Color.FromArgb(125, 125, 122);
+            buttonClearRichTB.Enabled = false;
+            buttonClearRichTB.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            buttonClearRichTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            buttonClearRichTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            buttonClearRichTB.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            buttonClearRichTB.Location = new System.Drawing.Point(973, 4);
+            buttonClearRichTB.Margin = new System.Windows.Forms.Padding(4);
+            buttonClearRichTB.Name = "buttonClearRichTB";
+            buttonClearRichTB.Size = new System.Drawing.Size(72, 21);
+            buttonClearRichTB.TabIndex = 7;
+            buttonClearRichTB.Text = "Clear";
+            buttonClearRichTB.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            toolTip1.SetToolTip(buttonClearRichTB, "Clear Textbox");
+            buttonClearRichTB.UseVisualStyleBackColor = false;
+            buttonClearRichTB.Visible = false;
             // 
             // panelBottom
             // 
             panelBottom.BackColor = System.Drawing.Color.Transparent;
             panelBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelBottom.Controls.Add(panelBottomLeft);
-            panelBottom.Controls.Add(panelBottomRight);
+            panelBottom.Controls.Add(btnDecreaseFont);
+            panelBottom.Controls.Add(btnIncreaseFont);
+            panelBottom.Controls.Add(buttonClearRichTB);
+            panelBottom.Controls.Add(buttonAdd);
+            panelBottom.Controls.Add(buttonClear);
+            panelBottom.Controls.Add(statusStrip1);
             panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelBottom.Location = new System.Drawing.Point(0, 499);
+            panelBottom.Location = new System.Drawing.Point(0, 623);
             panelBottom.Margin = new System.Windows.Forms.Padding(4);
             panelBottom.Name = "panelBottom";
-            panelBottom.Size = new System.Drawing.Size(401, 36);
+            panelBottom.Size = new System.Drawing.Size(1067, 60);
             panelBottom.TabIndex = 5;
-            // 
-            // panelBottomLeft
-            // 
-            panelBottomLeft.Controls.Add(buttonAdd);
-            panelBottomLeft.Controls.Add(buttonClear);
-            panelBottomLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            panelBottomLeft.Location = new System.Drawing.Point(0, 0);
-            panelBottomLeft.Margin = new System.Windows.Forms.Padding(4);
-            panelBottomLeft.Name = "panelBottomLeft";
-            panelBottomLeft.Size = new System.Drawing.Size(358, 34);
-            panelBottomLeft.TabIndex = 5;
-            // 
-            // panelBottomRight
-            // 
-            panelBottomRight.Controls.Add(btnDecreaseFont);
-            panelBottomRight.Controls.Add(btnIncreaseFont);
-            panelBottomRight.Controls.Add(buttonClearRichTB);
-            panelBottomRight.Dock = System.Windows.Forms.DockStyle.Right;
-            panelBottomRight.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            panelBottomRight.Location = new System.Drawing.Point(114, 0);
-            panelBottomRight.Margin = new System.Windows.Forms.Padding(4);
-            panelBottomRight.Name = "panelBottomRight";
-            panelBottomRight.Size = new System.Drawing.Size(285, 34);
-            panelBottomRight.TabIndex = 4;
             // 
             // btnDecreaseFont
             // 
             btnDecreaseFont.BackColor = System.Drawing.Color.FromArgb(125, 125, 122);
             btnDecreaseFont.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             btnDecreaseFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnDecreaseFont.Location = new System.Drawing.Point(94, 6);
+            btnDecreaseFont.Location = new System.Drawing.Point(872, 4);
             btnDecreaseFont.Name = "btnDecreaseFont";
             btnDecreaseFont.Size = new System.Drawing.Size(31, 23);
-            btnDecreaseFont.TabIndex = 5;
+            btnDecreaseFont.TabIndex = 9;
             btnDecreaseFont.Text = "-";
             btnDecreaseFont.UseVisualStyleBackColor = false;
-            btnDecreaseFont.Click += btnDecreaseFont_Click;
             // 
             // btnIncreaseFont
             // 
             btnIncreaseFont.BackColor = System.Drawing.Color.FromArgb(125, 125, 122);
             btnIncreaseFont.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             btnIncreaseFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnIncreaseFont.Location = new System.Drawing.Point(57, 6);
+            btnIncreaseFont.Location = new System.Drawing.Point(835, 4);
             btnIncreaseFont.Name = "btnIncreaseFont";
             btnIncreaseFont.Size = new System.Drawing.Size(31, 23);
-            btnIncreaseFont.TabIndex = 4;
+            btnIncreaseFont.TabIndex = 8;
             btnIncreaseFont.Text = "+";
             btnIncreaseFont.UseVisualStyleBackColor = false;
-            btnIncreaseFont.Click += btnIncreaseFont_Click;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
+            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel4, toolStripStatusLabel1, toolStripStatusLabel2, toolStripStatusLabel3 });
+            statusStrip1.Location = new System.Drawing.Point(0, 36);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new System.Drawing.Size(1065, 22);
+            statusStrip1.TabIndex = 6;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel4
+            // 
+            toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            toolStripStatusLabel4.Size = new System.Drawing.Size(22, 17);
+            toolStripStatusLabel4.Text = "     ";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.ForeColor = System.Drawing.Color.NavajoWhite;
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new System.Drawing.Size(78, 17);
+            toolStripStatusLabel1.Text = "Catch mode: ";
+            // 
+            // toolStripStatusLabel2
+            // 
+            toolStripStatusLabel2.ForeColor = System.Drawing.Color.GreenYellow;
+            toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            toolStripStatusLabel2.Size = new System.Drawing.Size(21, 17);
+            toolStripStatusLabel2.Text = "on";
+            // 
+            // toolStripStatusLabel3
+            // 
+            toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            toolStripStatusLabel3.Size = new System.Drawing.Size(16, 17);
+            toolStripStatusLabel3.Text = "   ";
             // 
             // splitContainer1
             // 
@@ -375,7 +390,7 @@ namespace Catch_It
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(splitContainer2);
-            splitContainer1.Size = new System.Drawing.Size(401, 499);
+            splitContainer1.Size = new System.Drawing.Size(1067, 623);
             splitContainer1.SplitterDistance = 72;
             splitContainer1.TabIndex = 8;
             // 
@@ -388,7 +403,7 @@ namespace Catch_It
             panelTop.Location = new System.Drawing.Point(0, 0);
             panelTop.Margin = new System.Windows.Forms.Padding(4);
             panelTop.Name = "panelTop";
-            panelTop.Size = new System.Drawing.Size(401, 72);
+            panelTop.Size = new System.Drawing.Size(1067, 72);
             panelTop.TabIndex = 7;
             // 
             // panel1
@@ -409,7 +424,7 @@ namespace Catch_It
             panel1.Location = new System.Drawing.Point(0, 36);
             panel1.Margin = new System.Windows.Forms.Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(401, 36);
+            panel1.Size = new System.Drawing.Size(1067, 36);
             panel1.TabIndex = 15;
             // 
             // buttonRowTopBottom
@@ -459,7 +474,7 @@ namespace Catch_It
             // 
             // textBoxReplace
             // 
-            textBoxReplace.BackColor = System.Drawing.Color.FromArgb(255, 255, 250);
+            textBoxReplace.BackColor = System.Drawing.SystemColors.Control;
             textBoxReplace.Location = new System.Drawing.Point(793, 6);
             textBoxReplace.Margin = new System.Windows.Forms.Padding(4);
             textBoxReplace.Name = "textBoxReplace";
@@ -483,7 +498,7 @@ namespace Catch_It
             // 
             // textBoxFind
             // 
-            textBoxFind.BackColor = System.Drawing.Color.FromArgb(255, 255, 250);
+            textBoxFind.BackColor = System.Drawing.SystemColors.Control;
             textBoxFind.Location = new System.Drawing.Point(532, 6);
             textBoxFind.Margin = new System.Windows.Forms.Padding(4);
             textBoxFind.Name = "textBoxFind";
@@ -507,12 +522,12 @@ namespace Catch_It
             // 
             // menuStrip1
             // 
-            menuStrip1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { menucomboBox1, menutextBox2, tsmiFile, menuMisc, tsmiLoadRTB, menuSaveRichTextBox });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
-            menuStrip1.Size = new System.Drawing.Size(401, 29);
+            menuStrip1.Size = new System.Drawing.Size(1067, 29);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -536,8 +551,8 @@ namespace Catch_It
             // 
             tsmiFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiAddNew, tsmiSave, tsmiDeleteRecord });
             tsmiFile.Name = "tsmiFile";
-            tsmiFile.Size = new System.Drawing.Size(37, 23);
-            tsmiFile.Text = "File";
+            tsmiFile.Size = new System.Drawing.Size(107, 23);
+            tsmiFile.Text = "Manage Records";
             // 
             // tsmiAddNew
             // 
@@ -641,8 +656,8 @@ namespace Catch_It
             splitContainer2.Panel2.Controls.Add(panelRichTextBox);
             splitContainer2.Panel2.Padding = new System.Windows.Forms.Padding(0, 4, 10, 9);
             splitContainer2.Panel2MinSize = 20;
-            splitContainer2.Size = new System.Drawing.Size(401, 423);
-            splitContainer2.SplitterDistance = 371;
+            splitContainer2.Size = new System.Drawing.Size(1067, 547);
+            splitContainer2.SplitterDistance = 381;
             splitContainer2.SplitterWidth = 5;
             splitContainer2.TabIndex = 6;
             splitContainer2.SplitterMoved += splitContainer1_SplitterMoved;
@@ -662,8 +677,8 @@ namespace Catch_It
             // splitContainer3.Panel2
             // 
             splitContainer3.Panel2.Controls.Add(textBox1);
-            splitContainer3.Size = new System.Drawing.Size(361, 410);
-            splitContainer3.SplitterDistance = 369;
+            splitContainer3.Size = new System.Drawing.Size(371, 534);
+            splitContainer3.SplitterDistance = 477;
             splitContainer3.TabIndex = 5;
             // 
             // dataGridView1
@@ -705,7 +720,7 @@ namespace Catch_It
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(50, 50, 50);
-            dataGridView1.Size = new System.Drawing.Size(361, 369);
+            dataGridView1.Size = new System.Drawing.Size(371, 477);
             dataGridView1.TabIndex = 4;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
@@ -717,7 +732,7 @@ namespace Catch_It
             // 
             // panelRichTextBox
             // 
-            panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
             panelRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panelRichTextBox.Controls.Add(richTextBox1);
             panelRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -725,22 +740,23 @@ namespace Catch_It
             panelRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             panelRichTextBox.Name = "panelRichTextBox";
             panelRichTextBox.Padding = new System.Windows.Forms.Padding(18, 10, 10, 10);
-            panelRichTextBox.Size = new System.Drawing.Size(15, 410);
+            panelRichTextBox.Size = new System.Drawing.Size(671, 534);
             panelRichTextBox.TabIndex = 3;
             // 
             // richTextBox1
             // 
             richTextBox1.AcceptsTab = true;
             richTextBox1.AutoWordSelection = true;
-            richTextBox1.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
             richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             richTextBox1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            richTextBox1.ForeColor = System.Drawing.SystemColors.Window;
             richTextBox1.Location = new System.Drawing.Point(18, 10);
             richTextBox1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new System.Drawing.Size(0, 388);
+            richTextBox1.Size = new System.Drawing.Size(641, 512);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             richTextBox1.Visible = false;
@@ -755,7 +771,7 @@ namespace Catch_It
             panelContainsAll.Location = new System.Drawing.Point(2, 2);
             panelContainsAll.Margin = new System.Windows.Forms.Padding(4);
             panelContainsAll.Name = "panelContainsAll";
-            panelContainsAll.Size = new System.Drawing.Size(403, 537);
+            panelContainsAll.Size = new System.Drawing.Size(1069, 685);
             panelContainsAll.TabIndex = 0;
             // 
             // openFileDialog1
@@ -767,7 +783,7 @@ namespace Catch_It
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            ClientSize = new System.Drawing.Size(407, 541);
+            ClientSize = new System.Drawing.Size(1073, 689);
             Controls.Add(panelContainsAll);
             DoubleBuffered = true;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
@@ -784,8 +800,9 @@ namespace Catch_It
             ResizeEnd += Form1_ResizeEnd;
             contextMenuStrip1.ResumeLayout(false);
             panelBottom.ResumeLayout(false);
-            panelBottomLeft.ResumeLayout(false);
-            panelBottomRight.ResumeLayout(false);
+            panelBottom.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -822,10 +839,7 @@ namespace Catch_It
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel panelBottom;
-        private System.Windows.Forms.Panel panelBottomLeft;
         private System.Windows.Forms.Button buttonClear;
-        private System.Windows.Forms.Panel panelBottomRight;
-        private System.Windows.Forms.Button buttonClearRichTB;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panel1;
@@ -863,10 +877,16 @@ namespace Catch_It
         private System.Windows.Forms.ToolStripMenuItem tsmiSave;
         private System.Windows.Forms.ToolStripMenuItem tsmiDeleteRecord;
         private System.Windows.Forms.ToolStripMenuItem Dark;
-        private System.Windows.Forms.Button btnIncreaseFont;
-        private System.Windows.Forms.Button btnDecreaseFont;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ToolStripMenuItem cellLayout6_tsMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.Button btnDecreaseFont;
+        private System.Windows.Forms.Button btnIncreaseFont;
+        private System.Windows.Forms.Button buttonClearRichTB;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
     }
 }
 
