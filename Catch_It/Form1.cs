@@ -13,20 +13,6 @@ namespace Catch_It
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-            Timer1 = new System.Windows.Forms.Timer();
-            Timer1.Enabled = true;
-            Timer1.Tick += new System.EventHandler(Timer1_Tick);
-            Timer1.Interval = 1000;
-
-            Source = new BindingSource();
-            dataGridView1.DataSource = Source;
-            menuStrip1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }
-
         #region Fields
         /// <summary>
         /// Timer1 event fires elke seconde en checkt of 'clipboardText' afwijkt van 'lastEntry'. 
@@ -62,6 +48,20 @@ namespace Catch_It
         string file = "";
         int teller;
         #endregion
+
+        public Form1()
+        {
+            InitializeComponent();
+            Timer1 = new System.Windows.Forms.Timer();
+            Timer1.Enabled = true;
+            Timer1.Tick += new System.EventHandler(Timer1_Tick);
+            Timer1.Interval = 1000;
+
+            Source = new BindingSource();
+            dataGridView1.DataSource = Source;
+            menuStrip1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
 
         #region Data File Dingen: Lees en Schrijf Xml - kan in aparte class
 
@@ -258,8 +258,6 @@ namespace Catch_It
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-
-            #region MyRegion
             teller++;
             if (teller == 1)
             {
@@ -267,8 +265,6 @@ namespace Catch_It
                 // dus we renderen hem een vertraging van 1 seconde
                 dataGridView1.Visible = true;
             }
-
-            #endregion
             if (clipboardGewijzigd)
             {
                 int count = clipboardText.Count();
@@ -279,25 +275,24 @@ namespace Catch_It
                     {
                         // in juiste record opslaan
                         string recordName = menucomboBox1.SelectedItem.ToString();
-                        Record r = Franz.FirstOrDefault(x => x.Name == recordName);
-                        Veld v = new Veld();
-                        v.Entry = clipboardText;
-                        r.Velden.Add(v);
+                        Record record = Franz.FirstOrDefault(r => r.Name == recordName);
+                        Veld veld = new Veld();
+                        veld.Entry = clipboardText;
+                        record.Velden.Add(veld);
 
                         // toevoeging aan StyleDictionary voor de opmaak van het record en de entries in de ui
-                        string substr = v.Entry;
-                        int countt = substr.Count();
+                        string substr = veld.Entry;
+                        //int countt = substr.Count();
 
-                        if (countt > 30)
-                        {
-                            substr.Substring(0, 30);
-                        }
+                        //if (countt > 30)
+                        //{
+                        //    substr.Substring(0, 30);
+                        //}
                         FormatKeyStyleDictionary(substr);
 
-                        if (!styleDictionary.ContainsKey(r.Name + substr))
+                        if (!styleDictionary.ContainsKey(record.Name + substr))
                         {
-                            styleDictionary.Add(r.Name + substr, "Regular");
-                            //EntryLengthDictionary.Add(r.Name + substr, f.Entry.Length);
+                            styleDictionary.Add(record.Name + substr, "Regular");
                         }
 
                         // de BindingSource zorgt ervoor dat alle opmaak bij elke wijziging wegvalt en 
@@ -325,10 +320,10 @@ namespace Catch_It
             {
                 string a = menucomboBox1.SelectedItem.ToString();
 
-                Record r = Franz.FirstOrDefault(x => x.Name == a);
+                Record record = Franz.FirstOrDefault(r => r.Name == a);
 
                 // simpele manier om een record in een groter font weer te geven
-                if (r.Name.Contains("*"))
+                if (record.Name.Contains('*'))
                 {
                     dataGridView1.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
                 }
@@ -337,7 +332,7 @@ namespace Catch_It
                     dataGridView1.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
                 }
 
-                Source = new BindingSource(r.Velden, null);
+                Source = new BindingSource(record.Velden, null);
                 dataGridView1.DataSource = Source;
 
                 PasLayoutToe();
@@ -352,54 +347,54 @@ namespace Catch_It
             if (menutextBox2.TextLength > 0)
             {
                 // naam mag niet te lang zijn 
-                string nameNew = menutextBox2.Text;
-                if (nameNew.Length > 12)
+                string newName = menutextBox2.Text;
+                if (newName.Length > 12)
                 {
-                    nameNew = nameNew.Substring(0, 12);
+                    newName = newName[..12];
                 }
 
                 // en geen whitespace bevatten
-                while (nameNew.Contains(" "))
+                while (newName.Contains(' '))
                 {
-                    nameNew = nameNew.Replace(" ", "");
+                    newName = newName.Replace(" ", "");
                 }
 
                 // en de eerste letter wordt een hoofdletter
-                string last = nameNew.Substring(1, nameNew.Length - 1);
-                string first = nameNew.Substring(0, 1).ToUpper();
-                nameNew = first + last;
+                string last = newName[1..];
+                string first = newName[..1].ToUpper();
+                newName = first + last;
 
                 // We maken een nieuw Record aan en voegen dat toe aan Franz
                 // Aan het nieuwe Record wordt alvast 1 veld toegevoegd
-                Record rec = new Record();
-                Franz.Add(rec);
-                rec.Name = nameNew;
-                Veld f = new Veld();
-                f.Entry = "Cought";
-                rec.Velden.Add(f);
+                Record record = new Record();
+                Franz.Add(record);
+                record.Name = newName;
+                Veld veld = new Veld();
+                veld.Entry = "Cought";
+                record.Velden.Add(veld);
 
                 // nieuwe veld in Record wordt ook in StyleDictionary opgenomen
-                string substring = f.Entry;
+                string substring = veld.Entry;
                 FormatKeyStyleDictionary(substring);
 
-                if (!styleDictionary.ContainsKey(rec.Name + substring))
+                if (!styleDictionary.ContainsKey(record.Name + substring))
                 {
-                    styleDictionary.Add(rec.Name + substring, "Regular");
+                    styleDictionary.Add(record.Name + substring, "Regular");
                 }
 
                 negeerSelectedItem = false;
 
                 // Hele zooi wordt opnieuw gebonden
-                Source = new BindingSource(rec.Velden, null);
+                Source = new BindingSource(record.Velden, null);
                 dataGridView1.DataSource = Source;
 
                 // nieuw Record wordt aan combobox toegevoegd
-                menucomboBox1.Items.Add(rec.Name);
-                menucomboBox1.SelectedItem = rec.Name;
+                menucomboBox1.Items.Add(record.Name);
+                menucomboBox1.SelectedItem = record.Name;
 
                 // In de menustrip wordt een item en event toegevoegd zodat we dit nieuwe Record ook weer
                 // kunnen verwijderen
-                ToolStripMenuItem tsmiDelete = new ToolStripMenuItem(rec.Name);
+                ToolStripMenuItem tsmiDelete = new ToolStripMenuItem(record.Name);
                 tsmiDeleteRecord.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiDelete });
                 tsmiDelete.Click += new System.EventHandler(menuDelete_Click);
             }
@@ -417,32 +412,25 @@ namespace Catch_It
         {
             ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
             string nameRecord = tsmi.Text;
-            Record r = new Record();
-            r = Franz.FirstOrDefault(x => x.Name == nameRecord);
-            if (r.Name != "22")
+            Record record = new Record();
+            record = Franz.FirstOrDefault(x => x.Name == nameRecord);
+            if (record.Name != "22")
             {
                 menucomboBox1.SelectedItem = menucomboBox1.Items[0];
-                Franz.Remove(r);
+                Franz.Remove(record);
                 tsmiDeleteRecord.DropDownItems.Clear();
                 negeerSelectedItem = true;
                 menucomboBox1.Items.Clear();
+
                 foreach (Record rec in Franz)
                 {
-                    //ToolStripMenuItem tsmitem = new ToolStripMenuItem();
-                    //tsmitem.Click += new EventHandler(tsmiDelete_Click);
-                    //tsmi_deleterecord.DropDownItems.Add(tsmitem);
-                    ////tsmiDelete.Click += new System.EventHandler(tsmiDelete_Click);
-
                     menucomboBox1.Items.Add(rec.Name);
-
                     ToolStripMenuItem tsmiDelete = new ToolStripMenuItem(rec.Name);
                     tsmiDeleteRecord.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiDelete });
                     tsmiDelete.Click += new System.EventHandler(menuDelete_Click);
-
                 }
                 Record recc = new Record();
                 recc.Velden = Franz.FirstOrDefault().Velden;
-
                 Source = new BindingSource(recc.Velden, null);
 
                 if (menucomboBox1.Items.Count != 0)
@@ -463,12 +451,12 @@ namespace Catch_It
 
         private void menuLoadRTB_Click(object sender, EventArgs e)
         {
-            var dlg = new OpenFileDialog();
-            dlg.Filter = "Text Files (*.txt)|*.txt|Rich Text Files (*.rtf)|*.rtf|All Files (*.*)|*.*";
+            var dialog = new OpenFileDialog();
+            dialog.Filter = "Text Files (*.txt)|*.txt|Rich Text Files (*.rtf)|*.rtf|All Files (*.*)|*.*";
 
-            if (dlg.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                file = dlg.FileName;
+                file = dialog.FileName;
                 try
                 {
                     string text = System.IO.File.ReadAllText(file);
@@ -476,10 +464,9 @@ namespace Catch_It
                 }
                 catch (IOException)
                 {
-                    textBox1.Text = "uuu";
+                    textBox1.Text = "something wrong with reading file";
                 }
             }
-
         }
 
         private void menuSaveRichTextBox_Click(object sender, EventArgs e)
@@ -954,7 +941,10 @@ namespace Catch_It
         {
             CellLayout("Regular");
         }
-
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
+        }
         private void FreezeStripMenuItem_Click(object sender, EventArgs e)
         {
             int row = dataGridView1.CurrentCell.RowIndex;
@@ -1074,6 +1064,24 @@ namespace Catch_It
             this.Refresh();
         }
 
+        private void btnIncreaseFont_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Font = new System.Drawing.Font(
+                richTextBox1.Font.FontFamily,
+                richTextBox1.Font.Size + 1,
+                richTextBox1.Font.Style,
+                richTextBox1.Font.Unit);
+        }
+
+        private void btnDecreaseFont_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Font = new System.Drawing.Font(
+                richTextBox1.Font.FontFamily,
+                richTextBox1.Font.Size - 1,
+                richTextBox1.Font.Style,
+                richTextBox1.Font.Unit);
+        }
+
 
         #endregion
 
@@ -1125,36 +1133,6 @@ namespace Catch_It
         }
         #endregion
 
-        #region Ongebruikte Dingen
-        // niets
-        #endregion
-
-        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
-        }
-
-        private void btnIncreaseFont_Click(object sender, EventArgs e)
-        {
-            //richTextBox1.Font = new Font(richTextBox1.Font, richTextBox1.Font.Size + 1);
-
-            richTextBox1.Font = new System.Drawing.Font(
-                richTextBox1.Font.FontFamily,
-                richTextBox1.Font.Size + 1,
-                richTextBox1.Font.Style,
-                richTextBox1.Font.Unit);
-            //richTextBox1.Font = new System.Drawing.Font("Consolas", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-
-        }
-
-        private void btnDecreaseFont_Click(object sender, EventArgs e)
-        {
-            richTextBox1.Font = new System.Drawing.Font(
-                richTextBox1.Font.FontFamily,
-                richTextBox1.Font.Size - 1,
-                richTextBox1.Font.Style,
-                richTextBox1.Font.Unit);
-        }
     }
     
     public class Form2 : Form1
