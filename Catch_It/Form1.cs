@@ -73,42 +73,41 @@ namespace Catch_It
 
             foreach (var xmlRecord in xmlRoot.Elements())
             {
-                Record rec = new Record();
-                rec.Name = (string)xmlRecord.FirstAttribute;
-                menucomboBox1.Items.Add(rec.Name);
-                Franz.Add(rec);
+                Record record = new Record();
+                record.Name = (string)xmlRecord.FirstAttribute;
+                menucomboBox1.Items.Add(record.Name);
+                Franz.Add(record);
 
                 // Add a ToolStripMenuItem for deleting the record to the tsmiDeleteRecord dropdown
-                ToolStripMenuItem tsmiDelete = new ToolStripMenuItem(rec.Name);
+                ToolStripMenuItem tsmiDelete = new ToolStripMenuItem(record.Name);
                 tsmiDeleteRecord.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiDelete });
                 // Add the click event handler for the delete menu item
                 tsmiDelete.Click += new System.EventHandler(menuDelete_Click);
 
                 // Add the entries to the record's RecordList
-                foreach (var element in xmlRecord.Elements())
+                foreach (var xElement in xmlRecord.Elements())
                 {
                     // Get the style attribute value
-                    string style = (string)element.FirstAttribute;
-                    Veld entry = new Veld();
-                    entry.Entry = element.Value;
+                    string style = (string)xElement.FirstAttribute;
+                    Veld veld = new Veld();
+                    veld.Entry = xElement.Value;
 
-                    string substring = entry.Entry;
+                    string substring = veld.Entry;
                     FormatKeyStyleDictionary(substring);
 
-                    if (!styleDictionary.ContainsKey(rec.Name + substring))
+                    if (!styleDictionary.ContainsKey(record.Name + substring))
                     {
-                        styleDictionary.Add(rec.Name + substring, style);
-                        //EntryLengthDictionary.Add(rec.Name + substring, ent.Entry.Length);
+                        styleDictionary.Add(record.Name + substring, style);    
                     }
 
-                    rec.RecordList.Add(entry);
+                    record.Velden.Add(veld);
                 }
             }
 
-            Record rl = new Record();
-            rl.RecordList = Franz.FirstOrDefault().RecordList;
+            Record recordDisplayed = new Record();
+            recordDisplayed.Velden = Franz.FirstOrDefault().Velden;
 
-            Source = new BindingSource(rl.RecordList, null);
+            Source = new BindingSource(recordDisplayed.Velden, null);
 
             if (menucomboBox1.Items.Count != 0)
             {
@@ -120,25 +119,25 @@ namespace Catch_It
         {
             IEnumerable<XElement> LoopFranz()
             {
-                foreach (var item in Franz)
+                foreach (var record in Franz)
                 {
-                    XElement rec = new XElement("record");
-                    XAttribute name = new XAttribute("name", item.Name);
-                    rec.Add(name);
+                    XElement xRecord = new XElement("record");
+                    XAttribute xName = new XAttribute("name", record.Name);
+                    xRecord.Add(xName);
 
-                    foreach (var f in item.RecordList)
+                    foreach (var veld in record.Velden)
                     {
-                        XElement entry = new XElement("entry", f.Entry);
+                        XElement xEntry = new XElement("entry", veld.Entry);
 
-                        string substring = f.Entry;
+                        string substring = veld.Entry;
                         FormatKeyStyleDictionary(substring);
 
-                        string s = styleDictionary[item.Name + substring];
+                        string s = styleDictionary[record.Name + substring];
                         XAttribute style = new XAttribute("style", s);
-                        entry.Add(style);
-                        rec.Add(entry);
+                        xEntry.Add(style);
+                        xRecord.Add(xEntry);
                     }
-                    yield return rec;
+                    yield return xRecord;
                 }
             }
             XElement doc = new XElement("root", LoopFranz());
@@ -283,7 +282,7 @@ namespace Catch_It
                         Record r = Franz.FirstOrDefault(x => x.Name == recordName);
                         Veld v = new Veld();
                         v.Entry = clipboardText;
-                        r.RecordList.Add(v);
+                        r.Velden.Add(v);
 
                         // toevoeging aan StyleDictionary voor de opmaak van het record en de entries in de ui
                         string substr = v.Entry;
@@ -338,7 +337,7 @@ namespace Catch_It
                     dataGridView1.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
                 }
 
-                Source = new BindingSource(r.RecordList, null);
+                Source = new BindingSource(r.Velden, null);
                 dataGridView1.DataSource = Source;
 
                 PasLayoutToe();
@@ -377,7 +376,7 @@ namespace Catch_It
                 rec.Name = nameNew;
                 Veld f = new Veld();
                 f.Entry = "Cought";
-                rec.RecordList.Add(f);
+                rec.Velden.Add(f);
 
                 // nieuwe veld in Record wordt ook in StyleDictionary opgenomen
                 string substring = f.Entry;
@@ -391,7 +390,7 @@ namespace Catch_It
                 negeerSelectedItem = false;
 
                 // Hele zooi wordt opnieuw gebonden
-                Source = new BindingSource(rec.RecordList, null);
+                Source = new BindingSource(rec.Velden, null);
                 dataGridView1.DataSource = Source;
 
                 // nieuw Record wordt aan combobox toegevoegd
@@ -442,9 +441,9 @@ namespace Catch_It
 
                 }
                 Record recc = new Record();
-                recc.RecordList = Franz.FirstOrDefault().RecordList;
+                recc.Velden = Franz.FirstOrDefault().Velden;
 
-                Source = new BindingSource(recc.RecordList, null);
+                Source = new BindingSource(recc.Velden, null);
 
                 if (menucomboBox1.Items.Count != 0)
                 {
@@ -604,8 +603,8 @@ namespace Catch_It
             panelRichTextBox.BackColor = Color.White;
 
             richTextBox1.Clear();
-            string rName = menucomboBox1.SelectedItem.ToString();
-            Record r = Franz.First(n => n.Name == rName);
+            string name = menucomboBox1.SelectedItem.ToString();
+            Record record = Franz.First(r => r.Name == name);
             richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
             richTextBox1.SelectionIndent = 20;
 
@@ -632,8 +631,8 @@ namespace Catch_It
             }
 
             buttonOpen.Text = "Close";
-            System.Drawing.Font f = richTextBox1.SelectionFont;
-            foreach (var item in r.RecordList)
+            //System.Drawing.Font f = richTextBox1.SelectionFont;
+            foreach (var veld in record.Velden)
             {
                 teller++;
                 if (teller % 2 == 0)
@@ -644,7 +643,7 @@ namespace Catch_It
                 {
                     richTextBox1.SelectionColor = Color.Black;
                 }
-                richTextBox1.AppendText(item.Entry);
+                richTextBox1.AppendText(veld.Entry);
                 richTextBox1.AppendText(Environment.NewLine);
                 richTextBox1.SelectionColor = Color.FromArgb(102, 102, 102);
             }
@@ -715,26 +714,26 @@ namespace Catch_It
             Record r = Franz.First(n => n.Name == rName);
             Veld f = new Veld();
             f.Entry = "";
-            r.RecordList.Insert(indexRecordList, f);
+            r.Velden.Insert(indexRecordList, f);
 
             PasLayoutToe();
         }
         private void RowToTop()
         {
-            int row = dataGridView1.CurrentCell.RowIndex;
+            int rowIndex = dataGridView1.CurrentCell.RowIndex;
             int totalrows = dataGridView1.Rows.Count;
             int bottom = totalrows - 1;
 
-            string rName = menucomboBox1.SelectedItem.ToString();
-            Record r = Franz.First(n => n.Name == rName);
+            string name = menucomboBox1.SelectedItem.ToString();
+            Record record = Franz.First(n => n.Name == name);
 
-            Veld f = new Veld();
-            f = r.RecordList[row];
+            Veld veld = new Veld();
+            veld = record.Velden[rowIndex];
 
-            if (row != 0)
+            if (rowIndex != 0)
             {
-                r.RecordList.RemoveAt(row);
-                r.RecordList.Insert(0, f);
+                record.Velden.RemoveAt(rowIndex);
+                record.Velden.Insert(0, veld);
                 dataGridView1.CurrentCell = dataGridView1[0, 0];
 
                 PasLayoutToe();
@@ -742,20 +741,20 @@ namespace Catch_It
         }
         private void RowToBottom()
         {
-            int row = dataGridView1.CurrentCell.RowIndex;
+            int rowIndex = dataGridView1.CurrentCell.RowIndex;
             int totalrows = dataGridView1.Rows.Count;
             int bottom = totalrows - 1;
 
-            string rName = menucomboBox1.SelectedItem.ToString();
-            Record r = Franz.First(n => n.Name == rName);
+            string name = menucomboBox1.SelectedItem.ToString();
+            Record record = Franz.First(n => n.Name == name);
 
-            Veld f = new Veld();
-            f = r.RecordList[row];
+            Veld veld = new Veld();
+            veld = record.Velden[rowIndex];
 
-            if (row < bottom)
+            if (rowIndex < bottom)
             {
-                r.RecordList.RemoveAt(row);
-                r.RecordList.Insert(bottom, f);
+                record.Velden.RemoveAt(rowIndex);
+                record.Velden.Insert(bottom, veld);
                 dataGridView1.CurrentCell = dataGridView1[0, bottom];
 
                 PasLayoutToe();
@@ -770,12 +769,12 @@ namespace Catch_It
             Record r = Franz.First(n => n.Name == rName);
 
             Veld f = new Veld();
-            f = r.RecordList[row];
+            f = r.Velden[row];
 
             if (row < totalrows - 1)
             {
-                r.RecordList.RemoveAt(row);
-                r.RecordList.Insert(row + 1, f);
+                r.Velden.RemoveAt(row);
+                r.Velden.Insert(row + 1, f);
                 dataGridView1.CurrentCell = dataGridView1[0, row + 1];
 
                 PasLayoutToe();
@@ -917,7 +916,7 @@ namespace Catch_It
             string s = menucomboBox1.SelectedItem.ToString();
             Record r = Franz.FirstOrDefault(x => x.Name == s);
 
-            foreach (Veld veld in r.RecordList)
+            foreach (Veld veld in r.Velden)
             {
                 if (veld.Entry == value)
                 {
@@ -973,7 +972,7 @@ namespace Catch_It
 
             //int count = r.RecordList.Count;
             int counter = 0;
-            foreach (var item in r.RecordList)
+            foreach (var item in r.Velden)
             {
                 DataGridViewCell cell = dataGridView1.Rows[counter].Cells[0];
                 cell.Style.Padding = new System.Windows.Forms.Padding(6, 3, 1, 3);
@@ -1052,7 +1051,7 @@ namespace Catch_It
                 Record r = Franz.FirstOrDefault(x => x.Name == recordName);
                 Veld f = new Veld();
                 f.Entry = textBox1.Text;
-                r.RecordList.Add(f);
+                r.Velden.Add(f);
 
                 string substring = f.Entry;
                 FormatKeyStyleDictionary(substring);
@@ -1127,7 +1126,7 @@ namespace Catch_It
         #endregion
 
         #region Ongebruikte Dingen
-
+        // niets
         #endregion
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -1157,7 +1156,7 @@ namespace Catch_It
                 richTextBox1.Font.Unit);
         }
     }
-
+    
     public class Form2 : Form1
     {
         public Form2()
@@ -1175,7 +1174,7 @@ namespace Catch_It
     {
         public Record() { }
         public string Name { get; set; }
-        public BindingList<Veld> RecordList = new BindingList<Veld>();
+        public BindingList<Veld> Velden = new BindingList<Veld>();
     }
 
     public class Veld
