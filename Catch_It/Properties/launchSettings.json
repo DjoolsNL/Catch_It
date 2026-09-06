@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Catch_It": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
