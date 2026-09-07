@@ -158,7 +158,6 @@ namespace Catch_It
             LeesXMLFile();
             splitContainer2.IsSplitterFixed = false;
             dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            buttonStop.Cursor = System.Windows.Forms.Cursors.Default;
             buttonListToRichTextBox.Cursor = System.Windows.Forms.Cursors.Default;
             buttonOpen.Cursor = System.Windows.Forms.Cursors.Default;
             buttonRowUp.Cursor = System.Windows.Forms.Cursors.Default;
@@ -200,7 +199,7 @@ namespace Catch_It
                 btn.Text = "Open →";
 
                 buttonClearRichTB.Visible = true;
-                buttonClearRichTB.Enabled = false;
+                buttonClearRichTB.Enabled = true;
                 richTextBox1.Visible = false;
 
                 richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
@@ -533,24 +532,24 @@ namespace Catch_It
 
         private void buttonStop_Click(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
+            //Button btn = sender as Button;
 
-            if (btn.Text == "Stop")
-            {
-                Timer1.Stop();
-                Timer1.Enabled = false;
-                this.Text = "Catch / Status: off / © 2022 by Djools";
-                btn.Text = "Start";
-                toolStripStatusLabel2.Text = "off";
-            }
-            else
-            {
-                Timer1.Enabled = true;
-                Timer1.Start();
-                this.Text = "Catch / Status: on / © 2022 by Djools";
-                btn.Text = "Stop";
-                toolStripStatusLabel2.Text = "on";
-            }
+            //if (btn.Text == "Stop")
+            //{
+            //    Timer1.Stop();
+            //    Timer1.Enabled = false;
+            //    this.Text = "Catch / Status: off / © 2022 by Djools";
+            //    btn.Text = "Start";
+            //    toolStripStatusLabel2.Text = "off";
+            //}
+            //else
+            //{
+            //    Timer1.Enabled = true;
+            //    Timer1.Start();
+            //    this.Text = "Catch / Status: on / © 2022 by Djools";
+            //    btn.Text = "Stop";
+            //    toolStripStatusLabel2.Text = "on";
+            //}
         }
 
         private void buttonRowDown_Click(object sender, EventArgs e)
@@ -1121,6 +1120,28 @@ namespace Catch_It
         }
 
         #endregion
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem status = sender as ToolStripMenuItem;
+
+            if (status.Text == "Stop")
+            {
+                Timer1.Stop();
+                Timer1.Enabled = false;
+                this.Text = "Catch / Status: off / © 2022 by Djools";
+                status.Text = "Start";
+                toolStripStatusLabel2.Text = "off";
+            }
+            else
+            {
+                Timer1.Enabled = true;
+                Timer1.Start();
+                this.Text = "Catch / Status: on / © 2022 by Djools";
+                status.Text = "Stop";
+                toolStripStatusLabel2.Text = "on";
+            }
+        }
     }
 
     public class Form2 : Form1
