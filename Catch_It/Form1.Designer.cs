@@ -266,6 +266,7 @@ namespace Catch_It
             // textBox1
             // 
             textBox1.BackColor = System.Drawing.SystemColors.Control;
+            textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             textBox1.Location = new System.Drawing.Point(0, 0);
@@ -284,7 +285,7 @@ namespace Catch_It
             buttonClearRichTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             buttonClearRichTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             buttonClearRichTB.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            buttonClearRichTB.Location = new System.Drawing.Point(973, 4);
+            buttonClearRichTB.Location = new System.Drawing.Point(935, 4);
             buttonClearRichTB.Margin = new System.Windows.Forms.Padding(4);
             buttonClearRichTB.Name = "buttonClearRichTB";
             buttonClearRichTB.Size = new System.Drawing.Size(72, 21);
@@ -294,6 +295,7 @@ namespace Catch_It
             toolTip1.SetToolTip(buttonClearRichTB, "Clear Textbox");
             buttonClearRichTB.UseVisualStyleBackColor = false;
             buttonClearRichTB.Visible = false;
+            buttonClearRichTB.Click += buttonClearRichTB_Click;
             // 
             // panelBottom
             // 
@@ -323,6 +325,7 @@ namespace Catch_It
             btnDecreaseFont.TabIndex = 9;
             btnDecreaseFont.Text = "-";
             btnDecreaseFont.UseVisualStyleBackColor = false;
+            btnDecreaseFont.Click += btnDecreaseFont_Click;
             // 
             // btnIncreaseFont
             // 
@@ -335,6 +338,7 @@ namespace Catch_It
             btnIncreaseFont.TabIndex = 8;
             btnIncreaseFont.Text = "+";
             btnIncreaseFont.UseVisualStyleBackColor = false;
+            btnIncreaseFont.Click += btnIncreaseFont_Click;
             // 
             // statusStrip1
             // 
@@ -408,7 +412,7 @@ namespace Catch_It
             // 
             // panel1
             // 
-            panel1.BackColor = System.Drawing.Color.FromArgb(125, 125, 122);
+            panel1.BackColor = System.Drawing.Color.Transparent;
             panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panel1.Controls.Add(buttonRowTopBottom);
             panel1.Controls.Add(buttonOpen);
@@ -752,7 +756,7 @@ namespace Catch_It
             richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             richTextBox1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            richTextBox1.ForeColor = System.Drawing.SystemColors.Window;
+            richTextBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             richTextBox1.Location = new System.Drawing.Point(18, 10);
             richTextBox1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             richTextBox1.Name = "richTextBox1";

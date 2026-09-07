@@ -24,7 +24,7 @@ namespace Catch_It
         private Timer Timer1;
         private int widthForm = 1040;
         private int heightForm = 728;
-         
+
         private string clipboardText = "a";
         private string lastEntry = "a";
         private bool clipboardGewijzigd
@@ -199,7 +199,7 @@ namespace Catch_It
                 splitContainer2.SplitterDistance = 364;
                 btn.Text = "Open →";
 
-                buttonClearRichTB.Visible = false;
+                buttonClearRichTB.Visible = true;
                 buttonClearRichTB.Enabled = false;
                 richTextBox1.Visible = false;
 
@@ -951,7 +951,7 @@ namespace Catch_It
         /// </summary>
         private void PasLayoutToe()
         {
-            dataGridView1.CurrentCell.Style.SelectionBackColor = Color.FromArgb(50, 50, 50);
+            dataGridView1.CurrentCell.Style.SelectionBackColor = Color.FromArgb(100, 100, 100);
             string recordName = menucomboBox1.SelectedItem.ToString();
             Record record = Records.FirstOrDefault(x => x.Name == recordName);
 
@@ -1119,8 +1119,8 @@ namespace Catch_It
 
             richTextBox1.Text = sb.ToString();
         }
-        #endregion
 
+        #endregion
     }
 
     public class Form2 : Form1
