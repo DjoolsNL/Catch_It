@@ -50,14 +50,17 @@ namespace Catch_It
             buttonAdd = new System.Windows.Forms.Button();
             textBox1 = new System.Windows.Forms.TextBox();
             buttonClearRichTB = new System.Windows.Forms.Button();
-            panelBottom = new System.Windows.Forms.Panel();
             btnDecreaseFont = new System.Windows.Forms.Button();
             btnIncreaseFont = new System.Windows.Forms.Button();
+            panelBottom = new System.Windows.Forms.Panel();
             statusStrip1 = new System.Windows.Forms.StatusStrip();
             toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            Browser = new Microsoft.Web.WebView2.WinForms.WebView2();
             splitContainer1 = new System.Windows.Forms.SplitContainer();
             panelTop = new System.Windows.Forms.Panel();
             panel1 = new System.Windows.Forms.Panel();
@@ -86,16 +89,19 @@ namespace Catch_It
             tsmiPrintColors = new System.Windows.Forms.ToolStripMenuItem();
             tsmiLoadRTB = new System.Windows.Forms.ToolStripMenuItem();
             menuSaveRichTextBox = new System.Windows.Forms.ToolStripMenuItem();
+            viewBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             splitContainer2 = new System.Windows.Forms.SplitContainer();
             splitContainer3 = new System.Windows.Forms.SplitContainer();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             panelRichTextBox = new System.Windows.Forms.Panel();
+            label1 = new System.Windows.Forms.Label();
             richTextBox1 = new System.Windows.Forms.RichTextBox();
             panelContainsAll = new System.Windows.Forms.Panel();
             openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             contextMenuStrip1.SuspendLayout();
             panelBottom.SuspendLayout();
             statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Browser).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -184,11 +190,13 @@ namespace Catch_It
             // 
             // buttonClear
             // 
-            buttonClear.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            buttonClear.BackColor = System.Drawing.Color.Transparent;
             buttonClear.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            buttonClear.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            buttonClear.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            buttonClear.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             buttonClear.Location = new System.Drawing.Point(9, 7);
             buttonClear.Margin = new System.Windows.Forms.Padding(4);
             buttonClear.Name = "buttonClear";
@@ -203,8 +211,8 @@ namespace Catch_It
             // 
             buttonListToRichTextBox.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             buttonListToRichTextBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonListToRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonListToRichTextBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            buttonListToRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            buttonListToRichTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
             buttonListToRichTextBox.Location = new System.Drawing.Point(216, 3);
             buttonListToRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             buttonListToRichTextBox.Name = "buttonListToRichTextBox";
@@ -219,25 +227,27 @@ namespace Catch_It
             // 
             buttonOpen.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             buttonOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonOpen.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            buttonOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            buttonOpen.ForeColor = System.Drawing.SystemColors.ControlText;
             buttonOpen.Location = new System.Drawing.Point(311, 3);
             buttonOpen.Margin = new System.Windows.Forms.Padding(4);
             buttonOpen.Name = "buttonOpen";
             buttonOpen.Size = new System.Drawing.Size(57, 29);
             buttonOpen.TabIndex = 9;
             buttonOpen.Text = "Close →";
-            toolTip1.SetToolTip(buttonOpen, "Open Right Textbox Section");
+            toolTip1.SetToolTip(buttonOpen, "Close Right Textbox Section");
             buttonOpen.UseVisualStyleBackColor = true;
             buttonOpen.Click += buttonOpen_Click;
             // 
             // buttonAdd
             // 
-            buttonAdd.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            buttonAdd.BackColor = System.Drawing.Color.Transparent;
             buttonAdd.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            buttonAdd.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            buttonAdd.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            buttonAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             buttonAdd.Location = new System.Drawing.Point(85, 7);
             buttonAdd.Margin = new System.Windows.Forms.Padding(4);
             buttonAdd.Name = "buttonAdd";
@@ -264,11 +274,13 @@ namespace Catch_It
             // 
             // buttonClearRichTB
             // 
-            buttonClearRichTB.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            buttonClearRichTB.BackColor = System.Drawing.Color.Transparent;
             buttonClearRichTB.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            buttonClearRichTB.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            buttonClearRichTB.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             buttonClearRichTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonClearRichTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonClearRichTB.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            buttonClearRichTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            buttonClearRichTB.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             buttonClearRichTB.Location = new System.Drawing.Point(935, 7);
             buttonClearRichTB.Margin = new System.Windows.Forms.Padding(4);
             buttonClearRichTB.Name = "buttonClearRichTB";
@@ -280,9 +292,45 @@ namespace Catch_It
             buttonClearRichTB.UseVisualStyleBackColor = false;
             buttonClearRichTB.Click += buttonClearRichTB_Click;
             // 
+            // btnDecreaseFont
+            // 
+            btnDecreaseFont.BackColor = System.Drawing.Color.Transparent;
+            btnDecreaseFont.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            btnDecreaseFont.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            btnDecreaseFont.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            btnDecreaseFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnDecreaseFont.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            btnDecreaseFont.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            btnDecreaseFont.Location = new System.Drawing.Point(872, 7);
+            btnDecreaseFont.Name = "btnDecreaseFont";
+            btnDecreaseFont.Size = new System.Drawing.Size(31, 23);
+            btnDecreaseFont.TabIndex = 9;
+            btnDecreaseFont.Text = "-";
+            toolTip1.SetToolTip(btnDecreaseFont, "Decrease Font Size");
+            btnDecreaseFont.UseVisualStyleBackColor = false;
+            btnDecreaseFont.Click += btnDecreaseFont_Click;
+            // 
+            // btnIncreaseFont
+            // 
+            btnIncreaseFont.BackColor = System.Drawing.Color.Transparent;
+            btnIncreaseFont.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            btnIncreaseFont.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            btnIncreaseFont.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            btnIncreaseFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnIncreaseFont.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            btnIncreaseFont.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            btnIncreaseFont.Location = new System.Drawing.Point(835, 7);
+            btnIncreaseFont.Name = "btnIncreaseFont";
+            btnIncreaseFont.Size = new System.Drawing.Size(31, 23);
+            btnIncreaseFont.TabIndex = 8;
+            btnIncreaseFont.Text = "+";
+            toolTip1.SetToolTip(btnIncreaseFont, "Increase Font Size");
+            btnIncreaseFont.UseVisualStyleBackColor = false;
+            btnIncreaseFont.Click += btnIncreaseFont_Click;
+            // 
             // panelBottom
             // 
-            panelBottom.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            panelBottom.BackColor = System.Drawing.SystemColors.ControlDark;
             panelBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panelBottom.Controls.Add(btnDecreaseFont);
             panelBottom.Controls.Add(btnIncreaseFont);
@@ -297,40 +345,10 @@ namespace Catch_It
             panelBottom.Size = new System.Drawing.Size(1071, 60);
             panelBottom.TabIndex = 5;
             // 
-            // btnDecreaseFont
-            // 
-            btnDecreaseFont.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            btnDecreaseFont.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            btnDecreaseFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnDecreaseFont.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnDecreaseFont.ForeColor = System.Drawing.Color.White;
-            btnDecreaseFont.Location = new System.Drawing.Point(872, 7);
-            btnDecreaseFont.Name = "btnDecreaseFont";
-            btnDecreaseFont.Size = new System.Drawing.Size(31, 23);
-            btnDecreaseFont.TabIndex = 9;
-            btnDecreaseFont.Text = "-";
-            btnDecreaseFont.UseVisualStyleBackColor = false;
-            btnDecreaseFont.Click += btnDecreaseFont_Click;
-            // 
-            // btnIncreaseFont
-            // 
-            btnIncreaseFont.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            btnIncreaseFont.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            btnIncreaseFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnIncreaseFont.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnIncreaseFont.ForeColor = System.Drawing.Color.White;
-            btnIncreaseFont.Location = new System.Drawing.Point(835, 7);
-            btnIncreaseFont.Name = "btnIncreaseFont";
-            btnIncreaseFont.Size = new System.Drawing.Size(31, 23);
-            btnIncreaseFont.TabIndex = 8;
-            btnIncreaseFont.Text = "+";
-            btnIncreaseFont.UseVisualStyleBackColor = false;
-            btnIncreaseFont.Click += btnIncreaseFont_Click;
-            // 
             // statusStrip1
             // 
             statusStrip1.BackColor = System.Drawing.Color.FromArgb(65, 65, 65);
-            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel4, toolStripStatusLabel1, toolStripStatusLabel2, toolStripStatusLabel3 });
+            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel4, toolStripStatusLabel1, toolStripStatusLabel2, toolStripStatusLabel3, toolStripStatusLabel5, toolStripStatusLabel6 });
             statusStrip1.Location = new System.Drawing.Point(0, 36);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new System.Drawing.Size(1069, 22);
@@ -363,6 +381,33 @@ namespace Catch_It
             toolStripStatusLabel3.Size = new System.Drawing.Size(16, 17);
             toolStripStatusLabel3.Text = "   ";
             // 
+            // toolStripStatusLabel5
+            // 
+            toolStripStatusLabel5.ForeColor = System.Drawing.Color.NavajoWhite;
+            toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            toolStripStatusLabel5.Size = new System.Drawing.Size(86, 17);
+            toolStripStatusLabel5.Text = "You can paste: ";
+            // 
+            // toolStripStatusLabel6
+            // 
+            toolStripStatusLabel6.ForeColor = System.Drawing.Color.GreenYellow;
+            toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            toolStripStatusLabel6.Size = new System.Drawing.Size(0, 17);
+            // 
+            // Browser
+            // 
+            Browser.AllowExternalDrop = true;
+            Browser.CreationProperties = null;
+            Browser.DefaultBackgroundColor = System.Drawing.Color.White;
+            Browser.Dock = System.Windows.Forms.DockStyle.Fill;
+            Browser.Enabled = false;
+            Browser.Location = new System.Drawing.Point(18, 40);
+            Browser.Name = "Browser";
+            Browser.Size = new System.Drawing.Size(645, 492);
+            Browser.Source = new System.Uri("https://nos.nl/", System.UriKind.Absolute);
+            Browser.TabIndex = 10;
+            Browser.ZoomFactor = 1D;
+            // 
             // splitContainer1
             // 
             splitContainer1.BackColor = System.Drawing.Color.Transparent;
@@ -376,13 +421,14 @@ namespace Catch_It
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.BackColor = System.Drawing.Color.Gainsboro;
             splitContainer1.Panel1.Controls.Add(panelTop);
             // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(splitContainer2);
             splitContainer1.Size = new System.Drawing.Size(1071, 627);
-            splitContainer1.SplitterDistance = 64;
+            splitContainer1.SplitterDistance = 66;
             splitContainer1.TabIndex = 8;
             // 
             // panelTop
@@ -394,13 +440,12 @@ namespace Catch_It
             panelTop.Location = new System.Drawing.Point(0, 0);
             panelTop.Margin = new System.Windows.Forms.Padding(4);
             panelTop.Name = "panelTop";
-            panelTop.Size = new System.Drawing.Size(1071, 64);
+            panelTop.Size = new System.Drawing.Size(1071, 66);
             panelTop.TabIndex = 7;
             // 
             // panel1
             // 
-            panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel1.BackColor = System.Drawing.Color.Silver;
             panel1.Controls.Add(buttonRowTopBottom);
             panel1.Controls.Add(buttonOpen);
             panel1.Controls.Add(buttonReplace);
@@ -411,7 +456,7 @@ namespace Catch_It
             panel1.Controls.Add(buttonListToRichTextBox);
             panel1.Controls.Add(buttonFind);
             panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel1.Location = new System.Drawing.Point(0, 28);
+            panel1.Location = new System.Drawing.Point(0, 30);
             panel1.Margin = new System.Windows.Forms.Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(1071, 36);
@@ -421,8 +466,8 @@ namespace Catch_It
             // 
             buttonRowTopBottom.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             buttonRowTopBottom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonRowTopBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonRowTopBottom.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            buttonRowTopBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            buttonRowTopBottom.ForeColor = System.Drawing.SystemColors.ControlText;
             buttonRowTopBottom.Location = new System.Drawing.Point(148, 3);
             buttonRowTopBottom.Margin = new System.Windows.Forms.Padding(4);
             buttonRowTopBottom.Name = "buttonRowTopBottom";
@@ -436,8 +481,8 @@ namespace Catch_It
             // 
             buttonReplace.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             buttonReplace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonReplace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonReplace.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            buttonReplace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            buttonReplace.ForeColor = System.Drawing.SystemColors.ControlText;
             buttonReplace.Location = new System.Drawing.Point(721, 3);
             buttonReplace.Margin = new System.Windows.Forms.Padding(4);
             buttonReplace.Name = "buttonReplace";
@@ -451,8 +496,8 @@ namespace Catch_It
             // 
             buttonRowDown.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             buttonRowDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonRowDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonRowDown.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            buttonRowDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            buttonRowDown.ForeColor = System.Drawing.SystemColors.ControlText;
             buttonRowDown.Location = new System.Drawing.Point(13, 3);
             buttonRowDown.Margin = new System.Windows.Forms.Padding(4);
             buttonRowDown.Name = "buttonRowDown";
@@ -475,8 +520,8 @@ namespace Catch_It
             // 
             buttonRowUp.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             buttonRowUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonRowUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonRowUp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            buttonRowUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            buttonRowUp.ForeColor = System.Drawing.SystemColors.ControlText;
             buttonRowUp.Location = new System.Drawing.Point(81, 3);
             buttonRowUp.Margin = new System.Windows.Forms.Padding(4);
             buttonRowUp.Name = "buttonRowUp";
@@ -499,8 +544,8 @@ namespace Catch_It
             // 
             buttonFind.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             buttonFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonFind.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            buttonFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            buttonFind.ForeColor = System.Drawing.SystemColors.ControlText;
             buttonFind.Location = new System.Drawing.Point(458, 3);
             buttonFind.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             buttonFind.Name = "buttonFind";
@@ -512,8 +557,8 @@ namespace Catch_It
             // 
             // menuStrip1
             // 
-            menuStrip1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem1, toolStripTextBox1, menucomboBox1, menutextBox2, tsmiFile, menuMisc, tsmiLoadRTB, menuSaveRichTextBox });
+            menuStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem1, toolStripTextBox1, menucomboBox1, menutextBox2, tsmiFile, menuMisc, tsmiLoadRTB, menuSaveRichTextBox, viewBrowserToolStripMenuItem });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
@@ -523,6 +568,8 @@ namespace Catch_It
             // 
             // toolStripMenuItem1
             // 
+            toolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
             toolStripMenuItem1.Name = "toolStripMenuItem1";
             toolStripMenuItem1.Size = new System.Drawing.Size(43, 23);
             toolStripMenuItem1.Text = "Start";
@@ -530,6 +577,8 @@ namespace Catch_It
             // 
             // toolStripTextBox1
             // 
+            toolStripTextBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            toolStripTextBox1.ForeColor = System.Drawing.Color.Black;
             toolStripTextBox1.Name = "toolStripTextBox1";
             toolStripTextBox1.ReadOnly = true;
             toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
@@ -538,8 +587,9 @@ namespace Catch_It
             // 
             // menucomboBox1
             // 
-            menucomboBox1.BackColor = System.Drawing.Color.FromArgb(255, 255, 244);
+            menucomboBox1.BackColor = System.Drawing.SystemColors.ControlDark;
             menucomboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            menucomboBox1.ForeColor = System.Drawing.Color.Black;
             menucomboBox1.Name = "menucomboBox1";
             menucomboBox1.Size = new System.Drawing.Size(115, 23);
             menucomboBox1.ToolTipText = "Available records";
@@ -548,7 +598,8 @@ namespace Catch_It
             // 
             // menutextBox2
             // 
-            menutextBox2.BackColor = System.Drawing.Color.FromArgb(255, 255, 244);
+            menutextBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            menutextBox2.ForeColor = System.Drawing.Color.Black;
             menutextBox2.Name = "menutextBox2";
             menutextBox2.Size = new System.Drawing.Size(100, 23);
             menutextBox2.Text = "Add new";
@@ -556,6 +607,7 @@ namespace Catch_It
             // tsmiFile
             // 
             tsmiFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiAddNew, tsmiSave, tsmiDeleteRecord });
+            tsmiFile.ForeColor = System.Drawing.Color.Black;
             tsmiFile.Name = "tsmiFile";
             tsmiFile.Size = new System.Drawing.Size(107, 23);
             tsmiFile.Text = "Manage Records";
@@ -583,6 +635,7 @@ namespace Catch_It
             // menuMisc
             // 
             menuMisc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { openNotepadToolStripMenuItem, tsmi_ColorSchemes, tsmiPrintColors });
+            menuMisc.ForeColor = System.Drawing.Color.Black;
             menuMisc.Name = "menuMisc";
             menuMisc.Size = new System.Drawing.Size(39, 23);
             menuMisc.Text = "Edit";
@@ -631,6 +684,7 @@ namespace Catch_It
             // 
             // tsmiLoadRTB
             // 
+            tsmiLoadRTB.ForeColor = System.Drawing.Color.Black;
             tsmiLoadRTB.Name = "tsmiLoadRTB";
             tsmiLoadRTB.Size = new System.Drawing.Size(90, 23);
             tsmiLoadRTB.Text = "Load Text File";
@@ -638,10 +692,18 @@ namespace Catch_It
             // 
             // menuSaveRichTextBox
             // 
+            menuSaveRichTextBox.ForeColor = System.Drawing.Color.Black;
             menuSaveRichTextBox.Name = "menuSaveRichTextBox";
             menuSaveRichTextBox.Size = new System.Drawing.Size(88, 23);
             menuSaveRichTextBox.Text = "Save Text File";
             menuSaveRichTextBox.Click += menuSaveRichTextBox_Click;
+            // 
+            // viewBrowserToolStripMenuItem
+            // 
+            viewBrowserToolStripMenuItem.Name = "viewBrowserToolStripMenuItem";
+            viewBrowserToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
+            viewBrowserToolStripMenuItem.Text = "View Browser";
+            viewBrowserToolStripMenuItem.Click += viewBrowserToolStripMenuItem_Click;
             // 
             // splitContainer2
             // 
@@ -662,7 +724,7 @@ namespace Catch_It
             splitContainer2.Panel2.Controls.Add(panelRichTextBox);
             splitContainer2.Panel2.Padding = new System.Windows.Forms.Padding(0, 4, 10, 9);
             splitContainer2.Panel2MinSize = 20;
-            splitContainer2.Size = new System.Drawing.Size(1071, 559);
+            splitContainer2.Size = new System.Drawing.Size(1071, 557);
             splitContainer2.SplitterDistance = 381;
             splitContainer2.SplitterWidth = 5;
             splitContainer2.TabIndex = 6;
@@ -683,8 +745,8 @@ namespace Catch_It
             // splitContainer3.Panel2
             // 
             splitContainer3.Panel2.Controls.Add(textBox1);
-            splitContainer3.Size = new System.Drawing.Size(371, 546);
-            splitContainer3.SplitterDistance = 485;
+            splitContainer3.Size = new System.Drawing.Size(371, 544);
+            splitContainer3.SplitterDistance = 483;
             splitContainer3.TabIndex = 5;
             // 
             // dataGridView1
@@ -692,11 +754,11 @@ namespace Catch_It
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(236, 236, 245);
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 11.25F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -707,7 +769,7 @@ namespace Catch_It
             dataGridView1.ContextMenuStrip = contextMenuStrip1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4, 8, 0, 8);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(50, 150, 50);
@@ -726,7 +788,8 @@ namespace Catch_It
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(50, 50, 50);
-            dataGridView1.Size = new System.Drawing.Size(371, 485);
+            dataGridView1.ShowCellToolTips = false;
+            dataGridView1.Size = new System.Drawing.Size(371, 483);
             dataGridView1.TabIndex = 4;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
@@ -740,14 +803,27 @@ namespace Catch_It
             // 
             panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
             panelRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panelRichTextBox.Controls.Add(label1);
             panelRichTextBox.Controls.Add(richTextBox1);
+            panelRichTextBox.Controls.Add(Browser);
             panelRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             panelRichTextBox.Location = new System.Drawing.Point(0, 4);
             panelRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             panelRichTextBox.Name = "panelRichTextBox";
-            panelRichTextBox.Padding = new System.Windows.Forms.Padding(18, 10, 10, 10);
-            panelRichTextBox.Size = new System.Drawing.Size(675, 546);
+            panelRichTextBox.Padding = new System.Windows.Forms.Padding(18, 40, 10, 10);
+            panelRichTextBox.Size = new System.Drawing.Size(675, 544);
             panelRichTextBox.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            label1.Location = new System.Drawing.Point(21, 10);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(86, 15);
+            label1.TabIndex = 11;
+            label1.Text = "Open DevTools";
+            label1.Click += label1_Click;
             // 
             // richTextBox1
             // 
@@ -757,15 +833,14 @@ namespace Catch_It
             richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            richTextBox1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            richTextBox1.Font = new System.Drawing.Font("Consolas", 11.25F);
             richTextBox1.ForeColor = System.Drawing.SystemColors.MenuText;
-            richTextBox1.Location = new System.Drawing.Point(18, 10);
+            richTextBox1.Location = new System.Drawing.Point(18, 40);
             richTextBox1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new System.Drawing.Size(645, 524);
+            richTextBox1.Size = new System.Drawing.Size(645, 492);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
-            richTextBox1.Visible = false;
             // 
             // panelContainsAll
             // 
@@ -788,7 +863,7 @@ namespace Catch_It
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.NavajoWhite;
+            BackColor = System.Drawing.Color.FromArgb(255, 224, 192);
             ClientSize = new System.Drawing.Size(1073, 689);
             Controls.Add(panelContainsAll);
             DoubleBuffered = true;
@@ -808,6 +883,7 @@ namespace Catch_It
             panelBottom.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Browser).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -829,6 +905,7 @@ namespace Catch_It
             splitContainer3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panelRichTextBox.ResumeLayout(false);
+            panelRichTextBox.PerformLayout();
             panelContainsAll.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -893,6 +970,11 @@ namespace Catch_It
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.ToolStripMenuItem viewBrowserToolStripMenuItem;
+        private Microsoft.Web.WebView2.WinForms.WebView2 Browser;
+        private System.Windows.Forms.Label label1;
     }
 }
 
