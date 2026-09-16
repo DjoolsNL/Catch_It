@@ -823,6 +823,7 @@ namespace Catch_It
             label1.Size = new System.Drawing.Size(86, 15);
             label1.TabIndex = 11;
             label1.Text = "Open DevTools";
+            label1.Visible = false;
             label1.Click += label1_Click;
             // 
             // richTextBox1
