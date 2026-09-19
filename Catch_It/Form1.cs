@@ -82,7 +82,7 @@ namespace Catch_It
         // schrijven van data is data leveren aan class die dit afhandelt
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = "Catch / Status: on / © 2022 by Djools";
+            this.Text = "Catch / © 2022 by Djools";
             LeesXMLFile();
             splitContainer2.IsSplitterFixed = false;
             dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
@@ -124,7 +124,6 @@ namespace Catch_It
                     {
                         styleDictionary.Add(record.Name + substring, style);
                     }
-
                     record.Velden.Add(veld);
                 }
             }
@@ -170,7 +169,6 @@ namespace Catch_It
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
             string path = Directory.GetCurrentDirectory();
             doc.Save(path + "\\Catch.xml");
-
         }
         #endregion
 
@@ -1214,6 +1212,12 @@ namespace Catch_It
                 splitContainer2.Panel2Collapsed = false;
 
                 panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+                buttonClearRichTB.Visible = true;
+                buttonClearRichTB.Enabled = true;
+                btnIncreaseFont.Visible = true;
+                btnIncreaseFont.Enabled = true;
+                btnDecreaseFont.Visible = true;
+                btnDecreaseFont.Enabled = true;
             }
             else if (tsBtn.Text == "Close")
             {
@@ -1221,6 +1225,12 @@ namespace Catch_It
                 splitContainer2.SplitterDistance = 364;
                 tsBtn.Text = "Open →";
                 splitContainer2.Panel2Collapsed = true;
+                buttonClearRichTB.Visible = false;
+                buttonClearRichTB.Enabled = false;
+                btnIncreaseFont.Visible = false;
+                btnIncreaseFont.Enabled = false;
+                btnDecreaseFont.Visible = false;
+                btnDecreaseFont.Enabled = false;
             }
 
             splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.None;
