@@ -31,9 +31,9 @@ namespace Catch_It
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
             cellLayout1_tsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             cellLayout2_tsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,29 +41,19 @@ namespace Catch_It
             cellLayout4_tsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             cellLayout5_tsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             cellLayout6_tsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             freezeStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
+            tStripMenuItemToTextBox = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
-            buttonClear = new System.Windows.Forms.Button();
-            buttonAdd = new System.Windows.Forms.Button();
             textBox1 = new System.Windows.Forms.TextBox();
-            buttonClearRichTB = new System.Windows.Forms.Button();
-            btnDecreaseFont = new System.Windows.Forms.Button();
-            btnIncreaseFont = new System.Windows.Forms.Button();
-            panelBottom = new System.Windows.Forms.Panel();
-            statusStrip1 = new System.Windows.Forms.StatusStrip();
-            toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-            toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             Browser = new Microsoft.Web.WebView2.WinForms.WebView2();
             splitContainer1 = new System.Windows.Forms.SplitContainer();
             panelTop = new System.Windows.Forms.Panel();
             menuStrip1 = new System.Windows.Forms.MenuStrip();
-            toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            tStripMenuItemStartRecording = new System.Windows.Forms.ToolStripMenuItem();
+            tStripTextBoxSelectRecord = new System.Windows.Forms.ToolStripTextBox();
             menucomboBox1 = new System.Windows.Forms.ToolStripComboBox();
             tsmiFile = new System.Windows.Forms.ToolStripMenuItem();
             tsmiAddNew = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,16 +62,13 @@ namespace Catch_It
             tsmiDeleteRecord = new System.Windows.Forms.ToolStripMenuItem();
             menuMisc = new System.Windows.Forms.ToolStripMenuItem();
             openNotepadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            tsmi_ColorSchemes = new System.Windows.Forms.ToolStripMenuItem();
-            defaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            colorfulToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            Dark = new System.Windows.Forms.ToolStripMenuItem();
             tsmiPrintColors = new System.Windows.Forms.ToolStripMenuItem();
             tsmiLoadRTB = new System.Windows.Forms.ToolStripMenuItem();
             menuSaveRichTextBox = new System.Windows.Forms.ToolStripMenuItem();
             viewBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             splitContainer2 = new System.Windows.Forms.SplitContainer();
             splitContainer3 = new System.Windows.Forms.SplitContainer();
+            panel1 = new System.Windows.Forms.Panel();
             tStripLeftMain = new System.Windows.Forms.ToolStrip();
             tStripBtnRowDown = new System.Windows.Forms.ToolStripButton();
             toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -97,6 +84,10 @@ namespace Catch_It
             toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             tStripBtnClose = new System.Windows.Forms.ToolStripButton();
             dataGridView1 = new System.Windows.Forms.DataGridView();
+            panel2 = new System.Windows.Forms.Panel();
+            toolStrip1 = new System.Windows.Forms.ToolStrip();
+            toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             panelRichTextBox = new System.Windows.Forms.Panel();
             tStripRightMainTextEditor = new System.Windows.Forms.ToolStrip();
             tStripBtnFind = new System.Windows.Forms.ToolStripButton();
@@ -105,6 +96,9 @@ namespace Catch_It
             toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             tStripBtnReplace = new System.Windows.Forms.ToolStripButton();
             tStripTextBoxReplace = new System.Windows.Forms.ToolStripTextBox();
+            toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             tStripRightMainBrowser = new System.Windows.Forms.ToolStrip();
             tStripBtnOpenDevTools = new System.Windows.Forms.ToolStripButton();
             toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -115,10 +109,16 @@ namespace Catch_It
             tStripTextBoxUrl = new System.Windows.Forms.ToolStripTextBox();
             richTextBox1 = new System.Windows.Forms.RichTextBox();
             panelContainsAll = new System.Windows.Forms.Panel();
+            panelBottom = new System.Windows.Forms.Panel();
+            statusStrip1 = new System.Windows.Forms.StatusStrip();
+            toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             contextMenuStrip1.SuspendLayout();
-            panelBottom.SuspendLayout();
-            statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Browser).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -134,24 +134,29 @@ namespace Catch_It
             splitContainer3.Panel1.SuspendLayout();
             splitContainer3.Panel2.SuspendLayout();
             splitContainer3.SuspendLayout();
+            panel1.SuspendLayout();
             tStripLeftMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel2.SuspendLayout();
+            toolStrip1.SuspendLayout();
             panelRichTextBox.SuspendLayout();
             tStripRightMainTextEditor.SuspendLayout();
             tStripRightMainBrowser.SuspendLayout();
             panelContainsAll.SuspendLayout();
+            panelBottom.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // contextMenuStrip1
             // 
-            contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { cellLayout1_tsMenuItem, cellLayout2_tsMenuItem, cellLayout3_tsMenuItem, cellLayout4_tsMenuItem, cellLayout5_tsMenuItem, cellLayout6_tsMenuItem, freezeStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tStripMenuItemToTextBox, toolStripSeparator16, freezeStripMenuItem, toolStripSeparator15, cellLayout1_tsMenuItem, cellLayout2_tsMenuItem, cellLayout3_tsMenuItem, cellLayout4_tsMenuItem, cellLayout5_tsMenuItem, cellLayout6_tsMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new System.Drawing.Size(187, 158);
+            contextMenuStrip1.Size = new System.Drawing.Size(154, 192);
             // 
             // cellLayout1_tsMenuItem
             // 
             cellLayout1_tsMenuItem.Name = "cellLayout1_tsMenuItem";
-            cellLayout1_tsMenuItem.Size = new System.Drawing.Size(186, 22);
+            cellLayout1_tsMenuItem.Size = new System.Drawing.Size(153, 22);
             cellLayout1_tsMenuItem.Text = "White on black";
             cellLayout1_tsMenuItem.Click += CellLayout1_tsMenuItem_Click;
             // 
@@ -159,7 +164,7 @@ namespace Catch_It
             // 
             cellLayout2_tsMenuItem.BackColor = System.Drawing.Color.FromArgb(218, 216, 234);
             cellLayout2_tsMenuItem.Name = "cellLayout2_tsMenuItem";
-            cellLayout2_tsMenuItem.Size = new System.Drawing.Size(186, 22);
+            cellLayout2_tsMenuItem.Size = new System.Drawing.Size(153, 22);
             cellLayout2_tsMenuItem.Text = "Light purplish";
             cellLayout2_tsMenuItem.Click += CellLayout2_tsMenuItem_Click;
             // 
@@ -167,7 +172,7 @@ namespace Catch_It
             // 
             cellLayout3_tsMenuItem.BackColor = System.Drawing.Color.FromArgb(255, 180, 180);
             cellLayout3_tsMenuItem.Name = "cellLayout3_tsMenuItem";
-            cellLayout3_tsMenuItem.Size = new System.Drawing.Size(186, 22);
+            cellLayout3_tsMenuItem.Size = new System.Drawing.Size(153, 22);
             cellLayout3_tsMenuItem.Text = "Light pinkish";
             cellLayout3_tsMenuItem.Click += CellLayout3_tsMenuItem_Click;
             // 
@@ -175,7 +180,7 @@ namespace Catch_It
             // 
             cellLayout4_tsMenuItem.BackColor = System.Drawing.Color.FromArgb(211, 232, 225);
             cellLayout4_tsMenuItem.Name = "cellLayout4_tsMenuItem";
-            cellLayout4_tsMenuItem.Size = new System.Drawing.Size(186, 22);
+            cellLayout4_tsMenuItem.Size = new System.Drawing.Size(153, 22);
             cellLayout4_tsMenuItem.Text = "Light blueish";
             cellLayout4_tsMenuItem.Click += CellLayout4_tsMenuItem_Click;
             // 
@@ -183,7 +188,7 @@ namespace Catch_It
             // 
             cellLayout5_tsMenuItem.ForeColor = System.Drawing.Color.Red;
             cellLayout5_tsMenuItem.Name = "cellLayout5_tsMenuItem";
-            cellLayout5_tsMenuItem.Size = new System.Drawing.Size(186, 22);
+            cellLayout5_tsMenuItem.Size = new System.Drawing.Size(153, 22);
             cellLayout5_tsMenuItem.Text = "Red on white";
             cellLayout5_tsMenuItem.Click += CellLayout5_tsMenuItem_Click;
             // 
@@ -192,201 +197,53 @@ namespace Catch_It
             cellLayout6_tsMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             cellLayout6_tsMenuItem.ForeColor = System.Drawing.Color.White;
             cellLayout6_tsMenuItem.Name = "cellLayout6_tsMenuItem";
-            cellLayout6_tsMenuItem.Size = new System.Drawing.Size(186, 22);
+            cellLayout6_tsMenuItem.Size = new System.Drawing.Size(153, 22);
             cellLayout6_tsMenuItem.Text = "Regular";
             cellLayout6_tsMenuItem.Click += cellLayout6_tsMenuItem_Click;
+            // 
+            // toolStripSeparator15
+            // 
+            toolStripSeparator15.Name = "toolStripSeparator15";
+            toolStripSeparator15.Size = new System.Drawing.Size(150, 6);
             // 
             // freezeStripMenuItem
             // 
             freezeStripMenuItem.Name = "freezeStripMenuItem";
-            freezeStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            freezeStripMenuItem.Text = "FreezeStripMenuItem";
+            freezeStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            freezeStripMenuItem.Text = "Freeze Item";
             freezeStripMenuItem.Click += FreezeStripMenuItem_Click;
+            // 
+            // toolStripSeparator16
+            // 
+            toolStripSeparator16.Name = "toolStripSeparator16";
+            toolStripSeparator16.Size = new System.Drawing.Size(150, 6);
+            // 
+            // tStripMenuItemToTextBox
+            // 
+            tStripMenuItemToTextBox.Name = "tStripMenuItemToTextBox";
+            tStripMenuItemToTextBox.Size = new System.Drawing.Size(153, 22);
+            tStripMenuItemToTextBox.Text = "To Textbox";
+            tStripMenuItemToTextBox.Click += tStripMenuItemToTextBox_Click;
             // 
             // toolStripMenuItem3
             // 
             toolStripMenuItem3.Name = "toolStripMenuItem3";
             toolStripMenuItem3.Size = new System.Drawing.Size(32, 19);
             // 
-            // buttonClear
-            // 
-            buttonClear.BackColor = System.Drawing.Color.Transparent;
-            buttonClear.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            buttonClear.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            buttonClear.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            buttonClear.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            buttonClear.Location = new System.Drawing.Point(9, 7);
-            buttonClear.Margin = new System.Windows.Forms.Padding(4);
-            buttonClear.Name = "buttonClear";
-            buttonClear.Size = new System.Drawing.Size(66, 25);
-            buttonClear.TabIndex = 0;
-            buttonClear.Text = "Clear";
-            toolTip1.SetToolTip(buttonClear, "Clear Textbox");
-            buttonClear.UseVisualStyleBackColor = false;
-            buttonClear.Click += buttonClear_Click;
-            // 
-            // buttonAdd
-            // 
-            buttonAdd.BackColor = System.Drawing.Color.Transparent;
-            buttonAdd.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            buttonAdd.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            buttonAdd.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            buttonAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            buttonAdd.Location = new System.Drawing.Point(85, 7);
-            buttonAdd.Margin = new System.Windows.Forms.Padding(4);
-            buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new System.Drawing.Size(66, 25);
-            buttonAdd.TabIndex = 1;
-            buttonAdd.Text = "Add";
-            toolTip1.SetToolTip(buttonAdd, "Add Textbox Text to Record");
-            buttonAdd.UseVisualStyleBackColor = false;
-            buttonAdd.Click += buttonAdd_Click;
-            // 
             // textBox1
             // 
-            textBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            textBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox1.Location = new System.Drawing.Point(0, 0);
+            textBox1.Location = new System.Drawing.Point(-1, 28);
             textBox1.Margin = new System.Windows.Forms.Padding(4);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(371, 88);
+            textBox1.Size = new System.Drawing.Size(371, 64);
             textBox1.TabIndex = 1;
             textBox1.Text = "Add a row to the record";
             toolTip1.SetToolTip(textBox1, "Add Entry");
-            // 
-            // buttonClearRichTB
-            // 
-            buttonClearRichTB.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            buttonClearRichTB.BackColor = System.Drawing.Color.Transparent;
-            buttonClearRichTB.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            buttonClearRichTB.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            buttonClearRichTB.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            buttonClearRichTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            buttonClearRichTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            buttonClearRichTB.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            buttonClearRichTB.Location = new System.Drawing.Point(935, 7);
-            buttonClearRichTB.Margin = new System.Windows.Forms.Padding(4);
-            buttonClearRichTB.Name = "buttonClearRichTB";
-            buttonClearRichTB.Size = new System.Drawing.Size(72, 23);
-            buttonClearRichTB.TabIndex = 7;
-            buttonClearRichTB.Text = "Clear";
-            buttonClearRichTB.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            toolTip1.SetToolTip(buttonClearRichTB, "Clear Textbox");
-            buttonClearRichTB.UseVisualStyleBackColor = false;
-            buttonClearRichTB.Click += buttonClearRichTB_Click;
-            // 
-            // btnDecreaseFont
-            // 
-            btnDecreaseFont.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            btnDecreaseFont.BackColor = System.Drawing.Color.Transparent;
-            btnDecreaseFont.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            btnDecreaseFont.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            btnDecreaseFont.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            btnDecreaseFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnDecreaseFont.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            btnDecreaseFont.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            btnDecreaseFont.Location = new System.Drawing.Point(872, 7);
-            btnDecreaseFont.Name = "btnDecreaseFont";
-            btnDecreaseFont.Size = new System.Drawing.Size(31, 23);
-            btnDecreaseFont.TabIndex = 9;
-            btnDecreaseFont.Text = "-";
-            toolTip1.SetToolTip(btnDecreaseFont, "Decrease Font Size");
-            btnDecreaseFont.UseVisualStyleBackColor = false;
-            btnDecreaseFont.Click += btnDecreaseFont_Click;
-            // 
-            // btnIncreaseFont
-            // 
-            btnIncreaseFont.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            btnIncreaseFont.BackColor = System.Drawing.Color.Transparent;
-            btnIncreaseFont.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            btnIncreaseFont.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            btnIncreaseFont.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            btnIncreaseFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnIncreaseFont.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            btnIncreaseFont.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            btnIncreaseFont.Location = new System.Drawing.Point(835, 7);
-            btnIncreaseFont.Name = "btnIncreaseFont";
-            btnIncreaseFont.Size = new System.Drawing.Size(31, 23);
-            btnIncreaseFont.TabIndex = 8;
-            btnIncreaseFont.Text = "+";
-            toolTip1.SetToolTip(btnIncreaseFont, "Increase Font Size");
-            btnIncreaseFont.UseVisualStyleBackColor = false;
-            btnIncreaseFont.Click += btnIncreaseFont_Click;
-            // 
-            // panelBottom
-            // 
-            panelBottom.BackColor = System.Drawing.SystemColors.ControlDark;
-            panelBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelBottom.Controls.Add(btnDecreaseFont);
-            panelBottom.Controls.Add(btnIncreaseFont);
-            panelBottom.Controls.Add(buttonClearRichTB);
-            panelBottom.Controls.Add(buttonAdd);
-            panelBottom.Controls.Add(buttonClear);
-            panelBottom.Controls.Add(statusStrip1);
-            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panelBottom.Location = new System.Drawing.Point(0, 643);
-            panelBottom.Margin = new System.Windows.Forms.Padding(4);
-            panelBottom.Name = "panelBottom";
-            panelBottom.Size = new System.Drawing.Size(1071, 60);
-            panelBottom.TabIndex = 5;
-            // 
-            // statusStrip1
-            // 
-            statusStrip1.BackColor = System.Drawing.Color.DarkSlateGray;
-            statusStrip1.GripMargin = new System.Windows.Forms.Padding(0);
-            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel4, toolStripStatusLabel1, toolStripStatusLabel2, toolStripStatusLabel3, toolStripStatusLabel5, toolStripStatusLabel6 });
-            statusStrip1.Location = new System.Drawing.Point(0, 36);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new System.Drawing.Size(1069, 22);
-            statusStrip1.SizingGrip = false;
-            statusStrip1.TabIndex = 6;
-            statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel4
-            // 
-            toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            toolStripStatusLabel4.Size = new System.Drawing.Size(22, 17);
-            toolStripStatusLabel4.Text = "     ";
-            // 
-            // toolStripStatusLabel1
-            // 
-            toolStripStatusLabel1.ForeColor = System.Drawing.Color.NavajoWhite;
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new System.Drawing.Size(78, 17);
-            toolStripStatusLabel1.Text = "Catch mode: ";
-            // 
-            // toolStripStatusLabel2
-            // 
-            toolStripStatusLabel2.ForeColor = System.Drawing.Color.GreenYellow;
-            toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            toolStripStatusLabel2.Size = new System.Drawing.Size(22, 17);
-            toolStripStatusLabel2.Text = "off";
-            // 
-            // toolStripStatusLabel3
-            // 
-            toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            toolStripStatusLabel3.Size = new System.Drawing.Size(16, 17);
-            toolStripStatusLabel3.Text = "   ";
-            // 
-            // toolStripStatusLabel5
-            // 
-            toolStripStatusLabel5.ForeColor = System.Drawing.Color.NavajoWhite;
-            toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            toolStripStatusLabel5.Size = new System.Drawing.Size(86, 17);
-            toolStripStatusLabel5.Text = "You can paste: ";
-            // 
-            // toolStripStatusLabel6
-            // 
-            toolStripStatusLabel6.ForeColor = System.Drawing.Color.GreenYellow;
-            toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-            toolStripStatusLabel6.Size = new System.Drawing.Size(0, 17);
             // 
             // Browser
             // 
@@ -397,9 +254,10 @@ namespace Catch_It
             Browser.Enabled = false;
             Browser.Location = new System.Drawing.Point(0, 39);
             Browser.Name = "Browser";
-            Browser.Size = new System.Drawing.Size(673, 550);
+            Browser.Size = new System.Drawing.Size(673, 578);
             Browser.Source = new System.Uri("https://www.startpage.com", System.UriKind.Absolute);
             Browser.TabIndex = 10;
+            Browser.Visible = false;
             Browser.ZoomFactor = 1D;
             // 
             // splitContainer1
@@ -420,7 +278,7 @@ namespace Catch_It
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(splitContainer2);
-            splitContainer1.Size = new System.Drawing.Size(1071, 643);
+            splitContainer1.Size = new System.Drawing.Size(1071, 671);
             splitContainer1.SplitterDistance = 35;
             splitContainer1.TabIndex = 8;
             // 
@@ -440,7 +298,7 @@ namespace Catch_It
             menuStrip1.BackColor = System.Drawing.Color.DarkSlateGray;
             menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem1, toolStripTextBox1, menucomboBox1, tsmiFile, menuMisc, tsmiLoadRTB, menuSaveRichTextBox, viewBrowserToolStripMenuItem });
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tStripMenuItemStartRecording, tStripTextBoxSelectRecord, menucomboBox1, tsmiFile, menuMisc, tsmiLoadRTB, menuSaveRichTextBox, viewBrowserToolStripMenuItem });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new System.Windows.Forms.Padding(7, 7, 0, 7);
@@ -448,33 +306,33 @@ namespace Catch_It
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
-            // toolStripMenuItem1
+            // tStripMenuItemStartRecording
             // 
-            toolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            toolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new System.Drawing.Size(176, 21);
-            toolStripMenuItem1.Text = "Start Recording Clipboard";
-            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
+            tStripMenuItemStartRecording.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            tStripMenuItemStartRecording.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            tStripMenuItemStartRecording.ForeColor = System.Drawing.Color.White;
+            tStripMenuItemStartRecording.Name = "tStripMenuItemStartRecording";
+            tStripMenuItemStartRecording.Size = new System.Drawing.Size(176, 21);
+            tStripMenuItemStartRecording.Text = "Start Recording Clipboard";
+            tStripMenuItemStartRecording.Click += tStripMenuItemStartRecording_Click;
             // 
-            // toolStripTextBox1
+            // tStripTextBoxSelectRecord
             // 
-            toolStripTextBox1.BackColor = System.Drawing.Color.DarkSlateGray;
-            toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            toolStripTextBox1.ForeColor = System.Drawing.Color.White;
-            toolStripTextBox1.Name = "toolStripTextBox1";
-            toolStripTextBox1.ReadOnly = true;
-            toolStripTextBox1.Size = new System.Drawing.Size(100, 21);
-            toolStripTextBox1.Text = "Select record: ";
-            toolStripTextBox1.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            tStripTextBoxSelectRecord.BackColor = System.Drawing.Color.DarkSlateGray;
+            tStripTextBoxSelectRecord.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            tStripTextBoxSelectRecord.ForeColor = System.Drawing.Color.White;
+            tStripTextBoxSelectRecord.Name = "tStripTextBoxSelectRecord";
+            tStripTextBoxSelectRecord.ReadOnly = true;
+            tStripTextBoxSelectRecord.Size = new System.Drawing.Size(100, 21);
+            tStripTextBoxSelectRecord.Text = "Select record: ";
+            tStripTextBoxSelectRecord.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // menucomboBox1
             // 
             menucomboBox1.BackColor = System.Drawing.Color.LightSlateGray;
             menucomboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             menucomboBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            menucomboBox1.ForeColor = System.Drawing.Color.Black;
+            menucomboBox1.ForeColor = System.Drawing.Color.White;
             menucomboBox1.Name = "menucomboBox1";
             menucomboBox1.Size = new System.Drawing.Size(115, 21);
             menucomboBox1.ToolTipText = "Available records";
@@ -483,12 +341,16 @@ namespace Catch_It
             // 
             // tsmiFile
             // 
+            tsmiFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            tsmiFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             tsmiFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiAddNew, tsmiSave, tsmiDeleteRecord });
             tsmiFile.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             tsmiFile.ForeColor = System.Drawing.Color.White;
             tsmiFile.Name = "tsmiFile";
             tsmiFile.Size = new System.Drawing.Size(121, 21);
             tsmiFile.Text = "Manage Records";
+            tsmiFile.DropDownClosed += tsmiFile_DropDownClosed;
+            tsmiFile.DropDownOpening += tsmiFile_DropDownOpening;
             // 
             // tsmiAddNew
             // 
@@ -521,12 +383,14 @@ namespace Catch_It
             // 
             // menuMisc
             // 
-            menuMisc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { openNotepadToolStripMenuItem, tsmi_ColorSchemes, tsmiPrintColors });
+            menuMisc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { openNotepadToolStripMenuItem, tsmiPrintColors });
             menuMisc.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             menuMisc.ForeColor = System.Drawing.Color.White;
             menuMisc.Name = "menuMisc";
             menuMisc.Size = new System.Drawing.Size(51, 21);
             menuMisc.Text = "Tools";
+            menuMisc.DropDownClosed += tsmiFile_DropDownClosed;
+            menuMisc.DropDownOpening += tsmiFile_DropDownOpening;
             // 
             // openNotepadToolStripMenuItem
             // 
@@ -534,34 +398,6 @@ namespace Catch_It
             openNotepadToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             openNotepadToolStripMenuItem.Text = "Open Notepad++";
             openNotepadToolStripMenuItem.Click += menuOpenNotepadPlusPlus_Click;
-            // 
-            // tsmi_ColorSchemes
-            // 
-            tsmi_ColorSchemes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { defaultToolStripMenuItem, colorfulToolStripMenuItem, Dark });
-            tsmi_ColorSchemes.Name = "tsmi_ColorSchemes";
-            tsmi_ColorSchemes.Size = new System.Drawing.Size(184, 22);
-            tsmi_ColorSchemes.Text = "Color Schemes";
-            // 
-            // defaultToolStripMenuItem
-            // 
-            defaultToolStripMenuItem.Name = "defaultToolStripMenuItem";
-            defaultToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            defaultToolStripMenuItem.Text = "Default";
-            defaultToolStripMenuItem.Click += defaultToolStripMenuItem_Click;
-            // 
-            // colorfulToolStripMenuItem
-            // 
-            colorfulToolStripMenuItem.Name = "colorfulToolStripMenuItem";
-            colorfulToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            colorfulToolStripMenuItem.Text = "Colorful";
-            colorfulToolStripMenuItem.Click += colorfulToolStripMenuItem_Click;
-            // 
-            // Dark
-            // 
-            Dark.Name = "Dark";
-            Dark.Size = new System.Drawing.Size(123, 22);
-            Dark.Text = "Dark";
-            Dark.Click += Dark_Click;
             // 
             // tsmiPrintColors
             // 
@@ -618,7 +454,7 @@ namespace Catch_It
             splitContainer2.Panel2.Cursor = System.Windows.Forms.Cursors.Default;
             splitContainer2.Panel2.Padding = new System.Windows.Forms.Padding(0, 4, 10, 9);
             splitContainer2.Panel2MinSize = 20;
-            splitContainer2.Size = new System.Drawing.Size(1071, 604);
+            splitContainer2.Size = new System.Drawing.Size(1071, 632);
             splitContainer2.SplitterDistance = 381;
             splitContainer2.SplitterWidth = 5;
             splitContainer2.TabIndex = 6;
@@ -634,15 +470,27 @@ namespace Catch_It
             // 
             // splitContainer3.Panel1
             // 
-            splitContainer3.Panel1.Controls.Add(tStripLeftMain);
-            splitContainer3.Panel1.Controls.Add(dataGridView1);
+            splitContainer3.Panel1.Controls.Add(panel1);
             // 
             // splitContainer3.Panel2
             // 
-            splitContainer3.Panel2.Controls.Add(textBox1);
-            splitContainer3.Size = new System.Drawing.Size(371, 591);
-            splitContainer3.SplitterDistance = 499;
+            splitContainer3.Panel2.Controls.Add(panel2);
+            splitContainer3.Panel2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            splitContainer3.Size = new System.Drawing.Size(371, 619);
+            splitContainer3.SplitterDistance = 521;
             splitContainer3.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel1.Controls.Add(tStripLeftMain);
+            panel1.Controls.Add(dataGridView1);
+            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(371, 521);
+            panel1.TabIndex = 5;
             // 
             // tStripLeftMain
             // 
@@ -650,7 +498,7 @@ namespace Catch_It
             tStripLeftMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tStripBtnRowDown, toolStripSeparator1, toolStripSeparator2, tStripBtnRowUp, toolStripSeparator3, toolStripSeparator4, tStripBtnRowTop, toolStripSeparator5, toolStripSeparator6, tStripBtnRecordToTextEditor, toolStripSeparator11, toolStripSeparator14, tStripBtnClose });
             tStripLeftMain.Location = new System.Drawing.Point(0, 0);
             tStripLeftMain.Name = "tStripLeftMain";
-            tStripLeftMain.Size = new System.Drawing.Size(371, 25);
+            tStripLeftMain.Size = new System.Drawing.Size(369, 25);
             tStripLeftMain.TabIndex = 0;
             tStripLeftMain.Text = "toolStrip1";
             // 
@@ -750,41 +598,41 @@ namespace Catch_It
             dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(236, 236, 245);
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Consolas", 11.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(236, 236, 245);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 11.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.ContextMenuStrip = contextMenuStrip1;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(4, 8, 0, 8);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(50, 150, 50);
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
-            dataGridView1.Location = new System.Drawing.Point(0, 28);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4, 8, 0, 8);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(50, 150, 50);
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.Location = new System.Drawing.Point(0, 29);
             dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 5;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(100, 50, 50);
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(50, 50, 50);
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(100, 50, 50);
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             dataGridView1.ShowCellToolTips = false;
-            dataGridView1.Size = new System.Drawing.Size(371, 471);
+            dataGridView1.Size = new System.Drawing.Size(369, 490);
             dataGridView1.TabIndex = 4;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
@@ -793,6 +641,48 @@ namespace Catch_It
             dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
             dataGridView1.RowEnter += dataGridView1_RowEnter;
             dataGridView1.SizeChanged += dataGridView1_SizeChanged;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = System.Drawing.SystemColors.ControlDark;
+            panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel2.Controls.Add(toolStrip1);
+            panel2.Controls.Add(textBox1);
+            panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel2.Location = new System.Drawing.Point(0, 2);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(371, 92);
+            panel2.TabIndex = 3;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButton4, toolStripButton5 });
+            toolStrip1.Location = new System.Drawing.Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new System.Drawing.Size(369, 25);
+            toolStrip1.TabIndex = 2;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton4
+            // 
+            toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripButton4.Image = (System.Drawing.Image)resources.GetObject("toolStripButton4.Image");
+            toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButton4.Name = "toolStripButton4";
+            toolStripButton4.Size = new System.Drawing.Size(38, 22);
+            toolStripButton4.Text = "Clear";
+            toolStripButton4.Click += toolStripButton4_Click;
+            // 
+            // toolStripButton5
+            // 
+            toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripButton5.Image = (System.Drawing.Image)resources.GetObject("toolStripButton5.Image");
+            toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButton5.Name = "toolStripButton5";
+            toolStripButton5.Size = new System.Drawing.Size(88, 22);
+            toolStripButton5.Text = "Add To Record";
+            toolStripButton5.Click += toolStripButton5_Click;
             // 
             // panelRichTextBox
             // 
@@ -806,13 +696,13 @@ namespace Catch_It
             panelRichTextBox.Location = new System.Drawing.Point(0, 4);
             panelRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             panelRichTextBox.Name = "panelRichTextBox";
-            panelRichTextBox.Size = new System.Drawing.Size(675, 591);
+            panelRichTextBox.Size = new System.Drawing.Size(675, 619);
             panelRichTextBox.TabIndex = 3;
             // 
             // tStripRightMainTextEditor
             // 
             tStripRightMainTextEditor.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            tStripRightMainTextEditor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tStripBtnFind, tStripTextBoxFind, toolStripSeparator12, toolStripSeparator13, tStripBtnReplace, tStripTextBoxReplace });
+            tStripRightMainTextEditor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tStripBtnFind, tStripTextBoxFind, toolStripSeparator12, toolStripSeparator13, tStripBtnReplace, tStripTextBoxReplace, toolStripButton1, toolStripButton2, toolStripButton3 });
             tStripRightMainTextEditor.Location = new System.Drawing.Point(0, 0);
             tStripRightMainTextEditor.Name = "tStripRightMainTextEditor";
             tStripRightMainTextEditor.Size = new System.Drawing.Size(673, 25);
@@ -860,6 +750,36 @@ namespace Catch_It
             tStripTextBoxReplace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             tStripTextBoxReplace.Name = "tStripTextBoxReplace";
             tStripTextBoxReplace.Size = new System.Drawing.Size(200, 25);
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripButton1.Image = Properties.Resources.bin_metal_full;
+            toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new System.Drawing.Size(38, 22);
+            toolStripButton1.Text = "Clear";
+            toolStripButton1.Click += toolStripButton1_Click;
+            // 
+            // toolStripButton2
+            // 
+            toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripButton2.Image = (System.Drawing.Image)resources.GetObject("toolStripButton2.Image");
+            toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            toolStripButton2.Text = "+";
+            toolStripButton2.Click += toolStripButton2_Click;
+            // 
+            // toolStripButton3
+            // 
+            toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripButton3.Image = (System.Drawing.Image)resources.GetObject("toolStripButton3.Image");
+            toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            toolStripButton3.Text = "-";
+            toolStripButton3.Click += toolStripButton3_Click;
             // 
             // tStripRightMainBrowser
             // 
@@ -932,7 +852,7 @@ namespace Catch_It
             richTextBox1.Location = new System.Drawing.Point(0, 39);
             richTextBox1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new System.Drawing.Size(673, 550);
+            richTextBox1.Size = new System.Drawing.Size(673, 578);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             // 
@@ -948,6 +868,69 @@ namespace Catch_It
             panelContainsAll.Name = "panelContainsAll";
             panelContainsAll.Size = new System.Drawing.Size(1073, 705);
             panelContainsAll.TabIndex = 0;
+            // 
+            // panelBottom
+            // 
+            panelBottom.BackColor = System.Drawing.Color.Transparent;
+            panelBottom.Controls.Add(statusStrip1);
+            panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panelBottom.Location = new System.Drawing.Point(0, 671);
+            panelBottom.Margin = new System.Windows.Forms.Padding(4);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new System.Drawing.Size(1071, 32);
+            panelBottom.TabIndex = 5;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.BackColor = System.Drawing.Color.DarkSlateGray;
+            statusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            statusStrip1.GripMargin = new System.Windows.Forms.Padding(0);
+            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel4, toolStripStatusLabel1, toolStripStatusLabel2, toolStripStatusLabel3, toolStripStatusLabel5, toolStripStatusLabel6 });
+            statusStrip1.Location = new System.Drawing.Point(0, 0);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new System.Drawing.Size(1071, 32);
+            statusStrip1.SizingGrip = false;
+            statusStrip1.TabIndex = 6;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel4
+            // 
+            toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            toolStripStatusLabel4.Size = new System.Drawing.Size(22, 27);
+            toolStripStatusLabel4.Text = "     ";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.ForeColor = System.Drawing.Color.NavajoWhite;
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new System.Drawing.Size(78, 27);
+            toolStripStatusLabel1.Text = "Catch mode: ";
+            // 
+            // toolStripStatusLabel2
+            // 
+            toolStripStatusLabel2.ForeColor = System.Drawing.Color.GreenYellow;
+            toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            toolStripStatusLabel2.Size = new System.Drawing.Size(22, 27);
+            toolStripStatusLabel2.Text = "off";
+            // 
+            // toolStripStatusLabel3
+            // 
+            toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            toolStripStatusLabel3.Size = new System.Drawing.Size(16, 27);
+            toolStripStatusLabel3.Text = "   ";
+            // 
+            // toolStripStatusLabel5
+            // 
+            toolStripStatusLabel5.ForeColor = System.Drawing.Color.NavajoWhite;
+            toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            toolStripStatusLabel5.Size = new System.Drawing.Size(86, 27);
+            toolStripStatusLabel5.Text = "You can paste: ";
+            // 
+            // toolStripStatusLabel6
+            // 
+            toolStripStatusLabel6.ForeColor = System.Drawing.Color.GreenYellow;
+            toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            toolStripStatusLabel6.Size = new System.Drawing.Size(0, 27);
             // 
             // openFileDialog1
             // 
@@ -973,10 +956,6 @@ namespace Catch_It
             ResizeBegin += Form1_ResizeBegin;
             ResizeEnd += Form1_ResizeEnd;
             contextMenuStrip1.ResumeLayout(false);
-            panelBottom.ResumeLayout(false);
-            panelBottom.PerformLayout();
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Browser).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
@@ -991,14 +970,18 @@ namespace Catch_It
             ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
             splitContainer2.ResumeLayout(false);
             splitContainer3.Panel1.ResumeLayout(false);
-            splitContainer3.Panel1.PerformLayout();
             splitContainer3.Panel2.ResumeLayout(false);
-            splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
             splitContainer3.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             tStripLeftMain.ResumeLayout(false);
             tStripLeftMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             panelRichTextBox.ResumeLayout(false);
             panelRichTextBox.PerformLayout();
             tStripRightMainTextEditor.ResumeLayout(false);
@@ -1006,6 +989,10 @@ namespace Catch_It
             tStripRightMainBrowser.ResumeLayout(false);
             tStripRightMainBrowser.PerformLayout();
             panelContainsAll.ResumeLayout(false);
+            panelBottom.ResumeLayout(false);
+            panelBottom.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1019,8 +1006,6 @@ namespace Catch_It
         private System.Windows.Forms.ToolStripMenuItem cellLayout1_tsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Panel panelBottom;
-        private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -1036,30 +1021,15 @@ namespace Catch_It
         private System.Windows.Forms.Panel panelRichTextBox;
         private System.Windows.Forms.Panel panelContainsAll;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_ColorSchemes;
-        private System.Windows.Forms.ToolStripMenuItem defaultToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem colorfulToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiPrintColors;
         private System.Windows.Forms.ToolStripMenuItem tsmiFile;
         private System.Windows.Forms.ToolStripMenuItem tsmiAddNew;
         private System.Windows.Forms.ToolStripMenuItem tsmiSave;
         private System.Windows.Forms.ToolStripMenuItem tsmiDeleteRecord;
-        private System.Windows.Forms.ToolStripMenuItem Dark;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ToolStripMenuItem cellLayout6_tsMenuItem;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.Button btnDecreaseFont;
-        private System.Windows.Forms.Button btnIncreaseFont;
-        private System.Windows.Forms.Button buttonClearRichTB;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.ToolStripTextBox tStripTextBoxSelectRecord;
+        private System.Windows.Forms.ToolStripMenuItem tStripMenuItemStartRecording;
         private System.Windows.Forms.ToolStripMenuItem viewBrowserToolStripMenuItem;
         private Microsoft.Web.WebView2.WinForms.WebView2 Browser;
         private System.Windows.Forms.ToolStrip tStripLeftMain;
@@ -1092,6 +1062,25 @@ namespace Catch_It
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripButton tStripBtnClose;
         private System.Windows.Forms.ToolStripTextBox tStripTextBoxNewRecord;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.Panel panelBottom;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
+        private System.Windows.Forms.ToolStripMenuItem tStripMenuItemToTextBox;
     }
 }
 

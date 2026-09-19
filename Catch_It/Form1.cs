@@ -29,11 +29,8 @@ namespace Catch_It
         private Timer Timer1;
         private int widthForm = 1040;
         private int heightForm = 728;
-
         private string clipboardText = "a";
-
         private string lastEntry = "a";
-
         private bool clipboardGewijzigd
         {
             get
@@ -47,7 +44,6 @@ namespace Catch_It
                     && clipboardText != lastEntry;
             }
         }
-
         private List<Record> Records = new List<Record>();
         private Dictionary<string, string> styleDictionary = new Dictionary<string, string>();
         private static BindingSource Source;
@@ -55,7 +51,6 @@ namespace Catch_It
         private bool negeerSelectedItem = false;
         string file = "";
         int teller;
-        //Microsoft.Web.WebView2.WinForms.WebView2 Browser = new Microsoft.Web.WebView2.WinForms.WebView2();
         #endregion
 
         public Form1()
@@ -75,17 +70,20 @@ namespace Catch_It
             tStripRightMainTextEditor.Cursor = Cursors.Default;
             richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
             richTextBox1.SelectionIndent = 20;
-
+            this.Text = "Catch / © 2022 by Djools";
+            splitContainer2.IsSplitterFixed = false;
+            dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
         }
 
         // lezen van data in aparte class die alleen data levert aan Form1
         // schrijven van data is data leveren aan class die dit afhandelt
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = "Catch / © 2022 by Djools";
             LeesXMLFile();
-            splitContainer2.IsSplitterFixed = false;
-            dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SchrijfML();
         }
 
         #region Data File Dingen: Lees en Schrijf Xml - kan in aparte class
@@ -173,48 +171,6 @@ namespace Catch_It
         #endregion
 
         #region Events GUI 
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            SchrijfML();
-        }
-
-        // wordt getriggerd door button in top panel
-        private void OpenForm(Button btn)
-        {
-            splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-
-            if (btn.Text == "Open →")
-            {
-                this.Size = new Size(widthForm, heightForm);
-                splitContainer2.SplitterDistance = 364;
-                btn.Text = "Close";
-
-                buttonClearRichTB.Visible = true;
-                buttonClearRichTB.Enabled = true;
-                richTextBox1.Visible = true;
-                richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
-                panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
-                richTextBox1.ForeColor = Color.Black;
-            }
-            else
-            {
-                this.Size = new Size(423, heightForm);
-                splitContainer2.SplitterDistance = 364;
-                btn.Text = "Open →";
-
-                buttonClearRichTB.Visible = true;
-                buttonClearRichTB.Enabled = true;
-                richTextBox1.Visible = false;
-
-                richTextBox1.BackColor = System.Drawing.Color.Black;
-                panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
-            }
-
-            splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.None;
-        }
-
-
         private void Form1_ResizeBegin(object sender, EventArgs e)
         {
             this.SuspendLayout();
@@ -229,17 +185,6 @@ namespace Catch_It
 
             }
 
-            if (this.Size.Width > 480)
-            {
-                buttonClearRichTB.Visible = true;
-                buttonClearRichTB.Enabled = true;
-            }
-            else
-            {
-                buttonClearRichTB.Visible = false;
-                buttonClearRichTB.Enabled = false;
-            }
-
             this.ResumeLayout();
 
             splitContainer2.FixedPanel = FixedPanel.None;
@@ -247,16 +192,7 @@ namespace Catch_It
 
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
         {
-            if (this.Size.Width > 480)
-            {
-                buttonClearRichTB.Visible = true;
-                buttonClearRichTB.Enabled = true;
-            }
-            else
-            {
-                buttonClearRichTB.Visible = false;
-                buttonClearRichTB.Enabled = false;
-            }
+
         }
         #endregion
 
@@ -491,42 +427,6 @@ namespace Catch_It
                 System.IO.File.WriteAllText(sfd.FileName, richTextBox1.Text);
             }
         }
-
-        private void defaultToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            menuStrip1.BackColor = SystemColors.ActiveBorder;
-            dataGridView1.BackColor = Color.FromArgb(240, 240, 240);
-            richTextBox1.BackColor = Color.FromArgb(235, 235, 235);
-            panelBottom.BackColor = Color.FromArgb(125, 125, 125);
-            //panelBottomLeft.BackColor = Color.FromArgb(125, 125, 125);
-            textBox1.BackColor = Color.FromArgb(255, 255, 244);
-            this.BackColor = Color.FromArgb(125, 125, 122);
-            //menutextBox2.BackColor = Color.FromArgb(255, 255, 244);
-            menucomboBox1.BackColor = Color.FromArgb(255, 255, 244);
-        }
-
-        private void colorfulToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            menuStrip1.BackColor = Color.FromArgb(104, 204, 153);
-            dataGridView1.BackColor = Color.FromArgb(146, 146, 209);
-            richTextBox1.BackColor = Color.FromArgb(255, 155, 204);
-            panelBottom.BackColor = Color.FromArgb(255, 104, 102);
-            textBox1.BackColor = Color.FromArgb(155, 255, 204);
-        }
-
-        private void Dark_Click(object sender, EventArgs e)
-        {
-            menuStrip1.BackColor = SystemColors.ActiveBorder;
-            dataGridView1.BackColor = Color.FromArgb(240, 240, 240);
-            richTextBox1.BackColor = Color.FromArgb(235, 235, 235);
-            panelBottom.BackColor = Color.FromArgb(125, 125, 125);
-            //panelBottomLeft.BackColor = Color.FromArgb(125, 125, 125);
-            textBox1.BackColor = Color.FromArgb(255, 255, 244);
-            this.BackColor = Color.FromArgb(125, 125, 122);
-            //menutextBox2.BackColor = Color.FromArgb(255, 255, 244);
-            menucomboBox1.BackColor = Color.FromArgb(255, 255, 244);
-        }
-
         #endregion
 
         #region Events en andere DatagridView Dingen
@@ -570,46 +470,6 @@ namespace Catch_It
                 dataGridView1.CurrentCell = dataGridView1[0, bottom];
 
                 PasLayoutToe();
-            }
-        }
-        private void RowDown()
-        {
-            int row = dataGridView1.CurrentCell.RowIndex;
-            int totalrows = dataGridView1.Rows.Count;
-
-            string name = menucomboBox1.SelectedItem.ToString();
-            Record record = Records.First(n => n.Name == name);
-
-            Veld veld = new();
-            veld = record.Velden[row];
-
-            if (row < totalrows - 1)
-            {
-                record.Velden.RemoveAt(row);
-                record.Velden.Insert(row + 1, veld);
-                dataGridView1.CurrentCell = dataGridView1[0, row + 1];
-
-                PasLayoutToe();
-            }
-        }
-        private void RowUp()
-        {
-            if (dataGridView1.SelectedCells.Count > 0)
-            {
-                int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
-
-                if (rowIndex > 0)
-                {
-                    DataGridViewRow selectedRow = dataGridView1.Rows[rowIndex];
-                    DataGridViewRow rowAbove = dataGridView1.Rows[rowIndex - 1];
-
-                    // Swap the rows
-                    SwapRows(selectedRow, rowAbove);
-
-                    // Update the selected row
-                    dataGridView1.CurrentCell = dataGridView1.Rows[rowIndex - 1].Cells[0];
-                    PasLayoutToe();
-                }
             }
         }
         private void SwapRows(DataGridViewRow row1, DataGridViewRow row2)
@@ -784,7 +644,6 @@ namespace Catch_It
         /// Applies customized lay-out to datagridview
         /// </summary>
 
-        int tellerrrr = 0;
         private void PasLayoutToe()
         {
             dataGridView1.CurrentCell.Style.SelectionBackColor = Color.DarkSlateGray;
@@ -837,7 +696,6 @@ namespace Catch_It
 
                 counter++;
                 textBox1.Text = counter.ToString();
-                
             }
         }
         private string FormatKeyStyleDictionary(string value)
@@ -848,66 +706,6 @@ namespace Catch_It
             }
             return value;
         }
-        #endregion
-
-        #region Events Buttons Bottom Panel
-        private void buttonClear_Click(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-        }
-
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-            if (textBox1.TextLength > 0)
-            {
-                // voeg toe aan bestaand record
-
-                string recordName = menucomboBox1.SelectedItem.ToString();
-                Record r = Records.FirstOrDefault(x => x.Name == recordName);
-                Veld f = new Veld();
-                f.Entry = textBox1.Text;
-                r.Velden.Add(f);
-
-                string substring = f.Entry;
-                FormatKeyStyleDictionary(substring);
-
-                if (!styleDictionary.ContainsKey(r.Name + substring))
-                {
-                    styleDictionary.Add(r.Name + substring, "Regular");
-                    //EntryLengthDictionary.Add(r.Name + substring, f.Entry.Length);
-                }
-
-                PasLayoutToe();
-
-                textBox1.Clear();
-            }
-        }
-
-        private void buttonClearRichTB_Click(object sender, EventArgs e)
-        {
-            richTextBox1.Clear();
-            this.Refresh();
-        }
-
-        private void btnIncreaseFont_Click(object sender, EventArgs e)
-        {
-            richTextBox1.Font = new System.Drawing.Font(
-                richTextBox1.Font.FontFamily,
-                richTextBox1.Font.Size + 1,
-                richTextBox1.Font.Style,
-                richTextBox1.Font.Unit);
-        }
-
-        private void btnDecreaseFont_Click(object sender, EventArgs e)
-        {
-            richTextBox1.Font = new System.Drawing.Font(
-                richTextBox1.Font.FontFamily,
-                richTextBox1.Font.Size - 1,
-                richTextBox1.Font.Style,
-                richTextBox1.Font.Unit);
-        }
-
-
         #endregion
 
         #region Helper Code om app verder te ontwikkelen
@@ -945,39 +743,12 @@ namespace Catch_It
 
         #endregion
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ToolStripMenuItem status = sender as ToolStripMenuItem;
-
-            if (status.Text == "Stop Recording Clipboard")
-            {
-                Timer1.Stop();
-                Timer1.Enabled = false;
-                this.Text = "Catch / Status: off / © 2022 by Djools";
-                status.Text = "Start Recording Clipboard    ";
-                toolStripStatusLabel2.Text = "off";
-            }
-            else
-            {
-                Timer1.Enabled = true;
-                Timer1.Start();
-                this.Text = "Catch / Status: on / © 2022 by Djools";
-                status.Text = "Stop Recording Clipboard";
-                toolStripStatusLabel2.Text = "on";
-            }
-        }
-
         private void viewBrowserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
             if (tsmi.Text == "View Browser")
             {
                 tStripBtnOpenDevTools.Visible = true;
-                //label1.Enabled = true;
-                //label2.Visible = true;
-                //label2.Enabled = true;
-                //textBox2.Visible = true;
-                //textBox2.Enabled = true;
                 Browser.Enabled = true;
                 Browser.Visible = true;
                 tStripRightMainTextEditor.Visible = false;
@@ -985,12 +756,6 @@ namespace Catch_It
                 tStripRightMainBrowser.Visible = true;
                 tStripRightMainBrowser.Enabled = true;
 
-                btnIncreaseFont.Visible = false;
-                btnIncreaseFont.Enabled = false;
-                btnDecreaseFont.Visible = false;
-                btnDecreaseFont.Enabled = false;
-                buttonClearRichTB.Visible = false;
-                buttonClearRichTB.Enabled = false;
                 //Browser.CoreWebView2.Navigate("https://www.google.com");
                 //Browser.CoreWebView2.NewWindowRequested += (s, args) => args.NewWindow.OpenDevToolsWindow();
                 richTextBox1.Enabled = false;
@@ -999,21 +764,6 @@ namespace Catch_It
             }
             else if (tsmi.Text == "View Text Editor")
             {
-                btnIncreaseFont.Visible = true; 
-                btnIncreaseFont.Enabled = true;
-                btnDecreaseFont.Visible = true;
-                btnDecreaseFont.Enabled = true;
-                buttonClearRichTB.Visible = true;
-                buttonClearRichTB.Enabled = true;
-
-                //ButtonClearRichTB.Visible = true;
-
-                //label1.Enabled = false;
-                //label1.Visible = false;
-                //label2.Enabled = false;
-                //label2.Visible = false;
-                //textBox2.Visible = false;
-                //textBox2.Enabled = false;
                 richTextBox1.Enabled = true;
                 richTextBox1.Visible = true;
                 Browser.Enabled = false;
@@ -1101,8 +851,6 @@ namespace Catch_It
         {
             this.Size = new Size(widthForm, heightForm);
             splitContainer2.SplitterDistance = 364;
-            buttonClearRichTB.Visible = true;
-            buttonClearRichTB.Enabled = true;
             richTextBox1.Visible = true;
             richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
             panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
@@ -1114,26 +862,6 @@ namespace Catch_It
             richTextBox1.SelectionIndent = 20;
 
             splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            if (this.Size.Width <= 480)
-            {
-                buttonClearRichTB.Visible = false;
-                buttonClearRichTB.Enabled = false;
-            }
-            else
-            {
-                buttonClearRichTB.Visible = true;
-                buttonClearRichTB.Enabled = true;
-            }
-            if (this.Size.Width > 480)
-            {
-                buttonClearRichTB.Visible = true;
-                buttonClearRichTB.Enabled = true;
-            }
-            else
-            {
-                buttonClearRichTB.Visible = false;
-                buttonClearRichTB.Enabled = false;
-            }
 
             //System.Drawing.Font f = richTextBox1.SelectionFont;
             foreach (var veld in record.Velden)
@@ -1212,12 +940,6 @@ namespace Catch_It
                 splitContainer2.Panel2Collapsed = false;
 
                 panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
-                buttonClearRichTB.Visible = true;
-                buttonClearRichTB.Enabled = true;
-                btnIncreaseFont.Visible = true;
-                btnIncreaseFont.Enabled = true;
-                btnDecreaseFont.Visible = true;
-                btnDecreaseFont.Enabled = true;
             }
             else if (tsBtn.Text == "Close")
             {
@@ -1225,12 +947,6 @@ namespace Catch_It
                 splitContainer2.SplitterDistance = 364;
                 tsBtn.Text = "Open →";
                 splitContainer2.Panel2Collapsed = true;
-                buttonClearRichTB.Visible = false;
-                buttonClearRichTB.Enabled = false;
-                btnIncreaseFont.Visible = false;
-                btnIncreaseFont.Enabled = false;
-                btnDecreaseFont.Visible = false;
-                btnDecreaseFont.Enabled = false;
             }
 
             splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.None;
@@ -1321,7 +1037,107 @@ namespace Catch_It
 
 
             // nu het nieuwe Record is toegevoegd poetsen we de textbox waar we de naam ingaven.
-            
+
+        }
+
+        private void tStripMenuItemStartRecording_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem status = sender as ToolStripMenuItem;
+
+            if (status.Text == "Stop Recording Clipboard")
+            {
+                Timer1.Stop();
+                Timer1.Enabled = false;
+                this.Text = "Catch / Status: off / © 2022 by Djools";
+                status.Text = "Start Recording Clipboard    ";
+                toolStripStatusLabel2.Text = "off";
+            }
+            else
+            {
+                Timer1.Enabled = true;
+                Timer1.Start();
+                this.Text = "Catch / Status: on / © 2022 by Djools";
+                status.Text = "Stop Recording Clipboard";
+                toolStripStatusLabel2.Text = "on";
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+            this.Refresh();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Font = new System.Drawing.Font(
+                richTextBox1.Font.FontFamily,
+                richTextBox1.Font.Size + 1,
+                richTextBox1.Font.Style,
+                richTextBox1.Font.Unit
+                );
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Font = new System.Drawing.Font(
+                richTextBox1.Font.FontFamily,
+                richTextBox1.Font.Size - 1,
+                richTextBox1.Font.Style,
+                richTextBox1.Font.Unit);
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            if (textBox1.TextLength > 0)
+            {
+                // voeg toe aan bestaand record
+
+                string recordName = menucomboBox1.SelectedItem.ToString();
+                Record r = Records.FirstOrDefault(x => x.Name == recordName);
+                Veld f = new Veld();
+                f.Entry = textBox1.Text;
+                r.Velden.Add(f);
+
+                string substring = f.Entry;
+                FormatKeyStyleDictionary(substring);
+
+                if (!styleDictionary.ContainsKey(r.Name + substring))
+                {
+                    styleDictionary.Add(r.Name + substring, "Regular");
+                    //EntryLengthDictionary.Add(r.Name + substring, f.Entry.Length);
+                }
+
+                PasLayoutToe();
+
+                textBox1.Clear();
+            }
+        }
+
+        private void tsmiFile_DropDownOpening(object sender, EventArgs e)
+        {
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+            tsmi.ForeColor = Color.Black;
+        }
+
+        private void tsmiFile_DropDownClosed(object sender, EventArgs e)
+        {
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+            tsmi.ForeColor = Color.White;
+        }
+
+        private void tStripMenuItemToTextBox_Click(object sender, EventArgs e)
+        {
+            string s = (string)dataGridView1.CurrentCell.Value;
+            if (!String.IsNullOrEmpty(s))
+            {
+                richTextBox1.AppendText(Environment.NewLine + s);
+            }
         }
     }
 

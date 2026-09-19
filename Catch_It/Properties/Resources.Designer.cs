@@ -59,5 +59,15 @@ namespace Catch_It.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bin_metal_full {
+            get {
+                object obj = ResourceManager.GetObject("bin-metal-full", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
