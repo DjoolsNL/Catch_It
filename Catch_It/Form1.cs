@@ -70,6 +70,11 @@ namespace Catch_It
             dataGridView1.DataSource = Source;
             menuStrip1.Cursor = System.Windows.Forms.Cursors.Arrow;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            tStripLeftMain.Cursor = Cursors.Default;
+            tStripRightMainBrowser.Cursor = Cursors.Default;
+            tStripRightMainTextEditor.Cursor = Cursors.Default;
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
+            richTextBox1.SelectionIndent = 20;
 
         }
 
@@ -81,13 +86,6 @@ namespace Catch_It
             LeesXMLFile();
             splitContainer2.IsSplitterFixed = false;
             dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            buttonListToRichTextBox.Cursor = System.Windows.Forms.Cursors.Default;
-            buttonOpen.Cursor = System.Windows.Forms.Cursors.Default;
-            buttonRowUp.Cursor = System.Windows.Forms.Cursors.Default;
-            buttonRowDown.Cursor = System.Windows.Forms.Cursors.Default;
-            buttonRowTopBottom.Cursor = System.Windows.Forms.Cursors.Default;
-            buttonReplace.Cursor = System.Windows.Forms.Cursors.Default;
-            buttonFind.Cursor = System.Windows.Forms.Cursors.Default;
         }
 
         #region Data File Dingen: Lees en Schrijf Xml - kan in aparte class
@@ -190,7 +188,6 @@ namespace Catch_It
 
             if (btn.Text == "Open →")
             {
-                toolTip1.SetToolTip(this.buttonOpen, "Close Right Textbox Section");
                 this.Size = new Size(widthForm, heightForm);
                 splitContainer2.SplitterDistance = 364;
                 btn.Text = "Close";
@@ -204,7 +201,6 @@ namespace Catch_It
             }
             else
             {
-                toolTip1.SetToolTip(this.buttonOpen, "Open Right Textbox Section");
                 this.Size = new Size(423, heightForm);
                 splitContainer2.SplitterDistance = 364;
                 btn.Text = "Open →";
@@ -315,11 +311,9 @@ namespace Catch_It
             }
         }
 
-
         #endregion
 
         #region Events MenuStrip Dingen
-
         private void menucomboBox1_Click(object sender, EventArgs e)
         {
             negeerSelectedItem = false;
@@ -355,63 +349,63 @@ namespace Catch_It
 
         private void menuAddNew_Click(object sender, EventArgs e)
         {
-            if (menutextBox2.TextLength > 0)
-            {
-                // naam mag niet te lang zijn 
-                string newName = menutextBox2.Text;
-                if (newName.Length > 12)
-                {
-                    newName = newName[..12];
-                }
+            //if (menutextBox2.TextLength > 0)
+            //{
+            //    // naam mag niet te lang zijn 
+            //    string newName = menutextBox2.Text;
+            //    if (newName.Length > 12)
+            //    {
+            //        newName = newName[..12];
+            //    }
 
-                // en geen whitespace bevatten
-                while (newName.Contains(' '))
-                {
-                    newName = newName.Replace(" ", "");
-                }
+            //    // en geen whitespace bevatten
+            //    while (newName.Contains(' '))
+            //    {
+            //        newName = newName.Replace(" ", "");
+            //    }
 
-                // en de eerste letter wordt een hoofdletter
-                string last = newName[1..];
-                string first = newName[..1].ToUpper();
-                newName = first + last;
+            //    // en de eerste letter wordt een hoofdletter
+            //    string last = newName[1..];
+            //    string first = newName[..1].ToUpper();
+            //    newName = first + last;
 
-                // We maken een nieuw Record aan en voegen dat toe aan Franz
-                // Aan het nieuwe Record wordt alvast 1 veld toegevoegd
-                Record record = new Record();
-                Records.Add(record);
-                record.Name = newName;
-                Veld veld = new Veld();
-                veld.Entry = "Cought";
-                record.Velden.Add(veld);
+            //    // We maken een nieuw Record aan en voegen dat toe aan Franz
+            //    // Aan het nieuwe Record wordt alvast 1 veld toegevoegd
+            //    Record record = new Record();
+            //    Records.Add(record);
+            //    record.Name = newName;
+            //    Veld veld = new Veld();
+            //    veld.Entry = "Cought";
+            //    record.Velden.Add(veld);
 
-                // nieuwe veld in Record wordt ook in StyleDictionary opgenomen
-                string substring = veld.Entry;
-                FormatKeyStyleDictionary(substring);
+            //    // nieuwe veld in Record wordt ook in StyleDictionary opgenomen
+            //    string substring = veld.Entry;
+            //    FormatKeyStyleDictionary(substring);
 
-                if (!styleDictionary.ContainsKey(record.Name + substring))
-                {
-                    styleDictionary.Add(record.Name + substring, "Regular");
-                }
+            //    if (!styleDictionary.ContainsKey(record.Name + substring))
+            //    {
+            //        styleDictionary.Add(record.Name + substring, "Regular");
+            //    }
 
-                negeerSelectedItem = false;
+            //    negeerSelectedItem = false;
 
-                // Hele zooi wordt opnieuw gebonden
-                Source = new BindingSource(record.Velden, null);
-                dataGridView1.DataSource = Source;
+            //    // Hele zooi wordt opnieuw gebonden
+            //    Source = new BindingSource(record.Velden, null);
+            //    dataGridView1.DataSource = Source;
 
-                // nieuw Record wordt aan combobox toegevoegd
-                menucomboBox1.Items.Add(record.Name);
-                menucomboBox1.SelectedItem = record.Name;
+            //    // nieuw Record wordt aan combobox toegevoegd
+            //    menucomboBox1.Items.Add(record.Name);
+            //    menucomboBox1.SelectedItem = record.Name;
 
-                // In de menustrip wordt een item en event toegevoegd zodat we dit nieuwe Record ook weer
-                // kunnen verwijderen
-                ToolStripMenuItem tsmiDelete = new ToolStripMenuItem(record.Name);
-                tsmiDeleteRecord.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiDelete });
-                tsmiDelete.Click += new System.EventHandler(menuDelete_Click);
-            }
+            //    // In de menustrip wordt een item en event toegevoegd zodat we dit nieuwe Record ook weer
+            //    // kunnen verwijderen
+            //    ToolStripMenuItem tsmiDelete = new ToolStripMenuItem(record.Name);
+            //    tsmiDeleteRecord.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiDelete });
+            //    tsmiDelete.Click += new System.EventHandler(menuDelete_Click);
+            //}
 
-            // nu het nieuwe Record is toegevoegd poetsen we de textbox waar we de naam ingaven.
-            menutextBox2.Text = "";
+            //// nu het nieuwe Record is toegevoegd poetsen we de textbox waar we de naam ingaven.
+            //menutextBox2.Text = "";
         }
 
         private void menuSave_Click(object sender, EventArgs e)
@@ -502,7 +496,6 @@ namespace Catch_It
 
         private void defaultToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(125, 125, 122);
             menuStrip1.BackColor = SystemColors.ActiveBorder;
             dataGridView1.BackColor = Color.FromArgb(240, 240, 240);
             richTextBox1.BackColor = Color.FromArgb(235, 235, 235);
@@ -510,18 +503,13 @@ namespace Catch_It
             //panelBottomLeft.BackColor = Color.FromArgb(125, 125, 125);
             textBox1.BackColor = Color.FromArgb(255, 255, 244);
             this.BackColor = Color.FromArgb(125, 125, 122);
-            menutextBox2.BackColor = Color.FromArgb(255, 255, 244);
+            //menutextBox2.BackColor = Color.FromArgb(255, 255, 244);
             menucomboBox1.BackColor = Color.FromArgb(255, 255, 244);
-            foreach (var item in panel1.Controls.OfType<Button>())
-            {
-                item.ForeColor = Color.FromArgb(255, 255, 255);
-            }
         }
 
         private void colorfulToolStripMenuItem_Click(object sender, EventArgs e)
         {
             menuStrip1.BackColor = Color.FromArgb(104, 204, 153);
-            panel1.BackColor = Color.FromArgb(255, 204, 162);
             dataGridView1.BackColor = Color.FromArgb(146, 146, 209);
             richTextBox1.BackColor = Color.FromArgb(255, 155, 204);
             panelBottom.BackColor = Color.FromArgb(255, 104, 102);
@@ -530,7 +518,6 @@ namespace Catch_It
 
         private void Dark_Click(object sender, EventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(125, 125, 122);
             menuStrip1.BackColor = SystemColors.ActiveBorder;
             dataGridView1.BackColor = Color.FromArgb(240, 240, 240);
             richTextBox1.BackColor = Color.FromArgb(235, 235, 235);
@@ -538,186 +525,13 @@ namespace Catch_It
             //panelBottomLeft.BackColor = Color.FromArgb(125, 125, 125);
             textBox1.BackColor = Color.FromArgb(255, 255, 244);
             this.BackColor = Color.FromArgb(125, 125, 122);
-            menutextBox2.BackColor = Color.FromArgb(255, 255, 244);
+            //menutextBox2.BackColor = Color.FromArgb(255, 255, 244);
             menucomboBox1.BackColor = Color.FromArgb(255, 255, 244);
         }
 
         #endregion
 
-        #region Events Buttons Top Panel
-
-        private void buttonStop_Click(object sender, EventArgs e)
-        {
-            //Button btn = sender as Button;
-
-            //if (btn.Text == "Stop")
-            //{
-            //    Timer1.Stop();
-            //    Timer1.Enabled = false;
-            //    this.Text = "Catch / Status: off / © 2022 by Djools";
-            //    btn.Text = "Start";
-            //    toolStripStatusLabel2.Text = "off";
-            //}
-            //else
-            //{
-            //    Timer1.Enabled = true;
-            //    Timer1.Start();
-            //    this.Text = "Catch / Status: on / © 2022 by Djools";
-            //    btn.Text = "Stop";
-            //    toolStripStatusLabel2.Text = "on";
-            //}
-        }
-
-        private void buttonRowDown_Click(object sender, EventArgs e)
-        {
-            RowDown();
-        }
-
-        private void buttonRowUp_Click(object sender, EventArgs e)
-        {
-            RowUp();
-        }
-
-        private void buttonRowTopBottom_Click_1(object sender, EventArgs e)
-        {
-            if (buttonRowTopBottom.Text == "Top ↑")
-            {
-                RowToTop();
-                buttonRowTopBottom.Text = "Bottom ↓";
-            }
-            else
-            {
-                RowToBottom();
-                buttonRowTopBottom.Text = "Top ↑";
-            }
-        }
-
-        private void buttonRecordToRichTextBox_Click(object sender, EventArgs e)
-        {
-            this.Size = new Size(widthForm, heightForm);
-            splitContainer2.SplitterDistance = 364;
-            buttonClearRichTB.Visible = true;
-            buttonClearRichTB.Enabled = true;
-            richTextBox1.Visible = true;
-            richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
-            panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
-
-            richTextBox1.Clear();
-            string name = menucomboBox1.SelectedItem.ToString();
-            Record record = Records.First(r => r.Name == name);
-            richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
-            richTextBox1.SelectionIndent = 20;
-
-            splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            if (this.Size.Width <= 480)
-            {
-                buttonClearRichTB.Visible = false;
-                buttonClearRichTB.Enabled = false;
-            }
-            else
-            {
-                buttonClearRichTB.Visible = true;
-                buttonClearRichTB.Enabled = true;
-            }
-            if (this.Size.Width > 480)
-            {
-                buttonClearRichTB.Visible = true;
-                buttonClearRichTB.Enabled = true;
-            }
-            else
-            {
-                buttonClearRichTB.Visible = false;
-                buttonClearRichTB.Enabled = false;
-            }
-
-            buttonOpen.Text = "Close";
-            //System.Drawing.Font f = richTextBox1.SelectionFont;
-            foreach (var veld in record.Velden)
-            {
-                teller++;
-                if (teller % 2 == 0)
-                {
-                    richTextBox1.SelectionColor = Color.Black;
-                }
-                else
-                {
-                    richTextBox1.SelectionColor = Color.Black;
-                }
-                richTextBox1.AppendText(veld.Entry);
-                richTextBox1.AppendText(Environment.NewLine);
-                richTextBox1.SelectionColor = Color.FromArgb(102, 102, 102);
-            }
-            splitContainer2.FixedPanel = FixedPanel.None;
-        }
-
-        private void buttonOpen_Click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            OpenForm(btn);
-        }
-
-        private void buttonFind_Click(object sender, EventArgs e)
-        {
-            Timer1.Stop();
-            Timer1.Enabled = false;
-
-            string word = textBoxFind.Text.Length > 0 ? textBoxFind.Text : (string)dataGridView1.CurrentCell.Value;
-
-            richTextBox1.SelectionStart = 0;
-            richTextBox1.SelectionLength = richTextBox1.Text.Length;
-            richTextBox1.SelectionBackColor = System.Drawing.Color.Black;
-
-            int Index = 0;
-            while (Index < richTextBox1.TextLength)
-            {
-                int wordStartIndex = richTextBox1.Find(word, Index, RichTextBoxFinds.None);
-                if (wordStartIndex > -1)
-                {
-                    richTextBox1.SelectionStart = wordStartIndex;
-                    richTextBox1.SelectionLength = word.Length;
-                    richTextBox1.SelectionBackColor = System.Drawing.Color.Yellow;
-
-                    Index = wordStartIndex + word.Length;
-                }
-                else
-                    break;
-            }
-
-            Timer1.Enabled = true;
-            Timer1.Start();
-        }
-
-        private void buttonReplace_Click(object sender, EventArgs e)
-        {
-            Timer1.Stop();
-            Timer1.Enabled = false;
-
-            if (richTextBox1.Text.Length > 0)
-            {
-                richTextBox1.Text = richTextBox1.Text.Replace(textBoxFind.Text, textBoxReplace.Text);
-            }
-
-            Timer1.Enabled = true;
-            Timer1.Start();
-        }
-
-
-        #endregion
-
         #region Events en andere DatagridView Dingen
-        private void InsertRow()
-        {
-            int row = dataGridView1.CurrentCell.RowIndex;
-            int indexRecordList = row + 1;
-
-            string rName = menucomboBox1.SelectedItem.ToString();
-            Record r = Records.First(n => n.Name == rName);
-            Veld f = new Veld();
-            f.Entry = "";
-            r.Velden.Insert(indexRecordList, f);
-
-            PasLayoutToe();
-        }
         private void RowToTop()
         {
             int rowIndex = dataGridView1.CurrentCell.RowIndex;
@@ -726,7 +540,7 @@ namespace Catch_It
 
             string name = menucomboBox1.SelectedItem.ToString();
             Record record = Records.First(n => n.Name == name);
-           
+
             Veld veld = new Veld();
             veld = record.Velden[rowIndex];
 
@@ -817,7 +631,8 @@ namespace Catch_It
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView1.CurrentCell.Style.SelectionBackColor = Color.FromArgb(75, 75, 75);
+            dataGridView1.CurrentCell.Style.SelectionBackColor = Color.DarkSlateGray;
+            dataGridView1.CurrentCell.Style.SelectionForeColor = Color.FromArgb(255, 255, 255);
             clipboardText = (string)dataGridView1.CurrentCell.Value;
             int lengte = clipboardText.Length;
             string weergaveStatusStrip = Regex.Replace(clipboardText, @"\r\n?|\n", " ");
@@ -829,15 +644,10 @@ namespace Catch_It
             {
                 toolStripStatusLabel6.Text = weergaveStatusStrip[..25].Trim() + "...";
             }
-
-
-            //dataGridView1.CurrentCell.Style.SelectionForeColor = Color.LightGreen;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //dataGridView1.CurrentCell.Style.SelectionBackColor = Color.FromArgb(50, 50, 50);
-            dataGridView1.CurrentCell.Style.SelectionForeColor = Color.FromArgb(0, 255, 0);
             if (e.ColumnIndex > -1)
             {
                 string s = (string)dataGridView1.CurrentCell.Value;
@@ -869,8 +679,6 @@ namespace Catch_It
                     }
                 }
             }
-
-
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -977,9 +785,11 @@ namespace Catch_It
         /// <summary>
         /// Applies customized lay-out to datagridview
         /// </summary>
+
+        int tellerrrr = 0;
         private void PasLayoutToe()
         {
-            dataGridView1.CurrentCell.Style.SelectionBackColor = Color.FromArgb(50, 50, 50);
+            dataGridView1.CurrentCell.Style.SelectionBackColor = Color.DarkSlateGray;
             string recordName = menucomboBox1.SelectedItem.ToString();
             Record record = Records.FirstOrDefault(x => x.Name == recordName);
 
@@ -999,7 +809,7 @@ namespace Catch_It
                 {
                     //cell.Style.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
                     cell.Style.ForeColor = Color.White;
-                    cell.Style.BackColor = Color.FromArgb(50, 50, 50);
+                    cell.Style.BackColor = Color.FromArgb(90, 90, 90);
                 }
                 if (styleDictionary[key] == "Red on white")
                 {
@@ -1014,20 +824,22 @@ namespace Catch_It
                 if (styleDictionary[key] == "Light pinkish")
                 {
                     cell.Style.ForeColor = Color.LightPink;
-                    cell.Style.BackColor = Color.FromArgb(50, 50, 50);
+                    cell.Style.BackColor = Color.FromArgb(90, 90, 90);
                 }
                 if (styleDictionary[key] == "Light blueish")
                 {
                     cell.Style.ForeColor = Color.FromArgb(156, 220, 218);
-                    cell.Style.BackColor = Color.FromArgb(30, 30, 30);
+                    cell.Style.BackColor = Color.FromArgb(90, 90, 90);
                 }
                 if (styleDictionary[key] == "Regular")
                 {
-                    cell.Style.ForeColor = Color.FromArgb(250, 250, 200);
-                    cell.Style.BackColor = SystemColors.ControlDark;
+                    cell.Style.ForeColor = Color.FromArgb(0, 0, 0);
+                    cell.Style.BackColor = SystemColors.ControlLight;
                 }
 
                 counter++;
+                textBox1.Text = counter.ToString();
+                
             }
         }
         private string FormatKeyStyleDictionary(string value)
@@ -1106,20 +918,6 @@ namespace Catch_It
         {
             StringBuilder sb = new StringBuilder();
 
-            foreach (var item in panel1.Controls.OfType<Button>())
-            {
-                sb.Append($"item.BackColor = Color.FromArgb({item.BackColor.R.ToString()}, {item.BackColor.G.ToString()}, {item.BackColor.B.ToString()}); ");
-                sb.Append(Environment.NewLine);
-            }
-            foreach (var item in panel1.Controls.OfType<Button>())
-            {
-                sb.Append($"item.ForeColor = Color.FromArgb({item.ForeColor.R.ToString()}, {item.ForeColor.G.ToString()}, {item.ForeColor.B.ToString()}); ");
-                sb.Append(Environment.NewLine);
-            }
-
-            sb.Append($"panel1.BackColor = Color.FromArgb({panel1.BackColor.R.ToString()}, {panel1.BackColor.G.ToString()}, {panel1.BackColor.B.ToString()});");
-            sb.Append(Environment.NewLine);
-
             sb.Append($"menuStrip1.BackColor = Color.FromArgb({menuStrip1.BackColor.R.ToString()}, {menuStrip1.BackColor.G.ToString()}, {menuStrip1.BackColor.B.ToString()});");
             sb.Append(Environment.NewLine);
 
@@ -1138,8 +936,8 @@ namespace Catch_It
             sb.Append($"this.BackColor = Color.FromArgb({this.BackColor.R.ToString()}, {this.BackColor.G.ToString()}, {this.BackColor.B.ToString()});");
             sb.Append(Environment.NewLine);
 
-            sb.Append($"menutextBox2.BackColor = Color.FromArgb({menutextBox2.BackColor.R.ToString()}, {menutextBox2.BackColor.G.ToString()}, {menutextBox2.BackColor.B.ToString()});");
-            sb.Append(Environment.NewLine);
+            //sb.Append($"menutextBox2.BackColor = Color.FromArgb({menutextBox2.BackColor.R.ToString()}, {menutextBox2.BackColor.G.ToString()}, {menutextBox2.BackColor.B.ToString()});");
+            //sb.Append(Environment.NewLine);
 
             sb.Append($"menucomboBox1.BackColor = Color.FromArgb({menucomboBox1.BackColor.R.ToString()}, {menucomboBox1.BackColor.G.ToString()}, {menucomboBox1.BackColor.B.ToString()});");
             sb.Append(Environment.NewLine);
@@ -1153,12 +951,12 @@ namespace Catch_It
         {
             ToolStripMenuItem status = sender as ToolStripMenuItem;
 
-            if (status.Text == "Stop")
+            if (status.Text == "Stop Recording Clipboard")
             {
                 Timer1.Stop();
                 Timer1.Enabled = false;
                 this.Text = "Catch / Status: off / © 2022 by Djools";
-                status.Text = "Start";
+                status.Text = "Start Recording Clipboard    ";
                 toolStripStatusLabel2.Text = "off";
             }
             else
@@ -1166,7 +964,7 @@ namespace Catch_It
                 Timer1.Enabled = true;
                 Timer1.Start();
                 this.Text = "Catch / Status: on / © 2022 by Djools";
-                status.Text = "Stop";
+                status.Text = "Stop Recording Clipboard";
                 toolStripStatusLabel2.Text = "on";
             }
         }
@@ -1176,47 +974,344 @@ namespace Catch_It
             ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
             if (tsmi.Text == "View Browser")
             {
-                buttonFind.Visible = false;
-                buttonFind.Enabled = false; 
-                buttonReplace.Visible = false; 
-                buttonReplace.Enabled = false;
-                textBoxFind.Visible = false;
-                textBoxFind.Enabled = false;
-                textBoxReplace.Visible = false;
-                textBoxReplace.Enabled = false;
-                label1.Visible = true;
-                label1.Enabled = true;
+                tStripBtnOpenDevTools.Visible = true;
+                //label1.Enabled = true;
+                //label2.Visible = true;
+                //label2.Enabled = true;
+                //textBox2.Visible = true;
+                //textBox2.Enabled = true;
                 Browser.Enabled = true;
                 Browser.Visible = true;
-                Browser.CoreWebView2.Navigate("https://www.google.com");
-                //Browser.CoreWebView2.OpenDevToolsWindow();
+                tStripRightMainTextEditor.Visible = false;
+                tStripRightMainTextEditor.Enabled = false;
+                tStripRightMainBrowser.Visible = true;
+                tStripRightMainBrowser.Enabled = true;
+
+                btnIncreaseFont.Visible = false;
+                btnIncreaseFont.Enabled = false;
+                btnDecreaseFont.Visible = false;
+                btnDecreaseFont.Enabled = false;
+                buttonClearRichTB.Visible = false;
+                buttonClearRichTB.Enabled = false;
+                //Browser.CoreWebView2.Navigate("https://www.google.com");
+                //Browser.CoreWebView2.NewWindowRequested += (s, args) => args.NewWindow.OpenDevToolsWindow();
                 richTextBox1.Enabled = false;
                 richTextBox1.Visible = false;
                 tsmi.Text = "View Text Editor";
             }
-            else
+            else if (tsmi.Text == "View Text Editor")
             {
-                buttonFind.Visible = true;
-                buttonFind.Enabled = true;
-                buttonReplace.Visible = true;
-                buttonReplace.Enabled = true;
-                textBoxFind.Visible = true;
-                textBoxFind.Enabled = true;
-                textBoxReplace.Visible = true;
-                textBoxReplace.Enabled = true;
-                label1.Enabled = false;
-                label1.Visible = false;
+                btnIncreaseFont.Visible = true; 
+                btnIncreaseFont.Enabled = true;
+                btnDecreaseFont.Visible = true;
+                btnDecreaseFont.Enabled = true;
+                buttonClearRichTB.Visible = true;
+                buttonClearRichTB.Enabled = true;
+
+                //ButtonClearRichTB.Visible = true;
+
+                //label1.Enabled = false;
+                //label1.Visible = false;
+                //label2.Enabled = false;
+                //label2.Visible = false;
+                //textBox2.Visible = false;
+                //textBox2.Enabled = false;
                 richTextBox1.Enabled = true;
                 richTextBox1.Visible = true;
                 Browser.Enabled = false;
                 Browser.Visible = false;
+                tStripRightMainBrowser.Visible = false;
+                tStripRightMainBrowser.Enabled = false;
+                tStripRightMainTextEditor.Visible = true;
+                tStripRightMainTextEditor.Enabled = true;
+
                 tsmi.Text = "View Browser";
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private async void Screenshot()
+        {
+            string name = Guid.NewGuid().ToString("N");
+            using FileStream stream = new(
+                $"C:\\Users\\dell\\Desktop\\{name}.png",
+                FileMode.Create);
+
+            await Browser.CoreWebView2.CapturePreviewAsync(
+                CoreWebView2CapturePreviewImageFormat.Png,
+                stream);
+        }
+
+        private void tStripBtnRowDown_Click(object sender, EventArgs e)
+        {
+
+            int row = dataGridView1.CurrentCell.RowIndex;
+            int totalrows = dataGridView1.Rows.Count;
+
+            string name = menucomboBox1.SelectedItem.ToString();
+            Record record = Records.First(n => n.Name == name);
+
+            Veld veld = new();
+            veld = record.Velden[row];
+
+            if (row < totalrows - 1)
+            {
+                record.Velden.RemoveAt(row);
+                record.Velden.Insert(row + 1, veld);
+                dataGridView1.CurrentCell = dataGridView1[0, row + 1];
+
+                PasLayoutToe();
+            }
+        }
+
+        private void tStripBtnRowUp_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedCells.Count > 0)
+            {
+                int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
+
+                if (rowIndex > 0)
+                {
+                    DataGridViewRow selectedRow = dataGridView1.Rows[rowIndex];
+                    DataGridViewRow rowAbove = dataGridView1.Rows[rowIndex - 1];
+
+                    // Swap the rows
+                    SwapRows(selectedRow, rowAbove);
+
+                    // Update the selected row
+                    dataGridView1.CurrentCell = dataGridView1.Rows[rowIndex - 1].Cells[0];
+                    PasLayoutToe();
+                }
+            }
+        }
+
+        private void tStripBtnRowTop_Click(object sender, EventArgs e)
+        {
+
+            if (tStripBtnRowTop.Text == "Top ↑")
+            {
+                RowToTop();
+                tStripBtnRowTop.Text = "Bottom ↓";
+            }
+            else
+            {
+                RowToBottom();
+                tStripBtnRowTop.Text = "Top ↑";
+            }
+        }
+
+        private void tStripBtnRecordToTextEditor_Click(object sender, EventArgs e)
+        {
+            this.Size = new Size(widthForm, heightForm);
+            splitContainer2.SplitterDistance = 364;
+            buttonClearRichTB.Visible = true;
+            buttonClearRichTB.Enabled = true;
+            richTextBox1.Visible = true;
+            richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+            panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+
+            richTextBox1.Clear();
+            string name = menucomboBox1.SelectedItem.ToString();
+            Record record = Records.First(r => r.Name == name);
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
+            richTextBox1.SelectionIndent = 20;
+
+            splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            if (this.Size.Width <= 480)
+            {
+                buttonClearRichTB.Visible = false;
+                buttonClearRichTB.Enabled = false;
+            }
+            else
+            {
+                buttonClearRichTB.Visible = true;
+                buttonClearRichTB.Enabled = true;
+            }
+            if (this.Size.Width > 480)
+            {
+                buttonClearRichTB.Visible = true;
+                buttonClearRichTB.Enabled = true;
+            }
+            else
+            {
+                buttonClearRichTB.Visible = false;
+                buttonClearRichTB.Enabled = false;
+            }
+
+            //System.Drawing.Font f = richTextBox1.SelectionFont;
+            foreach (var veld in record.Velden)
+            {
+                teller++;
+                if (teller % 2 == 0)
+                {
+                    richTextBox1.SelectionColor = Color.Black;
+                }
+                else
+                {
+                    richTextBox1.SelectionColor = Color.Black;
+                }
+                richTextBox1.AppendText(veld.Entry);
+                richTextBox1.AppendText(Environment.NewLine);
+                richTextBox1.SelectionColor = Color.FromArgb(102, 102, 102);
+            }
+            splitContainer2.FixedPanel = FixedPanel.None;
+        }
+
+        private void tStripBtnFind_Click(object sender, EventArgs e)
+        {
+            Timer1.Stop();
+            Timer1.Enabled = false;
+
+            string word = tStripTextBoxFind.Text.Length > 0 ? tStripTextBoxFind.Text : (string)dataGridView1.CurrentCell.Value;
+
+            richTextBox1.SelectionStart = 0;
+            richTextBox1.SelectionLength = richTextBox1.Text.Length;
+            richTextBox1.SelectionBackColor = System.Drawing.Color.Black;
+
+            int Index = 0;
+            while (Index < richTextBox1.TextLength)
+            {
+                int wordStartIndex = richTextBox1.Find(word, Index, RichTextBoxFinds.None);
+                if (wordStartIndex > -1)
+                {
+                    richTextBox1.SelectionStart = wordStartIndex;
+                    richTextBox1.SelectionLength = word.Length;
+                    richTextBox1.SelectionBackColor = System.Drawing.Color.Yellow;
+
+                    Index = wordStartIndex + word.Length;
+                }
+                else
+                    break;
+            }
+
+            Timer1.Enabled = true;
+            Timer1.Start();
+        }
+
+        private void tStripBtnReplace_Click(object sender, EventArgs e)
+        {
+            Timer1.Stop();
+            Timer1.Enabled = false;
+
+            if (richTextBox1.Text.Length > 0)
+            {
+                richTextBox1.Text = richTextBox1.Text.Replace(tStripTextBoxFind.Text, tStripTextBoxReplace.Text);
+            }
+
+            Timer1.Enabled = true;
+            Timer1.Start();
+        }
+
+        private void tStripBtnClose_Click(object sender, EventArgs e)
+        {
+            ToolStripButton tsBtn = sender as ToolStripButton;
+            splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+
+            if (tsBtn.Text == "Open →")
+            {
+                this.Size = new Size(widthForm, heightForm);
+                splitContainer2.SplitterDistance = 364;
+                tsBtn.Text = "Close";
+                splitContainer2.Panel2Collapsed = false;
+
+                panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+            }
+            else if (tsBtn.Text == "Close")
+            {
+                this.Size = new Size(423, heightForm);
+                splitContainer2.SplitterDistance = 364;
+                tsBtn.Text = "Open →";
+                splitContainer2.Panel2Collapsed = true;
+            }
+
+            splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.None;
+        }
+
+        private void tStripBtnOpenDevTools_Click(object sender, EventArgs e)
         {
             Browser.CoreWebView2.OpenDevToolsWindow();
+        }
+
+        private void tStripBtnScreenshot_Click(object sender, EventArgs e)
+        {
+            Screenshot();
+        }
+
+        private void tStripTextBoxUrl_KeyDown(object sender, KeyEventArgs e)
+        {
+            ToolStripTextBox textBox = sender as ToolStripTextBox;
+            if (e.KeyCode == Keys.Enter)
+            {
+                Browser.CoreWebView2.Navigate(textBox.Text);
+            }
+        }
+
+        private void tStripTextBoxNewRecord_KeyDown(object sender, KeyEventArgs e)
+        {
+            ToolStripTextBox textBox = sender as ToolStripTextBox;
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (textBox.TextLength > 0)
+                {
+                    // naam mag niet te lang zijn 
+                    string newName = textBox.Text;
+                    if (newName.Length > 12)
+                    {
+                        newName = newName[..12];
+                    }
+
+                    // en geen whitespace bevatten
+                    while (newName.Contains(' '))
+                    {
+                        newName = newName.Replace(" ", "");
+                    }
+
+                    // en de eerste letter wordt een hoofdletter
+                    string last = newName[1..];
+                    string first = newName[..1].ToUpper();
+                    newName = first + last;
+
+                    // We maken een nieuw Record aan en voegen dat toe aan Franz
+                    // Aan het nieuwe Record wordt alvast 1 veld toegevoegd
+                    Record record = new Record();
+                    Records.Add(record);
+                    record.Name = newName;
+                    Veld veld = new Veld();
+                    veld.Entry = "Cought";
+                    record.Velden.Add(veld);
+
+                    // nieuwe veld in Record wordt ook in StyleDictionary opgenomen
+                    string substring = veld.Entry;
+                    FormatKeyStyleDictionary(substring);
+
+                    if (!styleDictionary.ContainsKey(record.Name + substring))
+                    {
+                        styleDictionary.Add(record.Name + substring, "Regular");
+                    }
+
+                    negeerSelectedItem = false;
+
+                    // Hele zooi wordt opnieuw gebonden
+                    Source = new BindingSource(record.Velden, null);
+                    dataGridView1.DataSource = Source;
+
+                    // nieuw Record wordt aan combobox toegevoegd
+                    menucomboBox1.Items.Add(record.Name);
+                    menucomboBox1.SelectedItem = record.Name;
+
+                    // In de menustrip wordt een item en event toegevoegd zodat we dit nieuwe Record ook weer
+                    // kunnen verwijderen
+                    ToolStripMenuItem tsmiDelete = new ToolStripMenuItem(record.Name);
+                    tsmiDeleteRecord.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiDelete });
+                    tsmiDelete.Click += new System.EventHandler(menuDelete_Click);
+                    textBox.Text = "";
+                }
+
+            }
+
+
+            // nu het nieuwe Record is toegevoegd poetsen we de textbox waar we de naam ingaven.
+            
         }
     }
 
