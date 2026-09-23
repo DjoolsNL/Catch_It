@@ -35,16 +35,16 @@ namespace Catch_It
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
+            tStripMenuItemToTextBox = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
+            freezeStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             cellLayout1_tsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             cellLayout2_tsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             cellLayout3_tsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             cellLayout4_tsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             cellLayout5_tsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             cellLayout6_tsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
-            freezeStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
-            tStripMenuItemToTextBox = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
             textBox1 = new System.Windows.Forms.TextBox();
@@ -82,6 +82,10 @@ namespace Catch_It
             tStripBtnRecordToTextEditor = new System.Windows.Forms.ToolStripButton();
             toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             tStripBtnClose = new System.Windows.Forms.ToolStripButton();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             panel2 = new System.Windows.Forms.Panel();
@@ -153,8 +157,35 @@ namespace Catch_It
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new System.Drawing.Size(154, 192);
             // 
+            // tStripMenuItemToTextBox
+            // 
+            tStripMenuItemToTextBox.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            tStripMenuItemToTextBox.Name = "tStripMenuItemToTextBox";
+            tStripMenuItemToTextBox.Size = new System.Drawing.Size(153, 22);
+            tStripMenuItemToTextBox.Text = "To Textbox";
+            tStripMenuItemToTextBox.Click += tStripMenuItemToTextBox_Click;
+            // 
+            // toolStripSeparator16
+            // 
+            toolStripSeparator16.Name = "toolStripSeparator16";
+            toolStripSeparator16.Size = new System.Drawing.Size(150, 6);
+            // 
+            // freezeStripMenuItem
+            // 
+            freezeStripMenuItem.Name = "freezeStripMenuItem";
+            freezeStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            freezeStripMenuItem.Text = "Freeze Item";
+            freezeStripMenuItem.Click += FreezeStripMenuItem_Click;
+            // 
+            // toolStripSeparator15
+            // 
+            toolStripSeparator15.Name = "toolStripSeparator15";
+            toolStripSeparator15.Size = new System.Drawing.Size(150, 6);
+            // 
             // cellLayout1_tsMenuItem
             // 
+            cellLayout1_tsMenuItem.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            cellLayout1_tsMenuItem.ForeColor = System.Drawing.Color.White;
             cellLayout1_tsMenuItem.Name = "cellLayout1_tsMenuItem";
             cellLayout1_tsMenuItem.Size = new System.Drawing.Size(153, 22);
             cellLayout1_tsMenuItem.Text = "White on black";
@@ -162,7 +193,8 @@ namespace Catch_It
             // 
             // cellLayout2_tsMenuItem
             // 
-            cellLayout2_tsMenuItem.BackColor = System.Drawing.Color.FromArgb(218, 216, 234);
+            cellLayout2_tsMenuItem.BackColor = System.Drawing.SystemColors.ScrollBar;
+            cellLayout2_tsMenuItem.ForeColor = System.Drawing.Color.Purple;
             cellLayout2_tsMenuItem.Name = "cellLayout2_tsMenuItem";
             cellLayout2_tsMenuItem.Size = new System.Drawing.Size(153, 22);
             cellLayout2_tsMenuItem.Text = "Light purplish";
@@ -170,7 +202,8 @@ namespace Catch_It
             // 
             // cellLayout3_tsMenuItem
             // 
-            cellLayout3_tsMenuItem.BackColor = System.Drawing.Color.FromArgb(255, 180, 180);
+            cellLayout3_tsMenuItem.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            cellLayout3_tsMenuItem.ForeColor = System.Drawing.Color.LightPink;
             cellLayout3_tsMenuItem.Name = "cellLayout3_tsMenuItem";
             cellLayout3_tsMenuItem.Size = new System.Drawing.Size(153, 22);
             cellLayout3_tsMenuItem.Text = "Light pinkish";
@@ -178,7 +211,8 @@ namespace Catch_It
             // 
             // cellLayout4_tsMenuItem
             // 
-            cellLayout4_tsMenuItem.BackColor = System.Drawing.Color.FromArgb(211, 232, 225);
+            cellLayout4_tsMenuItem.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            cellLayout4_tsMenuItem.ForeColor = System.Drawing.Color.FromArgb(156, 220, 218);
             cellLayout4_tsMenuItem.Name = "cellLayout4_tsMenuItem";
             cellLayout4_tsMenuItem.Size = new System.Drawing.Size(153, 22);
             cellLayout4_tsMenuItem.Text = "Light blueish";
@@ -194,36 +228,12 @@ namespace Catch_It
             // 
             // cellLayout6_tsMenuItem
             // 
-            cellLayout6_tsMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
-            cellLayout6_tsMenuItem.ForeColor = System.Drawing.Color.White;
+            cellLayout6_tsMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            cellLayout6_tsMenuItem.ForeColor = System.Drawing.Color.Black;
             cellLayout6_tsMenuItem.Name = "cellLayout6_tsMenuItem";
             cellLayout6_tsMenuItem.Size = new System.Drawing.Size(153, 22);
             cellLayout6_tsMenuItem.Text = "Regular";
             cellLayout6_tsMenuItem.Click += cellLayout6_tsMenuItem_Click;
-            // 
-            // toolStripSeparator15
-            // 
-            toolStripSeparator15.Name = "toolStripSeparator15";
-            toolStripSeparator15.Size = new System.Drawing.Size(150, 6);
-            // 
-            // freezeStripMenuItem
-            // 
-            freezeStripMenuItem.Name = "freezeStripMenuItem";
-            freezeStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            freezeStripMenuItem.Text = "Freeze Item";
-            freezeStripMenuItem.Click += FreezeStripMenuItem_Click;
-            // 
-            // toolStripSeparator16
-            // 
-            toolStripSeparator16.Name = "toolStripSeparator16";
-            toolStripSeparator16.Size = new System.Drawing.Size(150, 6);
-            // 
-            // tStripMenuItemToTextBox
-            // 
-            tStripMenuItemToTextBox.Name = "tStripMenuItemToTextBox";
-            tStripMenuItemToTextBox.Size = new System.Drawing.Size(153, 22);
-            tStripMenuItemToTextBox.Text = "To Textbox";
-            tStripMenuItemToTextBox.Click += tStripMenuItemToTextBox_Click;
             // 
             // toolStripMenuItem3
             // 
@@ -495,7 +505,7 @@ namespace Catch_It
             // tStripLeftMain
             // 
             tStripLeftMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            tStripLeftMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tStripBtnRowDown, toolStripSeparator1, toolStripSeparator2, tStripBtnRowUp, toolStripSeparator3, toolStripSeparator4, tStripBtnRowTop, toolStripSeparator5, toolStripSeparator6, tStripBtnRecordToTextEditor, toolStripSeparator11, toolStripSeparator14, tStripBtnClose });
+            tStripLeftMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tStripBtnRowDown, toolStripSeparator1, toolStripSeparator2, tStripBtnRowUp, toolStripSeparator3, toolStripSeparator4, tStripBtnRowTop, toolStripSeparator5, toolStripSeparator6, tStripBtnRecordToTextEditor, toolStripSeparator11, toolStripSeparator14, toolStripDropDownButton1, toolStripSeparator17, toolStripSeparator18, tStripBtnClose });
             tStripLeftMain.Location = new System.Drawing.Point(0, 0);
             tStripLeftMain.Name = "tStripLeftMain";
             tStripLeftMain.Size = new System.Drawing.Size(369, 25);
@@ -581,6 +591,33 @@ namespace Catch_It
             // 
             toolStripSeparator14.Name = "toolStripSeparator14";
             toolStripSeparator14.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripDropDownButton1
+            // 
+            toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripTextBox1 });
+            toolStripDropDownButton1.Image = (System.Drawing.Image)resources.GetObject("toolStripDropDownButton1.Image");
+            toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            toolStripDropDownButton1.Size = new System.Drawing.Size(43, 22);
+            toolStripDropDownButton1.Text = "Find";
+            // 
+            // toolStripTextBox1
+            // 
+            toolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            toolStripTextBox1.Name = "toolStripTextBox1";
+            toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            toolStripTextBox1.KeyDown += toolStripTextBox1_KeyDown;
+            // 
+            // toolStripSeparator17
+            // 
+            toolStripSeparator17.Name = "toolStripSeparator17";
+            toolStripSeparator17.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator18
+            // 
+            toolStripSeparator18.Name = "toolStripSeparator18";
+            toolStripSeparator18.Size = new System.Drawing.Size(6, 25);
             // 
             // tStripBtnClose
             // 
@@ -1081,6 +1118,10 @@ namespace Catch_It
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
         private System.Windows.Forms.ToolStripMenuItem tStripMenuItemToTextBox;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
     }
 }
 

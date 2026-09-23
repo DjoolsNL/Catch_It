@@ -73,6 +73,7 @@ namespace Catch_It
             this.Text = "Catch / © 2022 by Djools";
             splitContainer2.IsSplitterFixed = false;
             dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
+
         }
 
         // lezen van data in aparte class die alleen data levert aan Form1
@@ -93,6 +94,8 @@ namespace Catch_It
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
             String path = Directory.GetCurrentDirectory();
             xmlRoot = XElement.Load(path + "\\Catch.xml");
+
+            //xmlRoot.Elements().
 
             foreach (var xmlRecord in xmlRoot.Elements())
             {
@@ -1139,10 +1142,33 @@ namespace Catch_It
                 richTextBox1.AppendText(Environment.NewLine + s);
             }
         }
+
+        private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            ToolStripTextBox textBox = sender as ToolStripTextBox;
+            if (e.KeyCode == Keys.Enter)
+            {
+                foreach (var record in Records)
+                {
+                    var aaa  = record.Velden.Where(v => v.Entry.Contains(textBox.Text, StringComparison.OrdinalIgnoreCase));
+                    if (aaa.Any())
+                    {
+                        foreach (var item in aaa)
+                        {
+                            richTextBox1.AppendText(Environment.NewLine);
+                            richTextBox1.AppendText(item.Entry);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public class Record
     {
+        /*
+        public BindingList<string> Entries= new BindingList<string>(); 
+         */
         public Record() { }
         public string Name { get; set; }
         public BindingList<Veld> Velden = new BindingList<Veld>();
