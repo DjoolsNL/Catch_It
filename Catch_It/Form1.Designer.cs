@@ -66,6 +66,7 @@ namespace Catch_It
             tsmiLoadRTB = new System.Windows.Forms.ToolStripMenuItem();
             menuSaveRichTextBox = new System.Windows.Forms.ToolStripMenuItem();
             viewBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            viewPictureboxtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             splitContainer2 = new System.Windows.Forms.SplitContainer();
             splitContainer3 = new System.Windows.Forms.SplitContainer();
             panel1 = new System.Windows.Forms.Panel();
@@ -93,6 +94,7 @@ namespace Catch_It
             toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             panelRichTextBox = new System.Windows.Forms.Panel();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
             tStripRightMainTextEditor = new System.Windows.Forms.ToolStrip();
             tStripBtnFind = new System.Windows.Forms.ToolStripButton();
             tStripTextBoxFind = new System.Windows.Forms.ToolStripTextBox();
@@ -144,6 +146,7 @@ namespace Catch_It
             panel2.SuspendLayout();
             toolStrip1.SuspendLayout();
             panelRichTextBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tStripRightMainTextEditor.SuspendLayout();
             tStripRightMainBrowser.SuspendLayout();
             panelContainsAll.SuspendLayout();
@@ -308,7 +311,7 @@ namespace Catch_It
             menuStrip1.BackColor = System.Drawing.Color.DarkSlateGray;
             menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tStripMenuItemStartRecording, tStripTextBoxSelectRecord, menucomboBox1, tsmiFile, menuMisc, tsmiLoadRTB, menuSaveRichTextBox, viewBrowserToolStripMenuItem });
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tStripMenuItemStartRecording, tStripTextBoxSelectRecord, menucomboBox1, tsmiFile, menuMisc, tsmiLoadRTB, menuSaveRichTextBox, viewBrowserToolStripMenuItem, viewPictureboxtoolStripMenuItem });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new System.Windows.Forms.Padding(7, 7, 0, 7);
@@ -368,7 +371,6 @@ namespace Catch_It
             tsmiAddNew.Name = "tsmiAddNew";
             tsmiAddNew.Size = new System.Drawing.Size(160, 22);
             tsmiAddNew.Text = "New Record";
-            tsmiAddNew.Click += menuAddNew_Click;
             // 
             // tStripTextBoxNewRecord
             // 
@@ -442,6 +444,15 @@ namespace Catch_It
             viewBrowserToolStripMenuItem.Size = new System.Drawing.Size(101, 21);
             viewBrowserToolStripMenuItem.Text = "View Browser";
             viewBrowserToolStripMenuItem.Click += viewBrowserToolStripMenuItem_Click;
+            // 
+            // viewPictureboxtoolStripMenuItem
+            // 
+            viewPictureboxtoolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            viewPictureboxtoolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            viewPictureboxtoolStripMenuItem.Name = "viewPictureboxtoolStripMenuItem";
+            viewPictureboxtoolStripMenuItem.Size = new System.Drawing.Size(119, 21);
+            viewPictureboxtoolStripMenuItem.Text = "View Screenshot";
+            viewPictureboxtoolStripMenuItem.Click += viewPictureboxtoolStripMenuItem_Click;
             // 
             // splitContainer2
             // 
@@ -725,6 +736,7 @@ namespace Catch_It
             // 
             panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
             panelRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panelRichTextBox.Controls.Add(pictureBox1);
             panelRichTextBox.Controls.Add(tStripRightMainTextEditor);
             panelRichTextBox.Controls.Add(tStripRightMainBrowser);
             panelRichTextBox.Controls.Add(richTextBox1);
@@ -735,6 +747,17 @@ namespace Catch_It
             panelRichTextBox.Name = "panelRichTextBox";
             panelRichTextBox.Size = new System.Drawing.Size(675, 619);
             panelRichTextBox.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources._430355f79ac04668b2fb9d2ea7197143;
+            pictureBox1.InitialImage = (System.Drawing.Image)resources.GetObject("pictureBox1.InitialImage");
+            pictureBox1.Location = new System.Drawing.Point(-1, 32);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(1151, 860);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
             // 
             // tStripRightMainTextEditor
             // 
@@ -892,6 +915,7 @@ namespace Catch_It
             richTextBox1.Size = new System.Drawing.Size(673, 578);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
+            richTextBox1.Visible = false;
             // 
             // panelContainsAll
             // 
@@ -1021,6 +1045,7 @@ namespace Catch_It
             toolStrip1.PerformLayout();
             panelRichTextBox.ResumeLayout(false);
             panelRichTextBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tStripRightMainTextEditor.ResumeLayout(false);
             tStripRightMainTextEditor.PerformLayout();
             tStripRightMainBrowser.ResumeLayout(false);
@@ -1122,6 +1147,8 @@ namespace Catch_It
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem viewPictureboxtoolStripMenuItem;
     }
 }
 

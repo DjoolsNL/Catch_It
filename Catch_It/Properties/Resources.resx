@@ -121,4 +121,7 @@
   <data name="bin-metal-full" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bin-metal-full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="430355f79ac04668b2fb9d2ea7197143" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\430355f79ac04668b2fb9d2ea7197143.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
