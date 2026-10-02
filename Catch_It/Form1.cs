@@ -131,7 +131,6 @@ namespace Catch_It
                 }
             }
 
-
             Record recordDisplayed = new Record();
             recordDisplayed.Entries = Records.FirstOrDefault().Entries;
 
@@ -139,6 +138,7 @@ namespace Catch_It
 
             if (menucomboBox1.Items.Count != 0)
             {
+                // deze setting triggered de menucomboBox1_SelectedIndexChanged_1 event en die zorgt ook voor de layout.
                 menucomboBox1.SelectedItem = menucomboBox1.Items[0];
             }
         }
@@ -217,7 +217,7 @@ namespace Catch_It
                 // in juiste record opslaan
                 string recordName = menucomboBox1.SelectedItem.ToString();
                 Record record = Records.FirstOrDefault(r => r.Name == recordName);
-                Veld veld = new Veld();
+                Veld veld = new();
                 veld.Entry = clipboardText;
                 record.Entries.Add(veld);
 
@@ -259,30 +259,19 @@ namespace Catch_It
 
         private void menucomboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            // een hele gemene plek om paslayout bij opstart te verstoppen!
             if (!negeerSelectedItem)
             {
-                string a = menucomboBox1.SelectedItem.ToString();
+                string recordName = menucomboBox1.SelectedItem.ToString();
+                Record record = Records.FirstOrDefault(r => r.Name == recordName);
 
-                Record record = Records.FirstOrDefault(r => r.Name == a);
-
-                // simpele manier om een record in een groter font weer te geven
-                if (record.Name.Contains('*'))
-                {
-                    dataGridView1.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                }
-                else
-                {
-                    dataGridView1.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-                }
+                dataGridView1.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 
                 Source = new BindingSource(record.Entries, null);
                 dataGridView1.DataSource = Source;
-
-                PasLayoutToe();
             }
 
             negeerSelectedItem = false;
+            // een hele gemene plek om PasLayoutToe bij opstart te verstoppen!
             PasLayoutToe();
         }
 
@@ -294,17 +283,24 @@ namespace Catch_It
         private void menuDelete_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
-            string nameRecord = tsmi.Text;
-            Record record = new Record();
-            record = Records.FirstOrDefault(x => x.Name == nameRecord);
+            Record record = new();
+            record = Records.FirstOrDefault(x => x.Name == tsmi.Text);
             if (record.Name != "22")
             {
                 menucomboBox1.SelectedItem = menucomboBox1.Items[0];
+                // teardown
                 Records.Remove(record);
+                // unregister events
+                foreach (ToolStripDropDownItem item in tsmiDeleteRecord.DropDownItems)
+                {
+                    item.Click -= new System.EventHandler(menuDelete_Click);
+                }
                 tsmiDeleteRecord.DropDownItems.Clear();
+                
                 negeerSelectedItem = true;
                 menucomboBox1.Items.Clear();
 
+                // set-up
                 foreach (Record rec in Records)
                 {
                     menucomboBox1.Items.Add(rec.Name);
@@ -312,9 +308,11 @@ namespace Catch_It
                     tsmiDeleteRecord.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiDelete });
                     tsmiDelete.Click += new System.EventHandler(menuDelete_Click);
                 }
-                Record recc = new Record();
-                recc.Entries = Records.FirstOrDefault().Entries;
-                Source = new BindingSource(recc.Entries, null);
+                Record r = new()
+                {
+                    Entries = Records.FirstOrDefault().Entries
+                };
+                Source = new BindingSource(r.Entries, null);
 
                 if (menucomboBox1.Items.Count != 0)
                 {
@@ -1140,7 +1138,7 @@ namespace Catch_It
          */
         public Record() { }
         public string Name { get; set; }
-        public BindingList<Veld> Entries = new BindingList<Veld>();
+        public BindingList<Veld> Entries = [];
     }
 
     public class Veld
