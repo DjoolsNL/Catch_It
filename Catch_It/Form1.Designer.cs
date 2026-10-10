@@ -353,7 +353,7 @@ namespace Catch_It
             menuStripTop_ComboBoxSelectRecord.BackColor = System.Drawing.Color.DarkSlateGray;
             menuStripTop_ComboBoxSelectRecord.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             menuStripTop_ComboBoxSelectRecord.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            menuStripTop_ComboBoxSelectRecord.ForeColor = System.Drawing.Color.White;
+            menuStripTop_ComboBoxSelectRecord.ForeColor = System.Drawing.Color.NavajoWhite;
             menuStripTop_ComboBoxSelectRecord.Name = "menuStripTop_ComboBoxSelectRecord";
             menuStripTop_ComboBoxSelectRecord.Size = new System.Drawing.Size(115, 25);
             menuStripTop_ComboBoxSelectRecord.ToolTipText = "Available records";
@@ -378,7 +378,7 @@ namespace Catch_It
             // 
             menuStripTop_MenuItemNewRecord.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuStripTop_TextBoxNewRecord });
             menuStripTop_MenuItemNewRecord.Name = "menuStripTop_MenuItemNewRecord";
-            menuStripTop_MenuItemNewRecord.Size = new System.Drawing.Size(180, 22);
+            menuStripTop_MenuItemNewRecord.Size = new System.Drawing.Size(160, 22);
             menuStripTop_MenuItemNewRecord.Text = "New Record";
             // 
             // menuStripTop_TextBoxNewRecord
@@ -392,14 +392,14 @@ namespace Catch_It
             // menuStripTop_MenuItemSaveRecord
             // 
             menuStripTop_MenuItemSaveRecord.Name = "menuStripTop_MenuItemSaveRecord";
-            menuStripTop_MenuItemSaveRecord.Size = new System.Drawing.Size(180, 22);
+            menuStripTop_MenuItemSaveRecord.Size = new System.Drawing.Size(160, 22);
             menuStripTop_MenuItemSaveRecord.Text = "Save Record";
             menuStripTop_MenuItemSaveRecord.Click += menuStripTop_MenuItemSaveRecord_Click;
             // 
             // menuStripTop_MenuItemDeleteRecord
             // 
             menuStripTop_MenuItemDeleteRecord.Name = "menuStripTop_MenuItemDeleteRecord";
-            menuStripTop_MenuItemDeleteRecord.Size = new System.Drawing.Size(180, 22);
+            menuStripTop_MenuItemDeleteRecord.Size = new System.Drawing.Size(160, 22);
             menuStripTop_MenuItemDeleteRecord.Text = "Delete Record";
             // 
             // menuStripTop_MenuItemTools

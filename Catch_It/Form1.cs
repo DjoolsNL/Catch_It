@@ -83,7 +83,7 @@ namespace Catch_It
             if (menuStripTop_ComboBoxSelectView.Items.Count != 0)
             {
                 // deze setting triggered de menucomboBox1_SelectedIndexChanged_1 event en die zorgt ook voor de layout.
-                menuStripTop_ComboBoxSelectView.SelectedItem = menuStripTop_ComboBoxSelectView.Items[0];
+                menuStripTop_ComboBoxSelectView.SelectedItem = menuStripTop_ComboBoxSelectView.Items[1];
             }
             // update statusStrip1_LabelCurrentClipboard met de inhoud van het clipboard bij opstarten van de app.
             if (clipboardGewijzigd)
