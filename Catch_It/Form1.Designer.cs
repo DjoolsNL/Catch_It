@@ -67,7 +67,7 @@ namespace Catch_It
             menuStripTop_ComboBoxSelectView = new System.Windows.Forms.ToolStripComboBox();
             splitContainer2 = new System.Windows.Forms.SplitContainer();
             splitContainer3 = new System.Windows.Forms.SplitContainer();
-            panel1 = new System.Windows.Forms.Panel();
+            panelRecords = new System.Windows.Forms.Panel();
             toolStripRecords = new System.Windows.Forms.ToolStrip();
             toolStripRecords_ButtonRowDown = new System.Windows.Forms.ToolStripButton();
             toolStripRecords_Separator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -87,22 +87,14 @@ namespace Catch_It
             toolStripRecords_Separator10 = new System.Windows.Forms.ToolStripSeparator();
             toolStripRecords_ButtonClose = new System.Windows.Forms.ToolStripButton();
             dataGridView1 = new System.Windows.Forms.DataGridView();
-            panel2 = new System.Windows.Forms.Panel();
+            panelAddRow = new System.Windows.Forms.Panel();
             toolStripAddRow = new System.Windows.Forms.ToolStrip();
             toolStripAddRow_ButtonClear = new System.Windows.Forms.ToolStripButton();
+            toolStripAddRow_Separator1 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripAddRow_Separator2 = new System.Windows.Forms.ToolStripSeparator();
             toolStripAddRow_ButtonAddToRecord = new System.Windows.Forms.ToolStripButton();
-            panelRichTextBox = new System.Windows.Forms.Panel();
+            panelViews = new System.Windows.Forms.Panel();
             pictureBox1 = new System.Windows.Forms.PictureBox();
-            toolStripTextEditor = new System.Windows.Forms.ToolStrip();
-            toolStripTextEditor_ButtonFind = new System.Windows.Forms.ToolStripButton();
-            toolStripTextEditor_TextBoxFind = new System.Windows.Forms.ToolStripTextBox();
-            toolStripTextEditor_Separator1 = new System.Windows.Forms.ToolStripSeparator();
-            toolStripTextEditor_Separator2 = new System.Windows.Forms.ToolStripSeparator();
-            toolStripTextEditor_ButtonReplace = new System.Windows.Forms.ToolStripButton();
-            toolStripTextEditor_TextBoxReplace = new System.Windows.Forms.ToolStripTextBox();
-            toolStripTextEditor_ButtonClear = new System.Windows.Forms.ToolStripButton();
-            toolStripTextEditor_ButtonIncreaseFont = new System.Windows.Forms.ToolStripButton();
-            toolStripTextEditor_ButtonDecreaseFont = new System.Windows.Forms.ToolStripButton();
             toolStripBrowser = new System.Windows.Forms.ToolStrip();
             toolStripBrowser_ButtonOpenDevTools = new System.Windows.Forms.ToolStripButton();
             toolStripBrowser_Separator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -110,18 +102,33 @@ namespace Catch_It
             toolStripBrowser_ButtonScreenshot = new System.Windows.Forms.ToolStripButton();
             toolStripBrowser_Separator3 = new System.Windows.Forms.ToolStripSeparator();
             toolStripBrowser_Separator4 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripBrowser_LabelGoTo = new System.Windows.Forms.ToolStripLabel();
             toolStripBrowser_TextBoxUrl = new System.Windows.Forms.ToolStripTextBox();
             richTextBox1 = new System.Windows.Forms.RichTextBox();
+            toolStripTextEditor = new System.Windows.Forms.ToolStrip();
+            toolStripTextEditor_ButtonFind = new System.Windows.Forms.ToolStripButton();
+            toolStripTextEditor_TextBoxFind = new System.Windows.Forms.ToolStripTextBox();
+            toolStripTextEditor_Separator1 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripTextEditor_Separator2 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripTextEditor_ButtonReplace = new System.Windows.Forms.ToolStripButton();
+            toolStripTextEditor_TextBoxReplace = new System.Windows.Forms.ToolStripTextBox();
+            toolStripTextEditor_Separator3 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripTextEditor_Separator4 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripTextEditor_ButtonClear = new System.Windows.Forms.ToolStripButton();
+            toolStripTextEditor_ButtonIncreaseFont = new System.Windows.Forms.ToolStripButton();
+            toolStripTextEditor_ButtonDecreaseFont = new System.Windows.Forms.ToolStripButton();
             panelContainsAll = new System.Windows.Forms.Panel();
             panelBottom = new System.Windows.Forms.Panel();
             statusStrip1 = new System.Windows.Forms.StatusStrip();
             statusStrip1_LabelEmpty1 = new System.Windows.Forms.ToolStripStatusLabel();
             statusStrip1_LabelCatchMode = new System.Windows.Forms.ToolStripStatusLabel();
-            statusStrip1_LabelOnOff = new System.Windows.Forms.ToolStripStatusLabel();
-            statusStrip1_LabelEmpty2 = new System.Windows.Forms.ToolStripStatusLabel();
+            statusStrip1_LabelCurrentOnOff = new System.Windows.Forms.ToolStripStatusLabel();
+            statusStrip1_LabelSeparator1 = new System.Windows.Forms.ToolStripStatusLabel();
             statusStrip1_LabelYouCanPaste = new System.Windows.Forms.ToolStripStatusLabel();
-            statusStrip1_LabelEmpty3 = new System.Windows.Forms.ToolStripStatusLabel();
-            openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            statusStrip1_LabelCurrentClipboard = new System.Windows.Forms.ToolStripStatusLabel();
+            statusStrip1_LabelSeparator2 = new System.Windows.Forms.ToolStripStatusLabel();
+            statusStrip1_LabelView = new System.Windows.Forms.ToolStripStatusLabel();
+            statusStrip1_labelCurrentView = new System.Windows.Forms.ToolStripStatusLabel();
             contextMenuStripRecords.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Browser).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainerMain).BeginInit();
@@ -138,15 +145,15 @@ namespace Catch_It
             splitContainer3.Panel1.SuspendLayout();
             splitContainer3.Panel2.SuspendLayout();
             splitContainer3.SuspendLayout();
-            panel1.SuspendLayout();
+            panelRecords.SuspendLayout();
             toolStripRecords.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel2.SuspendLayout();
+            panelAddRow.SuspendLayout();
             toolStripAddRow.SuspendLayout();
-            panelRichTextBox.SuspendLayout();
+            panelViews.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            toolStripTextEditor.SuspendLayout();
             toolStripBrowser.SuspendLayout();
+            toolStripTextEditor.SuspendLayout();
             panelContainsAll.SuspendLayout();
             panelBottom.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -239,14 +246,14 @@ namespace Catch_It
             // textBoxAddRow
             // 
             textBoxAddRow.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            textBoxAddRow.BackColor = System.Drawing.SystemColors.ControlDark;
+            textBoxAddRow.BackColor = System.Drawing.SystemColors.ControlLight;
             textBoxAddRow.BorderStyle = System.Windows.Forms.BorderStyle.None;
             textBoxAddRow.Cursor = System.Windows.Forms.Cursors.IBeam;
             textBoxAddRow.Location = new System.Drawing.Point(-1, 28);
             textBoxAddRow.Margin = new System.Windows.Forms.Padding(4);
             textBoxAddRow.Multiline = true;
             textBoxAddRow.Name = "textBoxAddRow";
-            textBoxAddRow.Size = new System.Drawing.Size(397, 64);
+            textBoxAddRow.Size = new System.Drawing.Size(397, 66);
             textBoxAddRow.TabIndex = 2;
             textBoxAddRow.Text = "Add a row to the record";
             toolTip1.SetToolTip(textBoxAddRow, "Add Entry");
@@ -260,11 +267,12 @@ namespace Catch_It
             Browser.Enabled = false;
             Browser.Location = new System.Drawing.Point(0, 39);
             Browser.Name = "Browser";
-            Browser.Size = new System.Drawing.Size(723, 578);
+            Browser.Size = new System.Drawing.Size(723, 575);
             Browser.Source = new System.Uri("https://www.startpage.com", System.UriKind.Absolute);
             Browser.TabIndex = 10;
             Browser.Visible = false;
             Browser.ZoomFactor = 1D;
+            Browser.NavigationCompleted += Browser_NavigationCompleted;
             // 
             // splitContainerMain
             // 
@@ -285,7 +293,7 @@ namespace Catch_It
             // 
             splitContainerMain.Panel2.Controls.Add(splitContainer2);
             splitContainerMain.Size = new System.Drawing.Size(1147, 671);
-            splitContainerMain.SplitterDistance = 35;
+            splitContainerMain.SplitterDistance = 38;
             splitContainerMain.TabIndex = 8;
             // 
             // panelTop
@@ -296,20 +304,19 @@ namespace Catch_It
             panelTop.Location = new System.Drawing.Point(0, 0);
             panelTop.Margin = new System.Windows.Forms.Padding(4);
             panelTop.Name = "panelTop";
-            panelTop.Size = new System.Drawing.Size(1147, 35);
+            panelTop.Size = new System.Drawing.Size(1147, 38);
             panelTop.TabIndex = 7;
             // 
             // menuStripTop
             // 
             menuStripTop.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
             menuStripTop.BackColor = System.Drawing.Color.DarkSlateGray;
-            menuStripTop.Dock = System.Windows.Forms.DockStyle.Fill;
             menuStripTop.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             menuStripTop.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { menuStripTop_MenuItemStartRecording, menuStripTop_TextBoxSelectRecord, menuStripTop_ComboBoxSelectRecord, menuStripTop_MenuItemManageRecords, menuStripTop_MenuItemTools, menuStripTop_MenuItemLoadFile, menuStripTop_MenuItemSaveFile, menuStripTop_TextBoxSelectView, menuStripTop_ComboBoxSelectView });
             menuStripTop.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             menuStripTop.Location = new System.Drawing.Point(0, 0);
             menuStripTop.Name = "menuStripTop";
-            menuStripTop.Padding = new System.Windows.Forms.Padding(7, 7, 0, 7);
+            menuStripTop.Padding = new System.Windows.Forms.Padding(7, 3, 0, 7);
             menuStripTop.Size = new System.Drawing.Size(1147, 35);
             menuStripTop.Stretch = false;
             menuStripTop.TabIndex = 0;
@@ -320,7 +327,8 @@ namespace Catch_It
             // 
             menuStripTop_MenuItemStartRecording.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             menuStripTop_MenuItemStartRecording.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            menuStripTop_MenuItemStartRecording.ForeColor = System.Drawing.Color.White;
+            menuStripTop_MenuItemStartRecording.ForeColor = System.Drawing.Color.NavajoWhite;
+            menuStripTop_MenuItemStartRecording.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             menuStripTop_MenuItemStartRecording.Name = "menuStripTop_MenuItemStartRecording";
             menuStripTop_MenuItemStartRecording.Size = new System.Drawing.Size(168, 21);
             menuStripTop_MenuItemStartRecording.Text = "Start Catching Clipboard";
@@ -328,18 +336,21 @@ namespace Catch_It
             // 
             // menuStripTop_TextBoxSelectRecord
             // 
+            menuStripTop_TextBoxSelectRecord.AutoSize = false;
             menuStripTop_TextBoxSelectRecord.BackColor = System.Drawing.Color.DarkSlateGray;
+            menuStripTop_TextBoxSelectRecord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             menuStripTop_TextBoxSelectRecord.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            menuStripTop_TextBoxSelectRecord.ForeColor = System.Drawing.Color.White;
+            menuStripTop_TextBoxSelectRecord.ForeColor = System.Drawing.Color.NavajoWhite;
+            menuStripTop_TextBoxSelectRecord.Margin = new System.Windows.Forms.Padding(1, 2, 1, 0);
             menuStripTop_TextBoxSelectRecord.Name = "menuStripTop_TextBoxSelectRecord";
             menuStripTop_TextBoxSelectRecord.ReadOnly = true;
-            menuStripTop_TextBoxSelectRecord.Size = new System.Drawing.Size(100, 25);
+            menuStripTop_TextBoxSelectRecord.Size = new System.Drawing.Size(100, 23);
             menuStripTop_TextBoxSelectRecord.Text = "Select record: ";
             menuStripTop_TextBoxSelectRecord.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // menuStripTop_ComboBoxSelectRecord
             // 
-            menuStripTop_ComboBoxSelectRecord.BackColor = System.Drawing.Color.LightSlateGray;
+            menuStripTop_ComboBoxSelectRecord.BackColor = System.Drawing.Color.DarkSlateGray;
             menuStripTop_ComboBoxSelectRecord.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             menuStripTop_ComboBoxSelectRecord.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             menuStripTop_ComboBoxSelectRecord.ForeColor = System.Drawing.Color.White;
@@ -355,7 +366,8 @@ namespace Catch_It
             menuStripTop_MenuItemManageRecords.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             menuStripTop_MenuItemManageRecords.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuStripTop_MenuItemNewRecord, menuStripTop_MenuItemSaveRecord, menuStripTop_MenuItemDeleteRecord });
             menuStripTop_MenuItemManageRecords.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            menuStripTop_MenuItemManageRecords.ForeColor = System.Drawing.Color.White;
+            menuStripTop_MenuItemManageRecords.ForeColor = System.Drawing.Color.NavajoWhite;
+            menuStripTop_MenuItemManageRecords.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             menuStripTop_MenuItemManageRecords.Name = "menuStripTop_MenuItemManageRecords";
             menuStripTop_MenuItemManageRecords.Size = new System.Drawing.Size(121, 21);
             menuStripTop_MenuItemManageRecords.Text = "Manage Records";
@@ -366,7 +378,7 @@ namespace Catch_It
             // 
             menuStripTop_MenuItemNewRecord.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuStripTop_TextBoxNewRecord });
             menuStripTop_MenuItemNewRecord.Name = "menuStripTop_MenuItemNewRecord";
-            menuStripTop_MenuItemNewRecord.Size = new System.Drawing.Size(160, 22);
+            menuStripTop_MenuItemNewRecord.Size = new System.Drawing.Size(180, 22);
             menuStripTop_MenuItemNewRecord.Text = "New Record";
             // 
             // menuStripTop_TextBoxNewRecord
@@ -380,21 +392,22 @@ namespace Catch_It
             // menuStripTop_MenuItemSaveRecord
             // 
             menuStripTop_MenuItemSaveRecord.Name = "menuStripTop_MenuItemSaveRecord";
-            menuStripTop_MenuItemSaveRecord.Size = new System.Drawing.Size(160, 22);
+            menuStripTop_MenuItemSaveRecord.Size = new System.Drawing.Size(180, 22);
             menuStripTop_MenuItemSaveRecord.Text = "Save Record";
             menuStripTop_MenuItemSaveRecord.Click += menuStripTop_MenuItemSaveRecord_Click;
             // 
             // menuStripTop_MenuItemDeleteRecord
             // 
             menuStripTop_MenuItemDeleteRecord.Name = "menuStripTop_MenuItemDeleteRecord";
-            menuStripTop_MenuItemDeleteRecord.Size = new System.Drawing.Size(160, 22);
+            menuStripTop_MenuItemDeleteRecord.Size = new System.Drawing.Size(180, 22);
             menuStripTop_MenuItemDeleteRecord.Text = "Delete Record";
             // 
             // menuStripTop_MenuItemTools
             // 
             menuStripTop_MenuItemTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuStripTop_MenuItemOpenNotepad });
             menuStripTop_MenuItemTools.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            menuStripTop_MenuItemTools.ForeColor = System.Drawing.Color.White;
+            menuStripTop_MenuItemTools.ForeColor = System.Drawing.Color.NavajoWhite;
+            menuStripTop_MenuItemTools.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             menuStripTop_MenuItemTools.Name = "menuStripTop_MenuItemTools";
             menuStripTop_MenuItemTools.Size = new System.Drawing.Size(51, 21);
             menuStripTop_MenuItemTools.Text = "Tools";
@@ -411,7 +424,8 @@ namespace Catch_It
             // menuStripTop_MenuItemLoadFile
             // 
             menuStripTop_MenuItemLoadFile.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            menuStripTop_MenuItemLoadFile.ForeColor = System.Drawing.Color.White;
+            menuStripTop_MenuItemLoadFile.ForeColor = System.Drawing.Color.NavajoWhite;
+            menuStripTop_MenuItemLoadFile.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             menuStripTop_MenuItemLoadFile.Name = "menuStripTop_MenuItemLoadFile";
             menuStripTop_MenuItemLoadFile.Size = new System.Drawing.Size(102, 21);
             menuStripTop_MenuItemLoadFile.Text = "Load Text File";
@@ -420,7 +434,8 @@ namespace Catch_It
             // menuStripTop_MenuItemSaveFile
             // 
             menuStripTop_MenuItemSaveFile.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            menuStripTop_MenuItemSaveFile.ForeColor = System.Drawing.Color.White;
+            menuStripTop_MenuItemSaveFile.ForeColor = System.Drawing.Color.NavajoWhite;
+            menuStripTop_MenuItemSaveFile.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             menuStripTop_MenuItemSaveFile.Name = "menuStripTop_MenuItemSaveFile";
             menuStripTop_MenuItemSaveFile.Size = new System.Drawing.Size(101, 21);
             menuStripTop_MenuItemSaveFile.Text = "Save Text File";
@@ -428,21 +443,26 @@ namespace Catch_It
             // 
             // menuStripTop_TextBoxSelectView
             // 
+            menuStripTop_TextBoxSelectView.AutoSize = false;
             menuStripTop_TextBoxSelectView.BackColor = System.Drawing.Color.DarkSlateGray;
+            menuStripTop_TextBoxSelectView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             menuStripTop_TextBoxSelectView.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            menuStripTop_TextBoxSelectView.ForeColor = System.Drawing.Color.White;
+            menuStripTop_TextBoxSelectView.ForeColor = System.Drawing.Color.NavajoWhite;
+            menuStripTop_TextBoxSelectView.Margin = new System.Windows.Forms.Padding(1, 2, 0, 0);
             menuStripTop_TextBoxSelectView.Name = "menuStripTop_TextBoxSelectView";
             menuStripTop_TextBoxSelectView.ReadOnly = true;
-            menuStripTop_TextBoxSelectView.Size = new System.Drawing.Size(80, 25);
+            menuStripTop_TextBoxSelectView.Size = new System.Drawing.Size(80, 23);
             menuStripTop_TextBoxSelectView.Text = "Select View:";
             // 
             // menuStripTop_ComboBoxSelectView
             // 
-            menuStripTop_ComboBoxSelectView.BackColor = System.Drawing.Color.LightSlateGray;
+            menuStripTop_ComboBoxSelectView.AutoSize = false;
+            menuStripTop_ComboBoxSelectView.BackColor = System.Drawing.Color.DarkSlateGray;
             menuStripTop_ComboBoxSelectView.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             menuStripTop_ComboBoxSelectView.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            menuStripTop_ComboBoxSelectView.ForeColor = System.Drawing.Color.White;
+            menuStripTop_ComboBoxSelectView.ForeColor = System.Drawing.Color.NavajoWhite;
             menuStripTop_ComboBoxSelectView.Items.AddRange(new object[] { "Text Editor", "Browser", "Pictures" });
+            menuStripTop_ComboBoxSelectView.Margin = new System.Windows.Forms.Padding(0);
             menuStripTop_ComboBoxSelectView.Name = "menuStripTop_ComboBoxSelectView";
             menuStripTop_ComboBoxSelectView.Size = new System.Drawing.Size(121, 25);
             menuStripTop_ComboBoxSelectView.SelectedIndexChanged += menuStripTop_ComboBoxSelectView_SelectedIndexChanged;
@@ -464,11 +484,11 @@ namespace Catch_It
             // 
             // splitContainer2.Panel2
             // 
-            splitContainer2.Panel2.Controls.Add(panelRichTextBox);
+            splitContainer2.Panel2.Controls.Add(panelViews);
             splitContainer2.Panel2.Cursor = System.Windows.Forms.Cursors.Default;
             splitContainer2.Panel2.Padding = new System.Windows.Forms.Padding(0, 4, 10, 9);
             splitContainer2.Panel2MinSize = 20;
-            splitContainer2.Size = new System.Drawing.Size(1147, 632);
+            splitContainer2.Size = new System.Drawing.Size(1147, 629);
             splitContainer2.SplitterDistance = 407;
             splitContainer2.SplitterWidth = 5;
             splitContainer2.TabIndex = 6;
@@ -484,27 +504,27 @@ namespace Catch_It
             // 
             // splitContainer3.Panel1
             // 
-            splitContainer3.Panel1.Controls.Add(panel1);
+            splitContainer3.Panel1.Controls.Add(panelRecords);
             // 
             // splitContainer3.Panel2
             // 
-            splitContainer3.Panel2.Controls.Add(panel2);
+            splitContainer3.Panel2.Controls.Add(panelAddRow);
             splitContainer3.Panel2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            splitContainer3.Size = new System.Drawing.Size(397, 619);
-            splitContainer3.SplitterDistance = 521;
+            splitContainer3.Size = new System.Drawing.Size(397, 616);
+            splitContainer3.SplitterDistance = 516;
             splitContainer3.TabIndex = 5;
             // 
-            // panel1
+            // panelRecords
             // 
-            panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panel1.Controls.Add(toolStripRecords);
-            panel1.Controls.Add(dataGridView1);
-            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel1.Location = new System.Drawing.Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(397, 521);
-            panel1.TabIndex = 5;
+            panelRecords.BackColor = System.Drawing.SystemColors.ControlDark;
+            panelRecords.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panelRecords.Controls.Add(toolStripRecords);
+            panelRecords.Controls.Add(dataGridView1);
+            panelRecords.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelRecords.Location = new System.Drawing.Point(0, 0);
+            panelRecords.Name = "panelRecords";
+            panelRecords.Size = new System.Drawing.Size(397, 516);
+            panelRecords.TabIndex = 5;
             // 
             // toolStripRecords
             // 
@@ -675,7 +695,7 @@ namespace Catch_It
             dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             dataGridView1.ShowCellToolTips = false;
-            dataGridView1.Size = new System.Drawing.Size(395, 490);
+            dataGridView1.Size = new System.Drawing.Size(395, 485);
             dataGridView1.TabIndex = 4;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
@@ -685,22 +705,22 @@ namespace Catch_It
             dataGridView1.RowEnter += dataGridView1_RowEnter;
             dataGridView1.SizeChanged += dataGridView1_SizeChanged;
             // 
-            // panel2
+            // panelAddRow
             // 
-            panel2.BackColor = System.Drawing.SystemColors.ControlDark;
-            panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panel2.Controls.Add(toolStripAddRow);
-            panel2.Controls.Add(textBoxAddRow);
-            panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel2.Location = new System.Drawing.Point(0, 2);
-            panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(397, 92);
-            panel2.TabIndex = 3;
+            panelAddRow.BackColor = System.Drawing.SystemColors.ControlDark;
+            panelAddRow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panelAddRow.Controls.Add(toolStripAddRow);
+            panelAddRow.Controls.Add(textBoxAddRow);
+            panelAddRow.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelAddRow.Location = new System.Drawing.Point(0, 2);
+            panelAddRow.Name = "panelAddRow";
+            panelAddRow.Size = new System.Drawing.Size(397, 94);
+            panelAddRow.TabIndex = 3;
             // 
             // toolStripAddRow
             // 
             toolStripAddRow.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            toolStripAddRow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripAddRow_ButtonClear, toolStripAddRow_ButtonAddToRecord });
+            toolStripAddRow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripAddRow_ButtonClear, toolStripAddRow_Separator1, toolStripAddRow_Separator2, toolStripAddRow_ButtonAddToRecord });
             toolStripAddRow.Location = new System.Drawing.Point(0, 0);
             toolStripAddRow.Name = "toolStripAddRow";
             toolStripAddRow.Size = new System.Drawing.Size(395, 25);
@@ -718,6 +738,16 @@ namespace Catch_It
             toolStripAddRow_ButtonClear.Text = "Clear";
             toolStripAddRow_ButtonClear.Click += toolStripAddRow_ButtonClear_Click;
             // 
+            // toolStripAddRow_Separator1
+            // 
+            toolStripAddRow_Separator1.Name = "toolStripAddRow_Separator1";
+            toolStripAddRow_Separator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripAddRow_Separator2
+            // 
+            toolStripAddRow_Separator2.Name = "toolStripAddRow_Separator2";
+            toolStripAddRow_Separator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripAddRow_ButtonAddToRecord
             // 
             toolStripAddRow_ButtonAddToRecord.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -728,37 +758,124 @@ namespace Catch_It
             toolStripAddRow_ButtonAddToRecord.Text = "Add To Record";
             toolStripAddRow_ButtonAddToRecord.Click += toolStripAddRow_ButtonAddToRecord_Click;
             // 
-            // panelRichTextBox
+            // panelViews
             // 
-            panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
-            panelRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelRichTextBox.Controls.Add(pictureBox1);
-            panelRichTextBox.Controls.Add(toolStripTextEditor);
-            panelRichTextBox.Controls.Add(toolStripBrowser);
-            panelRichTextBox.Controls.Add(richTextBox1);
-            panelRichTextBox.Controls.Add(Browser);
-            panelRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelRichTextBox.Location = new System.Drawing.Point(0, 4);
-            panelRichTextBox.Margin = new System.Windows.Forms.Padding(4);
-            panelRichTextBox.Name = "panelRichTextBox";
-            panelRichTextBox.Size = new System.Drawing.Size(725, 619);
-            panelRichTextBox.TabIndex = 3;
+            panelViews.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+            panelViews.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panelViews.Controls.Add(pictureBox1);
+            panelViews.Controls.Add(toolStripBrowser);
+            panelViews.Controls.Add(richTextBox1);
+            panelViews.Controls.Add(Browser);
+            panelViews.Controls.Add(toolStripTextEditor);
+            panelViews.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelViews.Location = new System.Drawing.Point(0, 4);
+            panelViews.Margin = new System.Windows.Forms.Padding(4);
+            panelViews.Name = "panelViews";
+            panelViews.Size = new System.Drawing.Size(725, 616);
+            panelViews.TabIndex = 3;
+            panelViews.ClientSizeChanged += panelViews_ClientSizeChanged;
             // 
             // pictureBox1
             // 
-            pictureBox1.InitialImage = null;
-            pictureBox1.Location = new System.Drawing.Point(-1, 32);
+            pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            pictureBox1.Location = new System.Drawing.Point(0, 25);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(1151, 860);
+            pictureBox1.Size = new System.Drawing.Size(723, 589);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 19;
             pictureBox1.TabStop = false;
+            // 
+            // toolStripBrowser
+            // 
+            toolStripBrowser.Enabled = false;
+            toolStripBrowser.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            toolStripBrowser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripBrowser_ButtonOpenDevTools, toolStripBrowser_Separator1, toolStripBrowser_Separator2, toolStripBrowser_ButtonScreenshot, toolStripBrowser_Separator3, toolStripBrowser_Separator4, toolStripBrowser_LabelGoTo, toolStripBrowser_TextBoxUrl });
+            toolStripBrowser.Location = new System.Drawing.Point(0, 0);
+            toolStripBrowser.Name = "toolStripBrowser";
+            toolStripBrowser.Size = new System.Drawing.Size(723, 25);
+            toolStripBrowser.TabIndex = 17;
+            toolStripBrowser.TabStop = true;
+            toolStripBrowser.Text = "toolStrip2";
+            toolStripBrowser.Visible = false;
+            // 
+            // toolStripBrowser_ButtonOpenDevTools
+            // 
+            toolStripBrowser_ButtonOpenDevTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripBrowser_ButtonOpenDevTools.Image = (System.Drawing.Image)resources.GetObject("toolStripBrowser_ButtonOpenDevTools.Image");
+            toolStripBrowser_ButtonOpenDevTools.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripBrowser_ButtonOpenDevTools.Name = "toolStripBrowser_ButtonOpenDevTools";
+            toolStripBrowser_ButtonOpenDevTools.Size = new System.Drawing.Size(90, 22);
+            toolStripBrowser_ButtonOpenDevTools.Text = "Open DevTools";
+            toolStripBrowser_ButtonOpenDevTools.Click += toolStripBrowser_ButtonOpenDevTools_Click;
+            // 
+            // toolStripBrowser_Separator1
+            // 
+            toolStripBrowser_Separator1.Name = "toolStripBrowser_Separator1";
+            toolStripBrowser_Separator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripBrowser_Separator2
+            // 
+            toolStripBrowser_Separator2.Name = "toolStripBrowser_Separator2";
+            toolStripBrowser_Separator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripBrowser_ButtonScreenshot
+            // 
+            toolStripBrowser_ButtonScreenshot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripBrowser_ButtonScreenshot.Image = (System.Drawing.Image)resources.GetObject("toolStripBrowser_ButtonScreenshot.Image");
+            toolStripBrowser_ButtonScreenshot.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripBrowser_ButtonScreenshot.Name = "toolStripBrowser_ButtonScreenshot";
+            toolStripBrowser_ButtonScreenshot.Size = new System.Drawing.Size(69, 22);
+            toolStripBrowser_ButtonScreenshot.Text = "Screenshot";
+            toolStripBrowser_ButtonScreenshot.Click += toolStripBrowser_ButtonScreenshot_Click;
+            // 
+            // toolStripBrowser_Separator3
+            // 
+            toolStripBrowser_Separator3.Name = "toolStripBrowser_Separator3";
+            toolStripBrowser_Separator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripBrowser_Separator4
+            // 
+            toolStripBrowser_Separator4.Name = "toolStripBrowser_Separator4";
+            toolStripBrowser_Separator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripBrowser_LabelGoTo
+            // 
+            toolStripBrowser_LabelGoTo.Name = "toolStripBrowser_LabelGoTo";
+            toolStripBrowser_LabelGoTo.Size = new System.Drawing.Size(40, 22);
+            toolStripBrowser_LabelGoTo.Text = "Go To:";
+            // 
+            // toolStripBrowser_TextBoxUrl
+            // 
+            toolStripBrowser_TextBoxUrl.AutoSize = false;
+            toolStripBrowser_TextBoxUrl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            toolStripBrowser_TextBoxUrl.Name = "toolStripBrowser_TextBoxUrl";
+            toolStripBrowser_TextBoxUrl.Size = new System.Drawing.Size(390, 23);
+            toolStripBrowser_TextBoxUrl.KeyDown += toolStripBrowser_TextBoxUrl_KeyDown;
+            toolStripBrowser_TextBoxUrl.Click += toolStripBrowser_TextBoxUrl_Click;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.AcceptsTab = true;
+            richTextBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            richTextBox1.AutoWordSelection = true;
+            richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+            richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            richTextBox1.Font = new System.Drawing.Font("Consolas", 11.25F);
+            richTextBox1.ForeColor = System.Drawing.SystemColors.MenuText;
+            richTextBox1.Location = new System.Drawing.Point(0, 39);
+            richTextBox1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new System.Drawing.Size(723, 575);
+            richTextBox1.TabIndex = 1;
+            richTextBox1.Text = "";
+            richTextBox1.Visible = false;
             // 
             // toolStripTextEditor
             // 
             toolStripTextEditor.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
             toolStripTextEditor.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            toolStripTextEditor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripTextEditor_ButtonFind, toolStripTextEditor_TextBoxFind, toolStripTextEditor_Separator1, toolStripTextEditor_Separator2, toolStripTextEditor_ButtonReplace, toolStripTextEditor_TextBoxReplace, toolStripTextEditor_ButtonClear, toolStripTextEditor_ButtonIncreaseFont, toolStripTextEditor_ButtonDecreaseFont });
+            toolStripTextEditor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripTextEditor_ButtonFind, toolStripTextEditor_TextBoxFind, toolStripTextEditor_Separator1, toolStripTextEditor_Separator2, toolStripTextEditor_ButtonReplace, toolStripTextEditor_TextBoxReplace, toolStripTextEditor_Separator3, toolStripTextEditor_Separator4, toolStripTextEditor_ButtonClear, toolStripTextEditor_ButtonIncreaseFont, toolStripTextEditor_ButtonDecreaseFont });
             toolStripTextEditor.Location = new System.Drawing.Point(0, 0);
             toolStripTextEditor.Name = "toolStripTextEditor";
             toolStripTextEditor.Size = new System.Drawing.Size(723, 25);
@@ -808,6 +925,16 @@ namespace Catch_It
             toolStripTextEditor_TextBoxReplace.Name = "toolStripTextEditor_TextBoxReplace";
             toolStripTextEditor_TextBoxReplace.Size = new System.Drawing.Size(200, 25);
             // 
+            // toolStripTextEditor_Separator3
+            // 
+            toolStripTextEditor_Separator3.Name = "toolStripTextEditor_Separator3";
+            toolStripTextEditor_Separator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripTextEditor_Separator4
+            // 
+            toolStripTextEditor_Separator4.Name = "toolStripTextEditor_Separator4";
+            toolStripTextEditor_Separator4.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripTextEditor_ButtonClear
             // 
             toolStripTextEditor_ButtonClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -835,83 +962,6 @@ namespace Catch_It
             toolStripTextEditor_ButtonDecreaseFont.Size = new System.Drawing.Size(23, 22);
             toolStripTextEditor_ButtonDecreaseFont.Text = "-";
             toolStripTextEditor_ButtonDecreaseFont.Click += toolStripTextEditor_ButtonDecreaseFont_Click;
-            // 
-            // toolStripBrowser
-            // 
-            toolStripBrowser.Enabled = false;
-            toolStripBrowser.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            toolStripBrowser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripBrowser_ButtonOpenDevTools, toolStripBrowser_Separator1, toolStripBrowser_Separator2, toolStripBrowser_ButtonScreenshot, toolStripBrowser_Separator3, toolStripBrowser_Separator4, toolStripBrowser_TextBoxUrl });
-            toolStripBrowser.Location = new System.Drawing.Point(0, 0);
-            toolStripBrowser.Name = "toolStripBrowser";
-            toolStripBrowser.Size = new System.Drawing.Size(673, 25);
-            toolStripBrowser.TabIndex = 17;
-            toolStripBrowser.TabStop = true;
-            toolStripBrowser.Text = "toolStrip2";
-            toolStripBrowser.Visible = false;
-            // 
-            // toolStripBrowser_ButtonOpenDevTools
-            // 
-            toolStripBrowser_ButtonOpenDevTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            toolStripBrowser_ButtonOpenDevTools.Image = (System.Drawing.Image)resources.GetObject("toolStripBrowser_ButtonOpenDevTools.Image");
-            toolStripBrowser_ButtonOpenDevTools.ImageTransparentColor = System.Drawing.Color.Magenta;
-            toolStripBrowser_ButtonOpenDevTools.Name = "toolStripBrowser_ButtonOpenDevTools";
-            toolStripBrowser_ButtonOpenDevTools.Size = new System.Drawing.Size(90, 22);
-            toolStripBrowser_ButtonOpenDevTools.Text = "Open DevTools";
-            toolStripBrowser_ButtonOpenDevTools.Click += toolStripBrowser_ButtonOpenDevTools_Click;
-            // 
-            // toolStripBrowser_Separator1
-            // 
-            toolStripBrowser_Separator1.Name = "toolStripBrowser_Separator1";
-            toolStripBrowser_Separator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripBrowser_Separator2
-            // 
-            toolStripBrowser_Separator2.Name = "toolStripBrowser_Separator2";
-            toolStripBrowser_Separator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripBrowser_ButtonScreenshot
-            // 
-            toolStripBrowser_ButtonScreenshot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            toolStripBrowser_ButtonScreenshot.Image = (System.Drawing.Image)resources.GetObject("toolStripBrowser_ButtonScreenshot.Image");
-            toolStripBrowser_ButtonScreenshot.ImageTransparentColor = System.Drawing.Color.Magenta;
-            toolStripBrowser_ButtonScreenshot.Name = "toolStripBrowser_ButtonScreenshot";
-            toolStripBrowser_ButtonScreenshot.Size = new System.Drawing.Size(69, 22);
-            toolStripBrowser_ButtonScreenshot.Text = "Screenshot";
-            toolStripBrowser_ButtonScreenshot.Click += toolStripBrowser_ButtonScreenshot_Click;
-            // 
-            // toolStripBrowser_Separator3
-            // 
-            toolStripBrowser_Separator3.Name = "toolStripBrowser_Separator3";
-            toolStripBrowser_Separator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripBrowser_Separator4
-            // 
-            toolStripBrowser_Separator4.Name = "toolStripBrowser_Separator4";
-            toolStripBrowser_Separator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripBrowser_TextBoxUrl
-            // 
-            toolStripBrowser_TextBoxUrl.Name = "toolStripBrowser_TextBoxUrl";
-            toolStripBrowser_TextBoxUrl.Size = new System.Drawing.Size(300, 25);
-            toolStripBrowser_TextBoxUrl.KeyDown += toolStripBrowser_TextBoxUrl_KeyDown;
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.AcceptsTab = true;
-            richTextBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            richTextBox1.AutoWordSelection = true;
-            richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
-            richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            richTextBox1.Font = new System.Drawing.Font("Consolas", 11.25F);
-            richTextBox1.ForeColor = System.Drawing.SystemColors.MenuText;
-            richTextBox1.Location = new System.Drawing.Point(0, 39);
-            richTextBox1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new System.Drawing.Size(723, 578);
-            richTextBox1.TabIndex = 1;
-            richTextBox1.Text = "";
-            richTextBox1.Visible = false;
             // 
             // panelContainsAll
             // 
@@ -942,7 +992,7 @@ namespace Catch_It
             statusStrip1.BackColor = System.Drawing.Color.DarkSlateGray;
             statusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             statusStrip1.GripMargin = new System.Windows.Forms.Padding(0);
-            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { statusStrip1_LabelEmpty1, statusStrip1_LabelCatchMode, statusStrip1_LabelOnOff, statusStrip1_LabelEmpty2, statusStrip1_LabelYouCanPaste, statusStrip1_LabelEmpty3 });
+            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { statusStrip1_LabelEmpty1, statusStrip1_LabelCatchMode, statusStrip1_LabelCurrentOnOff, statusStrip1_LabelSeparator1, statusStrip1_LabelYouCanPaste, statusStrip1_LabelCurrentClipboard, statusStrip1_LabelSeparator2, statusStrip1_LabelView, statusStrip1_labelCurrentView });
             statusStrip1.Location = new System.Drawing.Point(0, 0);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new System.Drawing.Size(1147, 32);
@@ -960,44 +1010,61 @@ namespace Catch_It
             // 
             statusStrip1_LabelCatchMode.ForeColor = System.Drawing.Color.NavajoWhite;
             statusStrip1_LabelCatchMode.Name = "statusStrip1_LabelCatchMode";
-            statusStrip1_LabelCatchMode.Size = new System.Drawing.Size(78, 27);
-            statusStrip1_LabelCatchMode.Text = "Catch mode: ";
+            statusStrip1_LabelCatchMode.Size = new System.Drawing.Size(75, 27);
+            statusStrip1_LabelCatchMode.Text = "Catch mode:";
             // 
-            // statusStrip1_LabelOnOff
+            // statusStrip1_LabelCurrentOnOff
             // 
-            statusStrip1_LabelOnOff.ForeColor = System.Drawing.Color.GreenYellow;
-            statusStrip1_LabelOnOff.Name = "statusStrip1_LabelOnOff";
-            statusStrip1_LabelOnOff.Size = new System.Drawing.Size(22, 27);
-            statusStrip1_LabelOnOff.Text = "off";
+            statusStrip1_LabelCurrentOnOff.ForeColor = System.Drawing.Color.GreenYellow;
+            statusStrip1_LabelCurrentOnOff.Name = "statusStrip1_LabelCurrentOnOff";
+            statusStrip1_LabelCurrentOnOff.Size = new System.Drawing.Size(22, 27);
+            statusStrip1_LabelCurrentOnOff.Text = "off";
             // 
-            // statusStrip1_LabelEmpty2
+            // statusStrip1_LabelSeparator1
             // 
-            statusStrip1_LabelEmpty2.Name = "statusStrip1_LabelEmpty2";
-            statusStrip1_LabelEmpty2.Size = new System.Drawing.Size(16, 27);
-            statusStrip1_LabelEmpty2.Text = "   ";
+            statusStrip1_LabelSeparator1.ForeColor = System.Drawing.Color.LightSlateGray;
+            statusStrip1_LabelSeparator1.Name = "statusStrip1_LabelSeparator1";
+            statusStrip1_LabelSeparator1.Size = new System.Drawing.Size(22, 27);
+            statusStrip1_LabelSeparator1.Text = " | | ";
             // 
             // statusStrip1_LabelYouCanPaste
             // 
             statusStrip1_LabelYouCanPaste.ForeColor = System.Drawing.Color.NavajoWhite;
             statusStrip1_LabelYouCanPaste.Name = "statusStrip1_LabelYouCanPaste";
-            statusStrip1_LabelYouCanPaste.Size = new System.Drawing.Size(86, 27);
-            statusStrip1_LabelYouCanPaste.Text = "You can paste: ";
+            statusStrip1_LabelYouCanPaste.Size = new System.Drawing.Size(83, 27);
+            statusStrip1_LabelYouCanPaste.Text = "You can paste:";
             // 
-            // statusStrip1_LabelEmpty3
+            // statusStrip1_LabelCurrentClipboard
             // 
-            statusStrip1_LabelEmpty3.ForeColor = System.Drawing.Color.GreenYellow;
-            statusStrip1_LabelEmpty3.Name = "statusStrip1_LabelEmpty3";
-            statusStrip1_LabelEmpty3.Size = new System.Drawing.Size(0, 27);
+            statusStrip1_LabelCurrentClipboard.ForeColor = System.Drawing.Color.GreenYellow;
+            statusStrip1_LabelCurrentClipboard.Name = "statusStrip1_LabelCurrentClipboard";
+            statusStrip1_LabelCurrentClipboard.Size = new System.Drawing.Size(0, 27);
             // 
-            // openFileDialog1
+            // statusStrip1_LabelSeparator2
             // 
-            openFileDialog1.FileName = "openFileDialog1";
+            statusStrip1_LabelSeparator2.ForeColor = System.Drawing.Color.LightSlateGray;
+            statusStrip1_LabelSeparator2.Name = "statusStrip1_LabelSeparator2";
+            statusStrip1_LabelSeparator2.Size = new System.Drawing.Size(22, 27);
+            statusStrip1_LabelSeparator2.Text = " | | ";
+            // 
+            // statusStrip1_LabelView
+            // 
+            statusStrip1_LabelView.ForeColor = System.Drawing.Color.NavajoWhite;
+            statusStrip1_LabelView.Name = "statusStrip1_LabelView";
+            statusStrip1_LabelView.Size = new System.Drawing.Size(35, 27);
+            statusStrip1_LabelView.Text = "View:";
+            // 
+            // statusStrip1_labelCurrentView
+            // 
+            statusStrip1_labelCurrentView.ForeColor = System.Drawing.Color.GreenYellow;
+            statusStrip1_labelCurrentView.Name = "statusStrip1_labelCurrentView";
+            statusStrip1_labelCurrentView.Size = new System.Drawing.Size(0, 27);
             // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(255, 224, 192);
+            BackColor = System.Drawing.Color.FromArgb(211, 194, 161);
             ClientSize = new System.Drawing.Size(1149, 705);
             Controls.Add(panelContainsAll);
             DoubleBuffered = true;
@@ -1030,22 +1097,22 @@ namespace Catch_It
             splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
             splitContainer3.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelRecords.ResumeLayout(false);
+            panelRecords.PerformLayout();
             toolStripRecords.ResumeLayout(false);
             toolStripRecords.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            panelAddRow.ResumeLayout(false);
+            panelAddRow.PerformLayout();
             toolStripAddRow.ResumeLayout(false);
             toolStripAddRow.PerformLayout();
-            panelRichTextBox.ResumeLayout(false);
-            panelRichTextBox.PerformLayout();
+            panelViews.ResumeLayout(false);
+            panelViews.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            toolStripTextEditor.ResumeLayout(false);
-            toolStripTextEditor.PerformLayout();
             toolStripBrowser.ResumeLayout(false);
             toolStripBrowser.PerformLayout();
+            toolStripTextEditor.ResumeLayout(false);
+            toolStripTextEditor.PerformLayout();
             panelContainsAll.ResumeLayout(false);
             panelBottom.ResumeLayout(false);
             panelBottom.PerformLayout();
@@ -1076,9 +1143,8 @@ namespace Catch_It
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBoxAddRow;
-        private System.Windows.Forms.Panel panelRichTextBox;
+        private System.Windows.Forms.Panel panelViews;
         private System.Windows.Forms.Panel panelContainsAll;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem menuStripTop_MenuItemManageRecords;
         private System.Windows.Forms.ToolStripMenuItem menuStripTop_MenuItemNewRecord;
         private System.Windows.Forms.ToolStripMenuItem menuStripTop_MenuItemSaveRecord;
@@ -1128,12 +1194,12 @@ namespace Catch_It
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusStrip1_LabelEmpty1;
         private System.Windows.Forms.ToolStripStatusLabel statusStrip1_LabelCatchMode;
-        private System.Windows.Forms.ToolStripStatusLabel statusStrip1_LabelOnOff;
-        private System.Windows.Forms.ToolStripStatusLabel statusStrip1_LabelEmpty2;
+        private System.Windows.Forms.ToolStripStatusLabel statusStrip1_LabelCurrentOnOff;
+        private System.Windows.Forms.ToolStripStatusLabel statusStrip1_LabelSeparator1;
         private System.Windows.Forms.ToolStripStatusLabel statusStrip1_LabelYouCanPaste;
-        private System.Windows.Forms.ToolStripStatusLabel statusStrip1_LabelEmpty3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStripStatusLabel statusStrip1_LabelCurrentClipboard;
+        private System.Windows.Forms.Panel panelRecords;
+        private System.Windows.Forms.Panel panelAddRow;
         private System.Windows.Forms.ToolStripSeparator contextMenuStripRecords_Separator2;
         private System.Windows.Forms.ToolStripSeparator contextMenuStripRecords_Separator1;
         private System.Windows.Forms.ToolStripMenuItem contextMenuStripRecords_MenuItemToTextBox;
@@ -1144,6 +1210,14 @@ namespace Catch_It
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripComboBox menuStripTop_ComboBoxSelectView;
         private System.Windows.Forms.ToolStripTextBox menuStripTop_TextBoxSelectView;
+        private System.Windows.Forms.ToolStripLabel toolStripBrowser_LabelGoTo;
+        private System.Windows.Forms.ToolStripStatusLabel statusStrip1_LabelView;
+        private System.Windows.Forms.ToolStripStatusLabel statusStrip1_labelCurrentView;
+        private System.Windows.Forms.ToolStripStatusLabel statusStrip1_LabelSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripAddRow_Separator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripAddRow_Separator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripTextEditor_Separator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripTextEditor_Separator4;
     }
 }
 

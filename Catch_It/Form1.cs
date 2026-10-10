@@ -7,18 +7,15 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Catch_It
 {
     public partial class Form1 : Form
     {
-#region Fields and properties
+        #region Fields and properties
         /// <summary>
         /// Timer1 event fires elke seconde en checkt of 'clipboardText' afwijkt van 'lastEntry'. 
         /// Wijkt hij af dan wordt clipboardText toegevoegd aan Record. Bool 'clipboardGewijzigd' 
@@ -55,7 +52,7 @@ namespace Catch_It
         string file = "";
         int teller;
         string name;
-#endregion
+        #endregion
 
         public Form1()
         {
@@ -64,7 +61,7 @@ namespace Catch_It
             Timer1.Enabled = false;
             Timer1.Tick += new System.EventHandler(Timer1_Tick);
             Timer1.Interval = 1000;
-
+            
             Source = new BindingSource();
             dataGridView1.DataSource = Source;
             menuStripTop.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -77,13 +74,39 @@ namespace Catch_It
             this.Text = "Catch / © 2022 by Djools";
             splitContainer2.IsSplitterFixed = false;
             dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-
         }
 
-#region Form methods (read/write XML, load/save file, resize)
+        #region form1 methods (read/write XML, load/save file, resize)
         private void Form1_Load(object sender, EventArgs e)
         {
             LeesXMLFile();
+            if (menuStripTop_ComboBoxSelectView.Items.Count != 0)
+            {
+                // deze setting triggered de menucomboBox1_SelectedIndexChanged_1 event en die zorgt ook voor de layout.
+                menuStripTop_ComboBoxSelectView.SelectedItem = menuStripTop_ComboBoxSelectView.Items[0];
+            }
+            // update statusStrip1_LabelCurrentClipboard met de inhoud van het clipboard bij opstarten van de app.
+            if (clipboardGewijzigd)
+            {
+                int lengte = clipboardText.Length;
+                string weergaveStatusStrip = Regex.Replace(clipboardText, @"\r\n?|\n", " ");
+                if (lengte < 25)
+                {
+
+                    statusStrip1_LabelCurrentClipboard.Text = weergaveStatusStrip.Trim();
+                }
+                else
+                {
+                    statusStrip1_LabelCurrentClipboard.Text = weergaveStatusStrip[..25].Trim() + "...";
+                }
+            }
+
+            // zo kun je in een keer de kleur van alle items aanpassen.
+            //foreach (ToolStripItem item in menuStripTop.Items)
+            //{
+            //    item.ForeColor = Color.NavajoWhite;
+            //}
+
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -168,9 +191,9 @@ namespace Catch_It
             string path = Directory.GetCurrentDirectory();
             doc.Save(path + "\\Catch.xml");
         }
-#endregion
+        #endregion
 
-#region GUI methods
+        #region GUI methods
         private void Form1_ResizeBegin(object sender, EventArgs e)
         {
             this.SuspendLayout();
@@ -192,9 +215,9 @@ namespace Catch_It
         {
 
         }
-#endregion
+        #endregion
 
-#region Timer1 methods
+        #region timer1 methods
         private void Timer1_Tick(object sender, EventArgs e)
         {
             teller++;
@@ -221,22 +244,26 @@ namespace Catch_It
 
                 // zorgt ervoor dat niets meer wordt toegevoegd tenzij clipboardText wijzigt.
                 lastEntry = clipboardText;
+                // update statusStrip
                 int lengte = clipboardText.Length;
                 string weergaveStatusStrip = Regex.Replace(clipboardText, @"\r\n?|\n", " ");
                 if (lengte < 25)
                 {
 
-                    statusStrip1_LabelEmpty3.Text = weergaveStatusStrip.Trim();
+                    statusStrip1_LabelCurrentClipboard.Text = weergaveStatusStrip.Trim();
                 }
                 else
                 {
-                    statusStrip1_LabelEmpty3.Text = weergaveStatusStrip[..25].Trim() + "...";
+                    statusStrip1_LabelCurrentClipboard.Text = weergaveStatusStrip[..25].Trim() + "...";
                 }
             }
         }
-#endregion
+        #endregion
 
-#region MenuStripTop methods
+        #region menuStripTop methods
+        /// <summary>
+        /// Turns the clipboard catching on or off based on the current status, updating the timer, form title, menu item text, and status strip label accordingly.
+        /// </summary>
         private void menuStripTop_MenuItemStartRecording_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem status = sender as ToolStripMenuItem;
@@ -247,7 +274,7 @@ namespace Catch_It
                 Timer1.Enabled = false;
                 this.Text = "Catch / Status: off / © 2022 by Djools";
                 status.Text = "Start Catching Clipboard";
-                statusStrip1_LabelOnOff.Text = "off";
+                statusStrip1_LabelCurrentOnOff.Text = "off";
             }
             else
             {
@@ -255,7 +282,7 @@ namespace Catch_It
                 Timer1.Start();
                 this.Text = "Catch / Status: on / © 2022 by Djools";
                 status.Text = "Stop Catching Clipboard";
-                statusStrip1_LabelOnOff.Text = "on";
+                statusStrip1_LabelCurrentOnOff.Text = "on";
             }
         }
         private void menuStripTop_ComboBoxSelectRecord_Click(object sender, EventArgs e)
@@ -283,7 +310,7 @@ namespace Catch_It
         private void menuStripTop_MenuItemManageRecords_DropDownClosed(object sender, EventArgs e)
         {
             ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
-            tsmi.ForeColor = Color.White;
+            tsmi.ForeColor = Color.NavajoWhite;
         }
         // event also fires for menuStripTop_MenuItemTools
         private void menuStripTop_MenuItemManageRecords_DropDownOpening(object sender, EventArgs e)
@@ -422,47 +449,53 @@ namespace Catch_It
                     richTextBox1.Visible = true;
                     Browser.Enabled = false;
                     Browser.Visible = false;
+                    pictureBox1.Enabled = false;
+                    pictureBox1.Visible = false;
 
                     toolStripTextEditor.Visible = true;
                     toolStripTextEditor.Enabled = true;
                     toolStripBrowser.Visible = false;
                     toolStripBrowser.Enabled = false;
 
-                    pictureBox1.Enabled = false;
-                    pictureBox1.Visible = false;
+                    // update statusStrip
+                    statusStrip1_labelCurrentView.Text = "Text Editor";
                     break;
                 case 1: // Browser
                     toolStripBrowser_ButtonOpenDevTools.Visible = true;
                     Browser.Enabled = true;
                     Browser.Visible = true;
-                    toolStripTextEditor.Visible = false;
-                    toolStripTextEditor.Enabled = false;
-                    toolStripBrowser.Visible = true;
-                    toolStripBrowser.Enabled = true;
-
                     richTextBox1.Enabled = false;
                     richTextBox1.Visible = false;
-
                     pictureBox1.Enabled = false;
                     pictureBox1.Visible = false;
+
+                    toolStripBrowser.Visible = true;
+                    toolStripBrowser.Enabled = true;
+                    toolStripTextEditor.Visible = false;
+                    toolStripTextEditor.Enabled = false;
+
+                    // update statusStrip
+                    statusStrip1_labelCurrentView.Text = "Browser";
                     break;
                 case 2: // Pictures
+                    pictureBox1.Visible = true;
+                    pictureBox1.Enabled = true;
+                    if (File.Exists(name))
+                    {
+                        pictureBox1.Image = System.Drawing.Image.FromFile(name);
+                    }
                     richTextBox1.Enabled = false;
                     richTextBox1.Visible = false;
                     Browser.Enabled = false;
                     Browser.Visible = false;
+
+                    toolStripTextEditor.Visible = false;
+                    toolStripTextEditor.Enabled = false;
                     toolStripBrowser.Visible = false;
                     toolStripBrowser.Enabled = false;
-                    pictureBox1.Visible = true;
-                    pictureBox1.Enabled = true;
-                    if (File.Exists($@"C:\Users\dell\Desktop\{name}.png"))
-                    {
-                        pictureBox1.Image = System.Drawing.Image.FromFile($@"C:\Users\dell\Desktop\{name}.png");
-                    }
-                    else
-                    {
-                        //pictureBox1.Image = Properties.Resources._430355f79ac04668b2fb9d2ea7197143;
-                    }
+
+                    // update statusStrip
+                    statusStrip1_labelCurrentView.Text = "Pictures";
                     break;
             }
         }
@@ -506,9 +539,9 @@ namespace Catch_It
                 }
             }
         }
-#endregion
+        #endregion
 
-#region ToolStripRecords methods
+        #region toolStripRecords methods
         private void toolStripRecords_ButtonRowDown_Click(object sender, EventArgs e)
         {
             int row = dataGridView1.CurrentCell.RowIndex;
@@ -621,7 +654,7 @@ namespace Catch_It
             splitContainer2.SplitterDistance = 364;
             richTextBox1.Visible = true;
             richTextBox1.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
-            panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+            panelViews.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
 
             richTextBox1.Clear();
             string name = menuStripTop_ComboBoxSelectRecord.SelectedItem.ToString();
@@ -681,7 +714,7 @@ namespace Catch_It
                 tsBtn.Text = "← Close";
                 splitContainer2.Panel2Collapsed = false;
 
-                panelRichTextBox.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
+                panelViews.BackColor = System.Drawing.Color.FromArgb(210, 210, 210);
             }
             else if (tsBtn.Text == "← Close")
             {
@@ -693,9 +726,9 @@ namespace Catch_It
 
             splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.None;
         }
-#endregion
+        #endregion
 
-#region DataGridView1 methods
+        #region dataGridView1 methods
         private void dataGridView1_SizeChanged(object sender, EventArgs e)
         {
             textBoxAddRow.Text = splitContainer2.SplitterDistance.ToString();
@@ -709,11 +742,11 @@ namespace Catch_It
             string weergaveStatusStrip = Regex.Replace(clipboardText, @"\r\n?|\n", " ");
             if (lengte < 25)
             {
-                statusStrip1_LabelEmpty3.Text = weergaveStatusStrip.Trim();
+                statusStrip1_LabelCurrentClipboard.Text = weergaveStatusStrip.Trim();
             }
             else
             {
-                statusStrip1_LabelEmpty3.Text = weergaveStatusStrip[..25].Trim() + "...";
+                statusStrip1_LabelCurrentClipboard.Text = weergaveStatusStrip[..25].Trim() + "...";
             }
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -751,7 +784,7 @@ namespace Catch_It
             }
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {           
+        {
             DialogResult result;
             result = MessageBox.Show("Item verwijderen?", "Catch Alert", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
@@ -869,9 +902,9 @@ namespace Catch_It
                 textBoxAddRow.Text = counter.ToString();
             }
         }
-#endregion
+        #endregion
 
-#region ContextMenuStripRecords methods
+        #region contextMenuStripRecords methods
         private void contextMenuStripRecords_MenuItemToTextBox_Click(object sender, EventArgs e)
         {
             string s = (string)dataGridView1.CurrentCell.Value;
@@ -924,9 +957,26 @@ namespace Catch_It
                 dataGridView1_PasLayoutToe();
             }
         }
-#endregion
+        #endregion
 
-#region ToolStripAddRow methods
+        #region panelViews methods
+        /// <summary>
+        /// Handles the ClientSizeChanged event of the panelViews control and adjusts the width of the toolStripBrowser_TextBoxUrl.
+        /// </summary>
+        private void panelViews_ClientSizeChanged(object sender, EventArgs e)
+        {
+            Panel p = sender as Panel;
+            int width = p.Width -
+                toolStripBrowser_ButtonOpenDevTools.Width -
+                toolStripBrowser_ButtonScreenshot.Width -
+                toolStripBrowser_LabelGoTo.Width;
+
+            toolStripBrowser_TextBoxUrl.Width = width - 80;
+            textBoxAddRow.Text = toolStripBrowser_TextBoxUrl.Width.ToString();
+        }
+        #endregion
+
+        #region toolStripAddRow methods
         private void toolStripAddRow_ButtonClear_Click(object sender, EventArgs e)
         {
             textBoxAddRow.Clear();
@@ -955,9 +1005,9 @@ namespace Catch_It
                 textBoxAddRow.Clear();
             }
         }
-#endregion
+        #endregion
 
-#region ToolStripTextEditor methods
+        #region toolStripTextEditor methods
         private void toolStripTextEditor_ButtonFind_Click(object sender, EventArgs e)
         {
             Timer1.Stop();
@@ -1023,37 +1073,88 @@ namespace Catch_It
                 richTextBox1.Font.Style,
                 richTextBox1.Font.Unit);
         }
-#endregion
+        #endregion
 
-#region toolStripBrowser methods
+        #region toolStripBrowser methods
         private void toolStripBrowser_ButtonOpenDevTools_Click(object sender, EventArgs e)
         {
             Browser.CoreWebView2.OpenDevToolsWindow();
         }
-        private void toolStripBrowser_ButtonScreenshot_Click(object sender, EventArgs e)
+        private async void toolStripBrowser_ButtonScreenshot_Click(object sender, EventArgs e)
         {
-            toolStripBrowser_Screenshot();
-        }
-        private async void toolStripBrowser_Screenshot()
-        {
-            name = Guid.NewGuid().ToString("N");
-            using FileStream stream = new(
-                $"C:\\Users\\dell\\Desktop\\{name}.png",
-                FileMode.Create);
+            using SaveFileDialog saveDialog = new()
+            {
+                Filter = "PNG Image (*.png)|*.png",
+                DefaultExt = "png",
+                AddExtension = true,
+                FileName = $"Screenshot_{DateTime.Now:yyyy_dd_MM_HHmmss}.png"
+            };
 
-            await Browser.CoreWebView2.CapturePreviewAsync(
-                CoreWebView2CapturePreviewImageFormat.Png,
-                stream);
+            if (saveDialog.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            try
+            {
+                name = saveDialog.FileName;
+                await using FileStream stream = new(
+                    saveDialog.FileName,
+                    FileMode.Create,
+                    FileAccess.Write);
+
+                await Browser.CoreWebView2.CapturePreviewAsync(
+                    CoreWebView2CapturePreviewImageFormat.Png,
+                    stream);
+
+                MessageBox.Show(
+                    $"Screenshot saved to:\n{saveDialog.FileName}",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
         private void toolStripBrowser_TextBoxUrl_KeyDown(object sender, KeyEventArgs e)
         {
             ToolStripTextBox textBox = sender as ToolStripTextBox;
             if (e.KeyCode == Keys.Enter)
             {
-                Browser.CoreWebView2.Navigate(textBox.Text);
+                if (textBox.Text.StartsWith("http"))
+                {
+                    Browser.CoreWebView2.Navigate(textBox.Text);
+                }
+                else
+                {
+                    Browser.CoreWebView2.Navigate("https://www.startpage.com");
+                    //await Browser.CoreWebView2.ExecuteScriptAsync("""
+                    //     document.querySelector('#q');
+                    //    """
+                    //    );
+                }
             }
         }
-#endregion
+        private void toolStripBrowser_TextBoxUrl_Click(object sender, EventArgs e)
+        {
+            ToolStripTextBox textBox = sender as ToolStripTextBox;
+            textBox.Text = string.Empty;
+        }
+
+        #endregion
+
+        #region browser methods
+        private void Browser_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        {
+            WebView2 br = sender as WebView2;
+            // you could now add the url to a record or do something else with it 
+            textBoxAddRow.Text = br.Source.ToString();    
+        }
+        #endregion
     }
 
     public class Record

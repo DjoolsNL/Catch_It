@@ -59,5 +59,15 @@ namespace Catch_It.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap e140ee00794f451b8c095627fc014342 {
+            get {
+                object obj = ResourceManager.GetObject("e140ee00794f451b8c095627fc014342", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
