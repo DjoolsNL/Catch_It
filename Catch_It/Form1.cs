@@ -121,11 +121,13 @@ namespace Catch_It
             String path = Directory.GetCurrentDirectory();
             xmlRoot = XElement.Load(path + "\\Catch.xml");
 
+            // populate Records list and UI elements based on XML data
             foreach (var xmlRecord in xmlRoot.Elements())
             {
                 Record record = new Record();
                 record.Name = (string)xmlRecord.FirstAttribute;
                 menuStripTop_ComboBoxSelectRecord.Items.Add(record.Name);
+                // Add the record to the Records list - this list is our data workhorse.
                 Records.Add(record);
 
                 // Add a ToolStripMenuItem for deleting the record to the tsmiDeleteRecord dropdown
@@ -966,11 +968,11 @@ namespace Catch_It
         private void panelViews_ClientSizeChanged(object sender, EventArgs e)
         {
             Panel p = sender as Panel;
-            int width = p.Width -
-                toolStripBrowser_ButtonOpenDevTools.Width -
-                toolStripBrowser_ButtonScreenshot.Width -
-                toolStripBrowser_LabelGoTo.Width;
-
+            int width = p.Width 
+                - toolStripBrowser_ButtonOpenDevTools.Width 
+                - toolStripBrowser_ButtonScreenshot.Width 
+                - toolStripBrowser_DropDownLinks.Width 
+                - toolStripBrowser_LabelGoTo.Width;
             toolStripBrowser_TextBoxUrl.Width = width - 80;
             textBoxAddRow.Text = toolStripBrowser_TextBoxUrl.Width.ToString();
         }

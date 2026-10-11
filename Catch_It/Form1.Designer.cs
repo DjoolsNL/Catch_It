@@ -31,9 +31,9 @@ namespace Catch_It
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             contextMenuStripRecords = new System.Windows.Forms.ContextMenuStrip(components);
             contextMenuStripRecords_MenuItemToTextBox = new System.Windows.Forms.ToolStripMenuItem();
             contextMenuStripRecords_Separator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -102,6 +102,10 @@ namespace Catch_It
             toolStripBrowser_ButtonScreenshot = new System.Windows.Forms.ToolStripButton();
             toolStripBrowser_Separator3 = new System.Windows.Forms.ToolStripSeparator();
             toolStripBrowser_Separator4 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripBrowser_DropDownLinks = new System.Windows.Forms.ToolStripDropDownButton();
+            toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             toolStripBrowser_LabelGoTo = new System.Windows.Forms.ToolStripLabel();
             toolStripBrowser_TextBoxUrl = new System.Windows.Forms.ToolStripTextBox();
             richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -325,6 +329,7 @@ namespace Catch_It
             // 
             // menuStripTop_MenuItemStartRecording
             // 
+            menuStripTop_MenuItemStartRecording.AutoToolTip = true;
             menuStripTop_MenuItemStartRecording.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             menuStripTop_MenuItemStartRecording.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             menuStripTop_MenuItemStartRecording.ForeColor = System.Drawing.Color.NavajoWhite;
@@ -350,18 +355,20 @@ namespace Catch_It
             // 
             // menuStripTop_ComboBoxSelectRecord
             // 
+            menuStripTop_ComboBoxSelectRecord.AutoToolTip = true;
             menuStripTop_ComboBoxSelectRecord.BackColor = System.Drawing.Color.DarkSlateGray;
             menuStripTop_ComboBoxSelectRecord.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             menuStripTop_ComboBoxSelectRecord.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             menuStripTop_ComboBoxSelectRecord.ForeColor = System.Drawing.Color.NavajoWhite;
             menuStripTop_ComboBoxSelectRecord.Name = "menuStripTop_ComboBoxSelectRecord";
             menuStripTop_ComboBoxSelectRecord.Size = new System.Drawing.Size(115, 25);
-            menuStripTop_ComboBoxSelectRecord.ToolTipText = "Available records";
+            menuStripTop_ComboBoxSelectRecord.ToolTipText = "Select a Record";
             menuStripTop_ComboBoxSelectRecord.SelectedIndexChanged += menuStripTop_ComboBoxSelectRecord_SelectedIndexChanged;
             menuStripTop_ComboBoxSelectRecord.Click += menuStripTop_ComboBoxSelectRecord_Click;
             // 
             // menuStripTop_MenuItemManageRecords
             // 
+            menuStripTop_MenuItemManageRecords.AutoToolTip = true;
             menuStripTop_MenuItemManageRecords.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             menuStripTop_MenuItemManageRecords.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             menuStripTop_MenuItemManageRecords.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuStripTop_MenuItemNewRecord, menuStripTop_MenuItemSaveRecord, menuStripTop_MenuItemDeleteRecord });
@@ -376,6 +383,7 @@ namespace Catch_It
             // 
             // menuStripTop_MenuItemNewRecord
             // 
+            menuStripTop_MenuItemNewRecord.AutoToolTip = true;
             menuStripTop_MenuItemNewRecord.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuStripTop_TextBoxNewRecord });
             menuStripTop_MenuItemNewRecord.Name = "menuStripTop_MenuItemNewRecord";
             menuStripTop_MenuItemNewRecord.Size = new System.Drawing.Size(160, 22);
@@ -391,6 +399,7 @@ namespace Catch_It
             // 
             // menuStripTop_MenuItemSaveRecord
             // 
+            menuStripTop_MenuItemSaveRecord.AutoToolTip = true;
             menuStripTop_MenuItemSaveRecord.Name = "menuStripTop_MenuItemSaveRecord";
             menuStripTop_MenuItemSaveRecord.Size = new System.Drawing.Size(160, 22);
             menuStripTop_MenuItemSaveRecord.Text = "Save Record";
@@ -398,12 +407,14 @@ namespace Catch_It
             // 
             // menuStripTop_MenuItemDeleteRecord
             // 
+            menuStripTop_MenuItemDeleteRecord.AutoToolTip = true;
             menuStripTop_MenuItemDeleteRecord.Name = "menuStripTop_MenuItemDeleteRecord";
             menuStripTop_MenuItemDeleteRecord.Size = new System.Drawing.Size(160, 22);
             menuStripTop_MenuItemDeleteRecord.Text = "Delete Record";
             // 
             // menuStripTop_MenuItemTools
             // 
+            menuStripTop_MenuItemTools.AutoToolTip = true;
             menuStripTop_MenuItemTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuStripTop_MenuItemOpenNotepad });
             menuStripTop_MenuItemTools.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             menuStripTop_MenuItemTools.ForeColor = System.Drawing.Color.NavajoWhite;
@@ -416,6 +427,7 @@ namespace Catch_It
             // 
             // menuStripTop_MenuItemOpenNotepad
             // 
+            menuStripTop_MenuItemOpenNotepad.AutoToolTip = true;
             menuStripTop_MenuItemOpenNotepad.Name = "menuStripTop_MenuItemOpenNotepad";
             menuStripTop_MenuItemOpenNotepad.Size = new System.Drawing.Size(184, 22);
             menuStripTop_MenuItemOpenNotepad.Text = "Open Notepad++";
@@ -423,6 +435,7 @@ namespace Catch_It
             // 
             // menuStripTop_MenuItemLoadFile
             // 
+            menuStripTop_MenuItemLoadFile.AutoToolTip = true;
             menuStripTop_MenuItemLoadFile.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             menuStripTop_MenuItemLoadFile.ForeColor = System.Drawing.Color.NavajoWhite;
             menuStripTop_MenuItemLoadFile.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
@@ -433,6 +446,7 @@ namespace Catch_It
             // 
             // menuStripTop_MenuItemSaveFile
             // 
+            menuStripTop_MenuItemSaveFile.AutoToolTip = true;
             menuStripTop_MenuItemSaveFile.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             menuStripTop_MenuItemSaveFile.ForeColor = System.Drawing.Color.NavajoWhite;
             menuStripTop_MenuItemSaveFile.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
@@ -457,6 +471,7 @@ namespace Catch_It
             // menuStripTop_ComboBoxSelectView
             // 
             menuStripTop_ComboBoxSelectView.AutoSize = false;
+            menuStripTop_ComboBoxSelectView.AutoToolTip = true;
             menuStripTop_ComboBoxSelectView.BackColor = System.Drawing.Color.DarkSlateGray;
             menuStripTop_ComboBoxSelectView.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             menuStripTop_ComboBoxSelectView.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
@@ -465,6 +480,7 @@ namespace Catch_It
             menuStripTop_ComboBoxSelectView.Margin = new System.Windows.Forms.Padding(0);
             menuStripTop_ComboBoxSelectView.Name = "menuStripTop_ComboBoxSelectView";
             menuStripTop_ComboBoxSelectView.Size = new System.Drawing.Size(121, 25);
+            menuStripTop_ComboBoxSelectView.ToolTipText = "Select a View";
             menuStripTop_ComboBoxSelectView.SelectedIndexChanged += menuStripTop_ComboBoxSelectView_SelectedIndexChanged;
             // 
             // splitContainer2
@@ -546,6 +562,7 @@ namespace Catch_It
             toolStripRecords_ButtonRowDown.Name = "toolStripRecords_ButtonRowDown";
             toolStripRecords_ButtonRowDown.Size = new System.Drawing.Size(43, 22);
             toolStripRecords_ButtonRowDown.Text = "Row ↓";
+            toolStripRecords_ButtonRowDown.ToolTipText = "Row Down";
             toolStripRecords_ButtonRowDown.Click += toolStripRecords_ButtonRowDown_Click;
             // 
             // toolStripRecords_Separator1
@@ -566,6 +583,7 @@ namespace Catch_It
             toolStripRecords_ButtonRowUp.Name = "toolStripRecords_ButtonRowUp";
             toolStripRecords_ButtonRowUp.Size = new System.Drawing.Size(43, 22);
             toolStripRecords_ButtonRowUp.Text = "Row ↑";
+            toolStripRecords_ButtonRowUp.ToolTipText = "Row Up";
             toolStripRecords_ButtonRowUp.Click += toolStripRecords_ButtonRowUp_Click;
             // 
             // toolStripRecords_Separator3
@@ -606,6 +624,7 @@ namespace Catch_It
             toolStripRecords_ButtonRecordToTextEditor.Name = "toolStripRecords_ButtonRecordToTextEditor";
             toolStripRecords_ButtonRecordToTextEditor.Size = new System.Drawing.Size(61, 22);
             toolStripRecords_ButtonRecordToTextEditor.Text = "Record →";
+            toolStripRecords_ButtonRecordToTextEditor.ToolTipText = "Record To Text Editor";
             toolStripRecords_ButtonRecordToTextEditor.Click += toolStripRecords_ButtonRecordToTextEditor_Click;
             // 
             // toolStripRecords_Separator7
@@ -653,6 +672,7 @@ namespace Catch_It
             toolStripRecords_ButtonClose.Name = "toolStripRecords_ButtonClose";
             toolStripRecords_ButtonClose.Size = new System.Drawing.Size(53, 22);
             toolStripRecords_ButtonClose.Text = "← Close";
+            toolStripRecords_ButtonClose.ToolTipText = "Close View";
             toolStripRecords_ButtonClose.Click += toolStripRecords_ButtonClose_Click;
             // 
             // dataGridView1
@@ -663,35 +683,35 @@ namespace Catch_It
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(236, 236, 245);
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 11.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(236, 236, 245);
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Consolas", 11.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.ContextMenuStrip = contextMenuStripRecords;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4, 8, 0, 8);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(50, 150, 50);
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(4, 8, 0, 8);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(50, 150, 50);
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.Location = new System.Drawing.Point(0, 29);
             dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 5;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(100, 50, 50);
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(50, 50, 50);
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(100, 50, 50);
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             dataGridView1.ShowCellToolTips = false;
@@ -736,6 +756,7 @@ namespace Catch_It
             toolStripAddRow_ButtonClear.Name = "toolStripAddRow_ButtonClear";
             toolStripAddRow_ButtonClear.Size = new System.Drawing.Size(38, 22);
             toolStripAddRow_ButtonClear.Text = "Clear";
+            toolStripAddRow_ButtonClear.ToolTipText = "Clear Textbox Below";
             toolStripAddRow_ButtonClear.Click += toolStripAddRow_ButtonClear_Click;
             // 
             // toolStripAddRow_Separator1
@@ -756,6 +777,7 @@ namespace Catch_It
             toolStripAddRow_ButtonAddToRecord.Name = "toolStripAddRow_ButtonAddToRecord";
             toolStripAddRow_ButtonAddToRecord.Size = new System.Drawing.Size(88, 22);
             toolStripAddRow_ButtonAddToRecord.Text = "Add To Record";
+            toolStripAddRow_ButtonAddToRecord.ToolTipText = "Add Text Below To Record";
             toolStripAddRow_ButtonAddToRecord.Click += toolStripAddRow_ButtonAddToRecord_Click;
             // 
             // panelViews
@@ -789,8 +811,8 @@ namespace Catch_It
             // 
             toolStripBrowser.Enabled = false;
             toolStripBrowser.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            toolStripBrowser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripBrowser_ButtonOpenDevTools, toolStripBrowser_Separator1, toolStripBrowser_Separator2, toolStripBrowser_ButtonScreenshot, toolStripBrowser_Separator3, toolStripBrowser_Separator4, toolStripBrowser_LabelGoTo, toolStripBrowser_TextBoxUrl });
-            toolStripBrowser.Location = new System.Drawing.Point(0, 0);
+            toolStripBrowser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripBrowser_ButtonOpenDevTools, toolStripBrowser_Separator1, toolStripBrowser_Separator2, toolStripBrowser_ButtonScreenshot, toolStripBrowser_Separator3, toolStripBrowser_Separator4, toolStripBrowser_DropDownLinks, toolStripBrowser_LabelGoTo, toolStripBrowser_TextBoxUrl });
+            toolStripBrowser.Location = new System.Drawing.Point(0, 25);
             toolStripBrowser.Name = "toolStripBrowser";
             toolStripBrowser.Size = new System.Drawing.Size(723, 25);
             toolStripBrowser.TabIndex = 17;
@@ -826,6 +848,7 @@ namespace Catch_It
             toolStripBrowser_ButtonScreenshot.Name = "toolStripBrowser_ButtonScreenshot";
             toolStripBrowser_ButtonScreenshot.Size = new System.Drawing.Size(69, 22);
             toolStripBrowser_ButtonScreenshot.Text = "Screenshot";
+            toolStripBrowser_ButtonScreenshot.ToolTipText = "Take and Save Screenshot ";
             toolStripBrowser_ButtonScreenshot.Click += toolStripBrowser_ButtonScreenshot_Click;
             // 
             // toolStripBrowser_Separator3
@@ -838,6 +861,34 @@ namespace Catch_It
             toolStripBrowser_Separator4.Name = "toolStripBrowser_Separator4";
             toolStripBrowser_Separator4.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripBrowser_DropDownLinks
+            // 
+            toolStripBrowser_DropDownLinks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripBrowser_DropDownLinks.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3 });
+            toolStripBrowser_DropDownLinks.Image = (System.Drawing.Image)resources.GetObject("toolStripBrowser_DropDownLinks.Image");
+            toolStripBrowser_DropDownLinks.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripBrowser_DropDownLinks.Name = "toolStripBrowser_DropDownLinks";
+            toolStripBrowser_DropDownLinks.Size = new System.Drawing.Size(47, 22);
+            toolStripBrowser_DropDownLinks.Text = "Links";
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            toolStripMenuItem1.Text = "toolStripMenuItem1";
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            toolStripMenuItem2.Text = "toolStripMenuItem2";
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            toolStripMenuItem3.Text = "toolStripMenuItem3";
+            // 
             // toolStripBrowser_LabelGoTo
             // 
             toolStripBrowser_LabelGoTo.Name = "toolStripBrowser_LabelGoTo";
@@ -847,9 +898,11 @@ namespace Catch_It
             // toolStripBrowser_TextBoxUrl
             // 
             toolStripBrowser_TextBoxUrl.AutoSize = false;
+            toolStripBrowser_TextBoxUrl.AutoToolTip = true;
             toolStripBrowser_TextBoxUrl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             toolStripBrowser_TextBoxUrl.Name = "toolStripBrowser_TextBoxUrl";
             toolStripBrowser_TextBoxUrl.Size = new System.Drawing.Size(390, 23);
+            toolStripBrowser_TextBoxUrl.ToolTipText = "Submit Url to Navigate To";
             toolStripBrowser_TextBoxUrl.KeyDown += toolStripBrowser_TextBoxUrl_KeyDown;
             toolStripBrowser_TextBoxUrl.Click += toolStripBrowser_TextBoxUrl_Click;
             // 
@@ -891,6 +944,7 @@ namespace Catch_It
             toolStripTextEditor_ButtonFind.Name = "toolStripTextEditor_ButtonFind";
             toolStripTextEditor_ButtonFind.Size = new System.Drawing.Size(34, 22);
             toolStripTextEditor_ButtonFind.Text = "Find";
+            toolStripTextEditor_ButtonFind.ToolTipText = "Find In Text Editor";
             toolStripTextEditor_ButtonFind.Click += toolStripTextEditor_ButtonFind_Click;
             // 
             // toolStripTextEditor_TextBoxFind
@@ -917,6 +971,7 @@ namespace Catch_It
             toolStripTextEditor_ButtonReplace.Name = "toolStripTextEditor_ButtonReplace";
             toolStripTextEditor_ButtonReplace.Size = new System.Drawing.Size(52, 22);
             toolStripTextEditor_ButtonReplace.Text = "Replace";
+            toolStripTextEditor_ButtonReplace.ToolTipText = "Replace In Text Editor";
             toolStripTextEditor_ButtonReplace.Click += toolStripTextEditor_ButtonReplace_Click;
             // 
             // toolStripTextEditor_TextBoxReplace
@@ -941,6 +996,7 @@ namespace Catch_It
             toolStripTextEditor_ButtonClear.Name = "toolStripTextEditor_ButtonClear";
             toolStripTextEditor_ButtonClear.Size = new System.Drawing.Size(38, 22);
             toolStripTextEditor_ButtonClear.Text = "Clear";
+            toolStripTextEditor_ButtonClear.ToolTipText = "Clear Text Editor";
             toolStripTextEditor_ButtonClear.Click += toolStripTextEditor_ButtonClear_Click;
             // 
             // toolStripTextEditor_ButtonIncreaseFont
@@ -951,6 +1007,7 @@ namespace Catch_It
             toolStripTextEditor_ButtonIncreaseFont.Name = "toolStripTextEditor_ButtonIncreaseFont";
             toolStripTextEditor_ButtonIncreaseFont.Size = new System.Drawing.Size(23, 22);
             toolStripTextEditor_ButtonIncreaseFont.Text = "+";
+            toolStripTextEditor_ButtonIncreaseFont.ToolTipText = "Increase Font Size";
             toolStripTextEditor_ButtonIncreaseFont.Click += toolStripTextEditor_ButtonIncreaseFont_Click;
             // 
             // toolStripTextEditor_ButtonDecreaseFont
@@ -961,6 +1018,7 @@ namespace Catch_It
             toolStripTextEditor_ButtonDecreaseFont.Name = "toolStripTextEditor_ButtonDecreaseFont";
             toolStripTextEditor_ButtonDecreaseFont.Size = new System.Drawing.Size(23, 22);
             toolStripTextEditor_ButtonDecreaseFont.Text = "-";
+            toolStripTextEditor_ButtonDecreaseFont.ToolTipText = "Decrease Font Size";
             toolStripTextEditor_ButtonDecreaseFont.Click += toolStripTextEditor_ButtonDecreaseFont_Click;
             // 
             // panelContainsAll
@@ -1218,6 +1276,10 @@ namespace Catch_It
         private System.Windows.Forms.ToolStripSeparator toolStripAddRow_Separator2;
         private System.Windows.Forms.ToolStripSeparator toolStripTextEditor_Separator3;
         private System.Windows.Forms.ToolStripSeparator toolStripTextEditor_Separator4;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripBrowser_DropDownLinks;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
 }
 
